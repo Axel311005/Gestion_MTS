@@ -53,9 +53,33 @@ namespace Gestion_MTS
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void MenuVertical_Paint(object sender, PaintEventArgs e)
+        private void btnReporte_Click(object sender, EventArgs e)
         {
+            SubMenuReportes.Visible = true;
+        }
 
+        private void btnReporteVentas_Click(object sender, EventArgs e)
+        {
+            SubMenuReportes.Visible = false;
+        }
+
+        private void btnReporteServicios_Click(object sender, EventArgs e)
+        {
+            SubMenuReportes.Visible = false;
+        }
+
+        private void btnDesplegable_Click(object sender, EventArgs e)
+        {
+            if(MenuVertical.Width == 220)
+            {
+                MenuVertical.Width = 40;
+                ImageLogo.Visible = false;
+            }
+            else
+            {
+                MenuVertical.Width = 220;
+                ImageLogo.Visible = true;
+            }
         }
     }
 }
