@@ -340,6 +340,7 @@
             MinimumSize = new Size(950, 500);
             Name = "MainMenu";
             Text = "MainMenu";
+            Load += MainMenu_Load;
             panelMenu.ResumeLayout(false);
             SubMenuReportes.ResumeLayout(false);
             panelLogo.ResumeLayout(false);

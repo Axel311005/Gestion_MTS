@@ -174,5 +174,12 @@ namespace Gestion_MTS
                 activeForm.Close();
             Reset();
         }
+
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        
     }
 }
