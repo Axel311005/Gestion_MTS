@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             panelMenu = new Panel();
+            btnSucursales = new Button();
+            btnArqueo = new Button();
             SubMenuReportes = new Panel();
             btnReporteServicios = new Button();
             btnReporteVentas = new Button();
@@ -48,6 +50,7 @@
             lblTitle = new Label();
             panelDesktop = new Panel();
             pictureBox1 = new PictureBox();
+            btnServicios = new Button();
             panelMenu.SuspendLayout();
             SubMenuReportes.SuspendLayout();
             panelLogo.SuspendLayout();
@@ -63,6 +66,9 @@
             // panelMenu
             // 
             panelMenu.BackColor = Color.FromArgb(51, 51, 76);
+            panelMenu.Controls.Add(btnServicios);
+            panelMenu.Controls.Add(btnSucursales);
+            panelMenu.Controls.Add(btnArqueo);
             panelMenu.Controls.Add(SubMenuReportes);
             panelMenu.Controls.Add(btnReporte);
             panelMenu.Controls.Add(btnFactura);
@@ -75,11 +81,47 @@
             panelMenu.Size = new Size(220, 747);
             panelMenu.TabIndex = 0;
             // 
+            // btnSucursales
+            // 
+            btnSucursales.BackColor = Color.Transparent;
+            btnSucursales.FlatAppearance.BorderSize = 0;
+            btnSucursales.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 89, 0);
+            btnSucursales.FlatStyle = FlatStyle.Flat;
+            btnSucursales.Font = new Font("Sans Serif Collection", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSucursales.ForeColor = Color.White;
+            btnSucursales.Image = (Image)resources.GetObject("btnSucursales.Image");
+            btnSucursales.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSucursales.Location = new Point(0, 414);
+            btnSucursales.Name = "btnSucursales";
+            btnSucursales.Size = new Size(220, 60);
+            btnSucursales.TabIndex = 14;
+            btnSucursales.Text = "Sucursales";
+            btnSucursales.UseVisualStyleBackColor = false;
+            btnSucursales.Click += btnSucursales_Click;
+            // 
+            // btnArqueo
+            // 
+            btnArqueo.BackColor = Color.Transparent;
+            btnArqueo.FlatAppearance.BorderSize = 0;
+            btnArqueo.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 89, 0);
+            btnArqueo.FlatStyle = FlatStyle.Flat;
+            btnArqueo.Font = new Font("Sans Serif Collection", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnArqueo.ForeColor = Color.White;
+            btnArqueo.Image = (Image)resources.GetObject("btnArqueo.Image");
+            btnArqueo.ImageAlign = ContentAlignment.MiddleLeft;
+            btnArqueo.Location = new Point(0, 344);
+            btnArqueo.Name = "btnArqueo";
+            btnArqueo.Size = new Size(220, 60);
+            btnArqueo.TabIndex = 13;
+            btnArqueo.Text = "Arqueo de Caja";
+            btnArqueo.UseVisualStyleBackColor = false;
+            btnArqueo.Click += btnArqueo_Click;
+            // 
             // SubMenuReportes
             // 
             SubMenuReportes.Controls.Add(btnReporteServicios);
             SubMenuReportes.Controls.Add(btnReporteVentas);
-            SubMenuReportes.Location = new Point(26, 335);
+            SubMenuReportes.Location = new Point(26, 552);
             SubMenuReportes.Name = "SubMenuReportes";
             SubMenuReportes.Size = new Size(194, 81);
             SubMenuReportes.TabIndex = 12;
@@ -129,7 +171,7 @@
             btnReporte.ForeColor = Color.White;
             btnReporte.Image = (Image)resources.GetObject("btnReporte.Image");
             btnReporte.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReporte.Location = new Point(0, 278);
+            btnReporte.Location = new Point(0, 495);
             btnReporte.Name = "btnReporte";
             btnReporte.Size = new Size(220, 60);
             btnReporte.TabIndex = 11;
@@ -147,7 +189,7 @@
             btnFactura.ForeColor = Color.White;
             btnFactura.Image = (Image)resources.GetObject("btnFactura.Image");
             btnFactura.ImageAlign = ContentAlignment.MiddleLeft;
-            btnFactura.Location = new Point(0, 212);
+            btnFactura.Location = new Point(0, 283);
             btnFactura.Name = "btnFactura";
             btnFactura.Size = new Size(220, 60);
             btnFactura.TabIndex = 10;
@@ -165,7 +207,7 @@
             btnEmpleados.ForeColor = Color.White;
             btnEmpleados.Image = (Image)resources.GetObject("btnEmpleados.Image");
             btnEmpleados.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEmpleados.Location = new Point(0, 146);
+            btnEmpleados.Location = new Point(0, 217);
             btnEmpleados.Name = "btnEmpleados";
             btnEmpleados.Size = new Size(220, 60);
             btnEmpleados.TabIndex = 9;
@@ -328,6 +370,24 @@
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
             // 
+            // btnServicios
+            // 
+            btnServicios.BackColor = Color.Transparent;
+            btnServicios.FlatAppearance.BorderSize = 0;
+            btnServicios.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 89, 0);
+            btnServicios.FlatStyle = FlatStyle.Flat;
+            btnServicios.Font = new Font("Sans Serif Collection", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnServicios.ForeColor = Color.White;
+            btnServicios.Image = (Image)resources.GetObject("btnServicios.Image");
+            btnServicios.ImageAlign = ContentAlignment.MiddleLeft;
+            btnServicios.Location = new Point(0, 146);
+            btnServicios.Name = "btnServicios";
+            btnServicios.Size = new Size(220, 60);
+            btnServicios.TabIndex = 15;
+            btnServicios.Text = "Servicios";
+            btnServicios.UseVisualStyleBackColor = false;
+            btnServicios.Click += btnServicios_Click;
+            // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -377,5 +437,8 @@
         private PictureBox btnCerrar;
         private Panel panelDesktop;
         private PictureBox pictureBox1;
+        private Button btnArqueo;
+        private Button btnSucursales;
+        private Button btnServicios;
     }
 }

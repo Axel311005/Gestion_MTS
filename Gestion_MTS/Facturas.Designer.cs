@@ -34,7 +34,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1131, 609);
             Name = "Facturas";
             Text = "Gestión Facturas";
             ResumeLayout(false);

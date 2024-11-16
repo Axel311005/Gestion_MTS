@@ -8,13 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Gestion_MTS.ConsultasAdo.Net;
 
 namespace Gestion_MTS
 {
     public partial class Empleados : Form
     {
+        ConsultasEmpleados emp = new ConsultasEmpleados();
+        ConsultasAdmonBodegas bod = new();
 
-        private string connectionString = "Server=DESKTOP-G25OVJH\\SQLEXPRESS;Database=MTS_Terry;Integrated Security=True;";
         public Empleados()
         {
             InitializeComponent();
@@ -23,25 +25,20 @@ namespace Gestion_MTS
         private void Empleados_Load(object sender, EventArgs e)
         {
             Refresh();
-            TestConnection();
+            cboSucursal.DataSource = bod.GetSucursales();
+            cboRoles.DataSource = emp.GetRoles();
+
         }
 
         private void Refresh()
         {
             try
             {
-                MTS_TerryDB db = new MTS_TerryDB();
-                var empleados = db.GetEmpleados(); // Almacena en una variable
 
-                if (empleados.Count > 0)
-                {
-                    dgvEmpleados.DataSource = empleados; // Asigna solo si hay empleados
-                    MessageBox.Show("Yes");
-                }
-                else
-                {
-                    MessageBox.Show("No se encontraron empleados.");
-                }
+                var empleados = emp.GetEmpleados(); // Almacena en una variable
+                dgvEmpleados.DataSource = empleados; // Asigna solo si hay empleados
+
+
             }
             catch (SqlException sqlEx)
             {
@@ -53,21 +50,29 @@ namespace Gestion_MTS
             }
         }
 
-        public void TestConnection()
+        private void label1_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    MessageBox.Show("Conexión exitosa!");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error de conexión: " + ex.Message);
-                }
-            }
+
         }
 
+        private void btnAddEmpleado_Click(object sender, EventArgs e)
+        {
+
+            int id_rol = Convert.ToInt32(emp.GetIdRol(cboRoles.Text));
+            int id_sucursal = Convert.ToInt32(bod.GetIdSucursal(cboSucursal.Text));
+
+            emp.AddEmpleado(txtNombreEmpleado.Text, txtApellidoEmpleado.Text, Convert.ToDecimal(txtSalario.Text),
+                dtpNacimiento.Value, txtCedula.Text, txtCelular.Text, txtDireccion.Text, id_rol, id_sucursal);
+            MessageBox.Show("Empleado Agregado correctamente");
+            Refresh();
+            try
+            {
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al agregar el empleado " + ex.Message);
+            }
+        }
     }
 }

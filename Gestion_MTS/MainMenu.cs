@@ -177,9 +177,22 @@ namespace Gestion_MTS
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            
+
         }
 
-        
+        private void btnArqueo_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Arqueo(), sender);
+        }
+
+        private void btnSucursales_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new AdmonSucursales(), sender);
+        }
+
+        private void btnServicios_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Servicios(), sender); 
+        }
     }
 }
