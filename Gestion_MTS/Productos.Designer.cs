@@ -30,31 +30,30 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
-            dgvProductos = new DataGridView();
-            groupBox1 = new GroupBox();
-            txtCodigo = new TextBox();
-            txtNombreProd = new TextBox();
-            txtDescripProd = new TextBox();
-            txtPrecio = new TextBox();
-            txtStock = new TextBox();
-            txtStockMin = new TextBox();
-            checkBox1 = new CheckBox();
-            cboCategoria = new ComboBox();
-            cboLocalicacion = new ComboBox();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
             btnDeleteProd = new Button();
             btnUpdateProd = new Button();
             btnAddProd = new Button();
-            cboBodega = new ComboBox();
-            label9 = new Label();
+            groupBox1 = new GroupBox();
+            label8 = new Label();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            cboLocalicacion = new ComboBox();
+            cboCategoria = new ComboBox();
+            chkEstado = new CheckBox();
+            txtStockMin = new TextBox();
+            txtStock = new TextBox();
+            txtPrecio = new TextBox();
+            txtDescripProd = new TextBox();
+            txtNombreProd = new TextBox();
+            txtCodigo = new TextBox();
+            dgvProductos = new DataGridView();
+            tabPage2 = new TabPage();
+            dgvCategorias = new DataGridView();
             btnDeleteCateg = new Button();
             btnUpdateCateg = new Button();
             btnAddCateg = new Button();
@@ -62,13 +61,12 @@
             label11 = new Label();
             txtDescripcionCateg = new TextBox();
             txtNombreCategoria = new TextBox();
-            dataGridView1 = new DataGridView();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
-            tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
+            tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvCategorias).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -96,202 +94,6 @@
             tabPage1.Text = "Agregar Productos";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            tabPage2.Controls.Add(dataGridView1);
-            tabPage2.Controls.Add(btnDeleteCateg);
-            tabPage2.Controls.Add(btnUpdateCateg);
-            tabPage2.Controls.Add(btnAddCateg);
-            tabPage2.Controls.Add(label10);
-            tabPage2.Controls.Add(label11);
-            tabPage2.Controls.Add(txtDescripcionCateg);
-            tabPage2.Controls.Add(txtNombreCategoria);
-            tabPage2.Location = new Point(4, 29);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1097, 553);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "Categorias Productos";
-            tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // dgvProductos
-            // 
-            dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProductos.Dock = DockStyle.Bottom;
-            dgvProductos.Location = new Point(3, 375);
-            dgvProductos.Name = "dgvProductos";
-            dgvProductos.RowHeadersWidth = 51;
-            dgvProductos.Size = new Size(1091, 175);
-            dgvProductos.TabIndex = 0;
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(label9);
-            groupBox1.Controls.Add(cboBodega);
-            groupBox1.Controls.Add(label8);
-            groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(cboLocalicacion);
-            groupBox1.Controls.Add(cboCategoria);
-            groupBox1.Controls.Add(checkBox1);
-            groupBox1.Controls.Add(txtStockMin);
-            groupBox1.Controls.Add(txtStock);
-            groupBox1.Controls.Add(txtPrecio);
-            groupBox1.Controls.Add(txtDescripProd);
-            groupBox1.Controls.Add(txtNombreProd);
-            groupBox1.Controls.Add(txtCodigo);
-            groupBox1.Location = new Point(6, 6);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(811, 363);
-            groupBox1.TabIndex = 1;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Agregar Productos";
-            // 
-            // txtCodigo
-            // 
-            txtCodigo.Location = new Point(154, 49);
-            txtCodigo.Name = "txtCodigo";
-            txtCodigo.Size = new Size(125, 27);
-            txtCodigo.TabIndex = 0;
-            // 
-            // txtNombreProd
-            // 
-            txtNombreProd.Location = new Point(154, 100);
-            txtNombreProd.Name = "txtNombreProd";
-            txtNombreProd.Size = new Size(125, 27);
-            txtNombreProd.TabIndex = 1;
-            // 
-            // txtDescripProd
-            // 
-            txtDescripProd.Location = new Point(154, 145);
-            txtDescripProd.Name = "txtDescripProd";
-            txtDescripProd.Size = new Size(125, 27);
-            txtDescripProd.TabIndex = 2;
-            // 
-            // txtPrecio
-            // 
-            txtPrecio.Location = new Point(154, 195);
-            txtPrecio.Name = "txtPrecio";
-            txtPrecio.Size = new Size(125, 27);
-            txtPrecio.TabIndex = 3;
-            // 
-            // txtStock
-            // 
-            txtStock.Location = new Point(154, 243);
-            txtStock.Name = "txtStock";
-            txtStock.Size = new Size(125, 27);
-            txtStock.TabIndex = 4;
-            // 
-            // txtStockMin
-            // 
-            txtStockMin.Location = new Point(154, 290);
-            txtStockMin.Name = "txtStockMin";
-            txtStockMin.Size = new Size(125, 27);
-            txtStockMin.TabIndex = 5;
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(490, 250);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(76, 24);
-            checkBox1.TabIndex = 6;
-            checkBox1.Text = "Estado";
-            checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // cboCategoria
-            // 
-            cboCategoria.FormattingEnabled = true;
-            cboCategoria.Location = new Point(490, 97);
-            cboCategoria.Name = "cboCategoria";
-            cboCategoria.Size = new Size(151, 28);
-            cboCategoria.TabIndex = 7;
-            // 
-            // cboLocalicacion
-            // 
-            cboLocalicacion.FormattingEnabled = true;
-            cboLocalicacion.Location = new Point(490, 205);
-            cboLocalicacion.Name = "cboLocalicacion";
-            cboLocalicacion.Size = new Size(151, 28);
-            cboLocalicacion.TabIndex = 8;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(47, 55);
-            label1.Name = "label1";
-            label1.Size = new Size(58, 20);
-            label1.TabIndex = 9;
-            label1.Text = "Codigo";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(49, 105);
-            label2.Name = "label2";
-            label2.Size = new Size(64, 20);
-            label2.TabIndex = 10;
-            label2.Text = "Nombre";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(49, 152);
-            label3.Name = "label3";
-            label3.Size = new Size(87, 20);
-            label3.TabIndex = 11;
-            label3.Text = "Descripción";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(49, 202);
-            label4.Name = "label4";
-            label4.Size = new Size(107, 20);
-            label4.TabIndex = 12;
-            label4.Text = "Precio Unitario";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(49, 250);
-            label5.Name = "label5";
-            label5.Size = new Size(45, 20);
-            label5.TabIndex = 13;
-            label5.Text = "Stock";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(49, 297);
-            label6.Name = "label6";
-            label6.Size = new Size(100, 20);
-            label6.TabIndex = 14;
-            label6.Text = "Stock Minimo";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(380, 100);
-            label7.Name = "label7";
-            label7.Size = new Size(74, 20);
-            label7.TabIndex = 15;
-            label7.Text = "Categoria";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(380, 205);
-            label8.Name = "label8";
-            label8.Size = new Size(91, 20);
-            label8.TabIndex = 16;
-            label8.Text = "Localizacion";
-            // 
             // btnDeleteProd
             // 
             btnDeleteProd.Location = new Point(874, 211);
@@ -318,23 +120,211 @@
             btnAddProd.TabIndex = 7;
             btnAddProd.Text = "Agregar";
             btnAddProd.UseVisualStyleBackColor = true;
+            btnAddProd.Click += btnAddProd_Click;
             // 
-            // cboBodega
+            // groupBox1
             // 
-            cboBodega.FormattingEnabled = true;
-            cboBodega.Location = new Point(490, 152);
-            cboBodega.Name = "cboBodega";
-            cboBodega.Size = new Size(151, 28);
-            cboBodega.TabIndex = 17;
+            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(cboLocalicacion);
+            groupBox1.Controls.Add(cboCategoria);
+            groupBox1.Controls.Add(chkEstado);
+            groupBox1.Controls.Add(txtStockMin);
+            groupBox1.Controls.Add(txtStock);
+            groupBox1.Controls.Add(txtPrecio);
+            groupBox1.Controls.Add(txtDescripProd);
+            groupBox1.Controls.Add(txtNombreProd);
+            groupBox1.Controls.Add(txtCodigo);
+            groupBox1.Location = new Point(6, 6);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(811, 363);
+            groupBox1.TabIndex = 1;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Agregar Productos";
             // 
-            // label9
+            // label8
             // 
-            label9.AutoSize = true;
-            label9.Location = new Point(380, 155);
-            label9.Name = "label9";
-            label9.Size = new Size(61, 20);
-            label9.TabIndex = 18;
-            label9.Text = "Bodega";
+            label8.AutoSize = true;
+            label8.Location = new Point(380, 167);
+            label8.Name = "label8";
+            label8.Size = new Size(91, 20);
+            label8.TabIndex = 16;
+            label8.Text = "Localizacion";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(380, 100);
+            label7.Name = "label7";
+            label7.Size = new Size(74, 20);
+            label7.TabIndex = 15;
+            label7.Text = "Categoria";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(49, 297);
+            label6.Name = "label6";
+            label6.Size = new Size(100, 20);
+            label6.TabIndex = 14;
+            label6.Text = "Stock Minimo";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(49, 250);
+            label5.Name = "label5";
+            label5.Size = new Size(45, 20);
+            label5.TabIndex = 13;
+            label5.Text = "Stock";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(49, 202);
+            label4.Name = "label4";
+            label4.Size = new Size(107, 20);
+            label4.TabIndex = 12;
+            label4.Text = "Precio Unitario";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(49, 152);
+            label3.Name = "label3";
+            label3.Size = new Size(87, 20);
+            label3.TabIndex = 11;
+            label3.Text = "Descripción";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(49, 105);
+            label2.Name = "label2";
+            label2.Size = new Size(64, 20);
+            label2.TabIndex = 10;
+            label2.Text = "Nombre";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(47, 55);
+            label1.Name = "label1";
+            label1.Size = new Size(58, 20);
+            label1.TabIndex = 9;
+            label1.Text = "Codigo";
+            // 
+            // cboLocalicacion
+            // 
+            cboLocalicacion.FormattingEnabled = true;
+            cboLocalicacion.Location = new Point(490, 167);
+            cboLocalicacion.Name = "cboLocalicacion";
+            cboLocalicacion.Size = new Size(151, 28);
+            cboLocalicacion.TabIndex = 8;
+            // 
+            // cboCategoria
+            // 
+            cboCategoria.FormattingEnabled = true;
+            cboCategoria.Location = new Point(490, 97);
+            cboCategoria.Name = "cboCategoria";
+            cboCategoria.Size = new Size(151, 28);
+            cboCategoria.TabIndex = 7;
+            // 
+            // chkEstado
+            // 
+            chkEstado.AutoSize = true;
+            chkEstado.Location = new Point(490, 250);
+            chkEstado.Name = "chkEstado";
+            chkEstado.Size = new Size(76, 24);
+            chkEstado.TabIndex = 6;
+            chkEstado.Text = "Estado";
+            chkEstado.UseVisualStyleBackColor = true;
+            // 
+            // txtStockMin
+            // 
+            txtStockMin.Location = new Point(154, 290);
+            txtStockMin.Name = "txtStockMin";
+            txtStockMin.Size = new Size(125, 27);
+            txtStockMin.TabIndex = 5;
+            // 
+            // txtStock
+            // 
+            txtStock.Location = new Point(154, 243);
+            txtStock.Name = "txtStock";
+            txtStock.Size = new Size(125, 27);
+            txtStock.TabIndex = 4;
+            // 
+            // txtPrecio
+            // 
+            txtPrecio.Location = new Point(154, 195);
+            txtPrecio.Name = "txtPrecio";
+            txtPrecio.Size = new Size(125, 27);
+            txtPrecio.TabIndex = 3;
+            // 
+            // txtDescripProd
+            // 
+            txtDescripProd.Location = new Point(154, 145);
+            txtDescripProd.Name = "txtDescripProd";
+            txtDescripProd.Size = new Size(125, 27);
+            txtDescripProd.TabIndex = 2;
+            // 
+            // txtNombreProd
+            // 
+            txtNombreProd.Location = new Point(154, 100);
+            txtNombreProd.Name = "txtNombreProd";
+            txtNombreProd.Size = new Size(125, 27);
+            txtNombreProd.TabIndex = 1;
+            // 
+            // txtCodigo
+            // 
+            txtCodigo.Location = new Point(154, 49);
+            txtCodigo.Name = "txtCodigo";
+            txtCodigo.Size = new Size(125, 27);
+            txtCodigo.TabIndex = 0;
+            // 
+            // dgvProductos
+            // 
+            dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProductos.Dock = DockStyle.Bottom;
+            dgvProductos.Location = new Point(3, 375);
+            dgvProductos.Name = "dgvProductos";
+            dgvProductos.RowHeadersWidth = 51;
+            dgvProductos.Size = new Size(1091, 175);
+            dgvProductos.TabIndex = 0;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Controls.Add(dgvCategorias);
+            tabPage2.Controls.Add(btnDeleteCateg);
+            tabPage2.Controls.Add(btnUpdateCateg);
+            tabPage2.Controls.Add(btnAddCateg);
+            tabPage2.Controls.Add(label10);
+            tabPage2.Controls.Add(label11);
+            tabPage2.Controls.Add(txtDescripcionCateg);
+            tabPage2.Controls.Add(txtNombreCategoria);
+            tabPage2.Location = new Point(4, 29);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(1097, 553);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Categorias Productos";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dgvCategorias
+            // 
+            dgvCategorias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCategorias.Dock = DockStyle.Bottom;
+            dgvCategorias.Location = new Point(3, 329);
+            dgvCategorias.Name = "dgvCategorias";
+            dgvCategorias.RowHeadersWidth = 51;
+            dgvCategorias.Size = new Size(1091, 221);
+            dgvCategorias.TabIndex = 21;
             // 
             // btnDeleteCateg
             // 
@@ -362,6 +352,7 @@
             btnAddCateg.TabIndex = 18;
             btnAddCateg.Text = "Agregar";
             btnAddCateg.UseVisualStyleBackColor = true;
+            btnAddCateg.Click += btnAddCateg_Click;
             // 
             // label10
             // 
@@ -395,16 +386,6 @@
             txtNombreCategoria.Size = new Size(125, 27);
             txtNombreCategoria.TabIndex = 14;
             // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Bottom;
-            dataGridView1.Location = new Point(3, 329);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1091, 221);
-            dataGridView1.TabIndex = 21;
-            // 
             // Productos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -416,12 +397,12 @@
             Load += Productos_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
-            tabPage2.ResumeLayout(false);
-            tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
+            tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvCategorias).EndInit();
             ResumeLayout(false);
         }
 
@@ -442,7 +423,7 @@
         private Label label1;
         private ComboBox cboLocalicacion;
         private ComboBox cboCategoria;
-        private CheckBox checkBox1;
+        private CheckBox chkEstado;
         private TextBox txtStockMin;
         private TextBox txtStock;
         private TextBox txtPrecio;
@@ -452,9 +433,7 @@
         private Button btnDeleteProd;
         private Button btnUpdateProd;
         private Button btnAddProd;
-        private Label label9;
-        private ComboBox cboBodega;
-        private DataGridView dataGridView1;
+        private DataGridView dgvCategorias;
         private Button btnDeleteCateg;
         private Button btnUpdateCateg;
         private Button btnAddCateg;

@@ -10,13 +10,22 @@ namespace Gestion_MTS.ConsultasAdo.Net
 {
     public class ConsultasAdmonBodegas
     {
+
+        private readonly string _connectionString;
+
+        public ConsultasAdmonBodegas(string connectionString)
+        {
+            _connectionString = connectionString;
+        }
+
+
         public List<string> GetSucursales()
         {
             List<string> listaSucursales = new List<string>();
             DataTable sucursales = new DataTable();
             string query = "SELECT ubicacion FROM sucursales";
 
-            using (SqlConnection connection = new SqlConnection(DataBaseConnection.connectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -45,7 +54,7 @@ namespace Gestion_MTS.ConsultasAdo.Net
             DataTable bodegas = new DataTable();
             string query = "SELECT nombre FROM bodegas";
 
-            using (SqlConnection connection = new SqlConnection(DataBaseConnection.connectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -73,7 +82,7 @@ namespace Gestion_MTS.ConsultasAdo.Net
 
             string query = "Select TOP 1 id_sucursal from sucursales where ubicacion = @sucursal";
 
-            using (SqlConnection connection = new SqlConnection(DataBaseConnection.connectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
@@ -111,7 +120,7 @@ namespace Gestion_MTS.ConsultasAdo.Net
 
             string query = "Select TOP 1 id_bodega from bodegas where nombre = @bodega";
 
-            using (SqlConnection connection = new SqlConnection(DataBaseConnection.connectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
@@ -148,7 +157,7 @@ namespace Gestion_MTS.ConsultasAdo.Net
         {
             string query = "insert into bodegas(nombre,id_sucursal) values (@nombre, @sucursal)";
 
-            using (SqlConnection connection = new SqlConnection(DataBaseConnection.connectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
@@ -174,7 +183,7 @@ namespace Gestion_MTS.ConsultasAdo.Net
         {
             string query = "INSERT INTO localizacionesBodega(descripcion, id_bodega) VALUES (@descripcion, @idBodega)";
 
-            using (SqlConnection connection = new SqlConnection(DataBaseConnection.connectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
 

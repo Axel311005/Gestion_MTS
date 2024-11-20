@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Gestion_MTS.Clases
 {
-    public class ConsultasArqueo
+    public class ConsultasArqueoRepository
     {
-        public List<Gastos> GetGastosPorSucursalYFecha(string sucursal, DateTime fecha)
+        public List<Gasto> GetGastosPorSucursalYFecha(string sucursal, DateTime fecha)
         {
-            List<Gastos> listaGastos = new List<Gastos>();
+            List<Gasto> listaGastos = new List<Gasto>();
             string query = "SELECT descripcion, monto FROM dbo.GetGastosxSucursalxDia(@sucursal, @fecha)";
 
             using (SqlConnection connection = new SqlConnection(DataBaseConnection.connectionString))
@@ -31,7 +31,7 @@ namespace Gestion_MTS.Clases
                     // Leer los resultados
                     while (reader.Read())
                     {
-                        Gastos gasto = new Gastos
+                        Gasto gasto = new Gasto
                         {
                             descripcion = reader["descripcion"].ToString(),
                             monto = Convert.ToDecimal(reader["monto"])

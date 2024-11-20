@@ -8,14 +8,23 @@ using System.Threading.Tasks;
 
 namespace Gestion_MTS.ConsultasAdo.Net
 {
-    public class ConsultasProductos
+    public class ConsultasProductosRepository
     {
+
+        private readonly string _connectionString;
+
+        public ConsultasProductosRepository(string connectionString)
+        {
+            _connectionString = connectionString;
+        }
+
+
         public DataTable GetProductos()
         {
             DataTable productos = new DataTable();
             string query = "SELECT * FROM VistaProductos";
 
-            using (SqlConnection connection = new SqlConnection(DataBaseConnection.connectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
                 SqlDataAdapter adapter = new SqlDataAdapter(command);

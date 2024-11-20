@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            dgvBodegas = new DataGridView();
             label2 = new Label();
             label1 = new Label();
             btnDeleteBodega = new Button();
@@ -37,6 +38,7 @@
             cboSucursales = new ComboBox();
             txtNombreBodegas = new TextBox();
             groupBox2 = new GroupBox();
+            dgvLocalBodega = new DataGridView();
             label4 = new Label();
             label3 = new Label();
             btnDeleteLocalBod = new Button();
@@ -45,22 +47,20 @@
             txtDescripcionLocalBod = new TextBox();
             btnAddLocalBod = new Button();
             groupBox3 = new GroupBox();
-            txtUbiSucur = new TextBox();
-            txtTelSucur = new TextBox();
-            label5 = new Label();
-            label6 = new Label();
-            btnAddSucursal = new Button();
-            btnUpdateSucursal = new Button();
-            btnDeleteSucursal = new Button();
             dgvSucursales = new DataGridView();
-            dgvBodegas = new DataGridView();
-            dgvLocalBodega = new DataGridView();
+            btnDeleteSucursal = new Button();
+            btnUpdateSucursal = new Button();
+            btnAddSucursal = new Button();
+            label6 = new Label();
+            label5 = new Label();
+            txtTelSucur = new TextBox();
+            txtUbiSucur = new TextBox();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvBodegas).BeginInit();
             groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvLocalBodega).BeginInit();
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvSucursales).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvBodegas).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvLocalBodega).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
@@ -79,6 +79,16 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Administracion de Bodegas";
+            // 
+            // dgvBodegas
+            // 
+            dgvBodegas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvBodegas.Dock = DockStyle.Bottom;
+            dgvBodegas.Location = new Point(3, 367);
+            dgvBodegas.Name = "dgvBodegas";
+            dgvBodegas.RowHeadersWidth = 51;
+            dgvBodegas.Size = new Size(377, 188);
+            dgvBodegas.TabIndex = 7;
             // 
             // label2
             // 
@@ -158,6 +168,16 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Localizaciones en Bodega";
             // 
+            // dgvLocalBodega
+            // 
+            dgvLocalBodega.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvLocalBodega.Dock = DockStyle.Bottom;
+            dgvLocalBodega.Location = new Point(3, 367);
+            dgvLocalBodega.Name = "dgvLocalBodega";
+            dgvLocalBodega.RowHeadersWidth = 51;
+            dgvLocalBodega.Size = new Size(372, 188);
+            dgvLocalBodega.TabIndex = 7;
+            // 
             // label4
             // 
             label4.AutoSize = true;
@@ -234,66 +254,7 @@
             groupBox3.Size = new Size(399, 558);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
-            groupBox3.Text = "groupBox3";
-            // 
-            // txtUbiSucur
-            // 
-            txtUbiSucur.Location = new Point(9, 142);
-            txtUbiSucur.Name = "txtUbiSucur";
-            txtUbiSucur.Size = new Size(125, 27);
-            txtUbiSucur.TabIndex = 0;
-            // 
-            // txtTelSucur
-            // 
-            txtTelSucur.Location = new Point(212, 142);
-            txtTelSucur.Name = "txtTelSucur";
-            txtTelSucur.Size = new Size(125, 27);
-            txtTelSucur.TabIndex = 1;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(40, 107);
-            label5.Name = "label5";
-            label5.Size = new Size(75, 20);
-            label5.TabIndex = 2;
-            label5.Text = "Ubicación";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(239, 97);
-            label6.Name = "label6";
-            label6.Size = new Size(67, 20);
-            label6.TabIndex = 3;
-            label6.Text = "Telefono";
-            // 
-            // btnAddSucursal
-            // 
-            btnAddSucursal.Location = new Point(6, 250);
-            btnAddSucursal.Name = "btnAddSucursal";
-            btnAddSucursal.Size = new Size(94, 29);
-            btnAddSucursal.TabIndex = 4;
-            btnAddSucursal.Text = "Agregar";
-            btnAddSucursal.UseVisualStyleBackColor = true;
-            // 
-            // btnUpdateSucursal
-            // 
-            btnUpdateSucursal.Location = new Point(134, 250);
-            btnUpdateSucursal.Name = "btnUpdateSucursal";
-            btnUpdateSucursal.Size = new Size(94, 29);
-            btnUpdateSucursal.TabIndex = 5;
-            btnUpdateSucursal.Text = "Actualizar";
-            btnUpdateSucursal.UseVisualStyleBackColor = true;
-            // 
-            // btnDeleteSucursal
-            // 
-            btnDeleteSucursal.Location = new Point(255, 250);
-            btnDeleteSucursal.Name = "btnDeleteSucursal";
-            btnDeleteSucursal.Size = new Size(94, 29);
-            btnDeleteSucursal.TabIndex = 6;
-            btnDeleteSucursal.Text = "Borrar";
-            btnDeleteSucursal.UseVisualStyleBackColor = true;
+            groupBox3.Text = "Sucursales";
             // 
             // dgvSucursales
             // 
@@ -305,25 +266,65 @@
             dgvSucursales.Size = new Size(393, 188);
             dgvSucursales.TabIndex = 7;
             // 
-            // dgvBodegas
+            // btnDeleteSucursal
             // 
-            dgvBodegas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvBodegas.Dock = DockStyle.Bottom;
-            dgvBodegas.Location = new Point(3, 367);
-            dgvBodegas.Name = "dgvBodegas";
-            dgvBodegas.RowHeadersWidth = 51;
-            dgvBodegas.Size = new Size(377, 188);
-            dgvBodegas.TabIndex = 7;
+            btnDeleteSucursal.Location = new Point(255, 250);
+            btnDeleteSucursal.Name = "btnDeleteSucursal";
+            btnDeleteSucursal.Size = new Size(94, 29);
+            btnDeleteSucursal.TabIndex = 6;
+            btnDeleteSucursal.Text = "Borrar";
+            btnDeleteSucursal.UseVisualStyleBackColor = true;
             // 
-            // dgvLocalBodega
+            // btnUpdateSucursal
             // 
-            dgvLocalBodega.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvLocalBodega.Dock = DockStyle.Bottom;
-            dgvLocalBodega.Location = new Point(3, 367);
-            dgvLocalBodega.Name = "dgvLocalBodega";
-            dgvLocalBodega.RowHeadersWidth = 51;
-            dgvLocalBodega.Size = new Size(372, 188);
-            dgvLocalBodega.TabIndex = 7;
+            btnUpdateSucursal.Location = new Point(134, 250);
+            btnUpdateSucursal.Name = "btnUpdateSucursal";
+            btnUpdateSucursal.Size = new Size(94, 29);
+            btnUpdateSucursal.TabIndex = 5;
+            btnUpdateSucursal.Text = "Actualizar";
+            btnUpdateSucursal.UseVisualStyleBackColor = true;
+            // 
+            // btnAddSucursal
+            // 
+            btnAddSucursal.Location = new Point(6, 250);
+            btnAddSucursal.Name = "btnAddSucursal";
+            btnAddSucursal.Size = new Size(94, 29);
+            btnAddSucursal.TabIndex = 4;
+            btnAddSucursal.Text = "Agregar";
+            btnAddSucursal.UseVisualStyleBackColor = true;
+            btnAddSucursal.Click += btnAddSucursal_Click;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(239, 97);
+            label6.Name = "label6";
+            label6.Size = new Size(67, 20);
+            label6.TabIndex = 3;
+            label6.Text = "Telefono";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(40, 107);
+            label5.Name = "label5";
+            label5.Size = new Size(75, 20);
+            label5.TabIndex = 2;
+            label5.Text = "Ubicación";
+            // 
+            // txtTelSucur
+            // 
+            txtTelSucur.Location = new Point(212, 142);
+            txtTelSucur.Name = "txtTelSucur";
+            txtTelSucur.Size = new Size(125, 27);
+            txtTelSucur.TabIndex = 1;
+            // 
+            // txtUbiSucur
+            // 
+            txtUbiSucur.Location = new Point(9, 142);
+            txtUbiSucur.Name = "txtUbiSucur";
+            txtUbiSucur.Size = new Size(125, 27);
+            txtUbiSucur.TabIndex = 0;
             // 
             // AdmonSucursales
             // 
@@ -335,15 +336,16 @@
             Controls.Add(groupBox1);
             Name = "AdmonSucursales";
             Text = "AdmonSucursales";
+            Load += AdmonSucursales_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvBodegas).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvLocalBodega).EndInit();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvSucursales).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvBodegas).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvLocalBodega).EndInit();
             ResumeLayout(false);
         }
 

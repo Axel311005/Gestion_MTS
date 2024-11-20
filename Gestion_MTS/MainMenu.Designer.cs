@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             panelMenu = new Panel();
+            btnServicios = new Button();
             btnSucursales = new Button();
             btnArqueo = new Button();
             SubMenuReportes = new Panel();
@@ -50,7 +51,6 @@
             lblTitle = new Label();
             panelDesktop = new Panel();
             pictureBox1 = new PictureBox();
-            btnServicios = new Button();
             panelMenu.SuspendLayout();
             SubMenuReportes.SuspendLayout();
             panelLogo.SuspendLayout();
@@ -78,8 +78,26 @@
             panelMenu.Dock = DockStyle.Left;
             panelMenu.Location = new Point(0, 0);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(220, 747);
+            panelMenu.Size = new Size(220, 800);
             panelMenu.TabIndex = 0;
+            // 
+            // btnServicios
+            // 
+            btnServicios.BackColor = Color.Transparent;
+            btnServicios.FlatAppearance.BorderSize = 0;
+            btnServicios.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 89, 0);
+            btnServicios.FlatStyle = FlatStyle.Flat;
+            btnServicios.Font = new Font("Sans Serif Collection", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnServicios.ForeColor = Color.White;
+            btnServicios.Image = (Image)resources.GetObject("btnServicios.Image");
+            btnServicios.ImageAlign = ContentAlignment.MiddleLeft;
+            btnServicios.Location = new Point(0, 146);
+            btnServicios.Name = "btnServicios";
+            btnServicios.Size = new Size(220, 60);
+            btnServicios.TabIndex = 15;
+            btnServicios.Text = "Servicios";
+            btnServicios.UseVisualStyleBackColor = false;
+            btnServicios.Click += btnServicios_Click;
             // 
             // btnSucursales
             // 
@@ -267,7 +285,7 @@
             panelTitleBar.Dock = DockStyle.Top;
             panelTitleBar.Location = new Point(220, 0);
             panelTitleBar.Name = "panelTitleBar";
-            panelTitleBar.Size = new Size(1110, 80);
+            panelTitleBar.Size = new Size(1280, 80);
             panelTitleBar.TabIndex = 1;
             panelTitleBar.MouseDown += panelTitleBar_MouseDown_1;
             // 
@@ -276,7 +294,7 @@
             btnVentana.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnVentana.Cursor = Cursors.Hand;
             btnVentana.Image = (Image)resources.GetObject("btnVentana.Image");
-            btnVentana.Location = new Point(962, 13);
+            btnVentana.Location = new Point(1132, 13);
             btnVentana.Name = "btnVentana";
             btnVentana.Size = new Size(35, 35);
             btnVentana.SizeMode = PictureBoxSizeMode.Zoom;
@@ -290,7 +308,7 @@
             btnMinimizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnMinimizar.Cursor = Cursors.Hand;
             btnMinimizar.Image = (Image)resources.GetObject("btnMinimizar.Image");
-            btnMinimizar.Location = new Point(1013, 13);
+            btnMinimizar.Location = new Point(1183, 13);
             btnMinimizar.Name = "btnMinimizar";
             btnMinimizar.Size = new Size(35, 35);
             btnMinimizar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -303,7 +321,7 @@
             btnMaximizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnMaximizar.Cursor = Cursors.Hand;
             btnMaximizar.Image = (Image)resources.GetObject("btnMaximizar.Image");
-            btnMaximizar.Location = new Point(962, 12);
+            btnMaximizar.Location = new Point(1132, 12);
             btnMaximizar.Name = "btnMaximizar";
             btnMaximizar.Size = new Size(35, 35);
             btnMaximizar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -316,7 +334,7 @@
             btnCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnCerrar.Cursor = Cursors.Hand;
             btnCerrar.Image = (Image)resources.GetObject("btnCerrar.Image");
-            btnCerrar.Location = new Point(1063, 12);
+            btnCerrar.Location = new Point(1233, 12);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(35, 35);
             btnCerrar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -343,7 +361,7 @@
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Sans Serif Collection", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTitle.ForeColor = Color.White;
-            lblTitle.Location = new Point(447, 22);
+            lblTitle.Location = new Point(532, 22);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(89, 37);
             lblTitle.TabIndex = 0;
@@ -356,7 +374,7 @@
             panelDesktop.Dock = DockStyle.Fill;
             panelDesktop.Location = new Point(220, 80);
             panelDesktop.Name = "panelDesktop";
-            panelDesktop.Size = new Size(1110, 667);
+            panelDesktop.Size = new Size(1280, 720);
             panelDesktop.TabIndex = 2;
             // 
             // pictureBox1
@@ -365,34 +383,16 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1110, 667);
+            pictureBox1.Size = new Size(1280, 720);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
-            // 
-            // btnServicios
-            // 
-            btnServicios.BackColor = Color.Transparent;
-            btnServicios.FlatAppearance.BorderSize = 0;
-            btnServicios.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 89, 0);
-            btnServicios.FlatStyle = FlatStyle.Flat;
-            btnServicios.Font = new Font("Sans Serif Collection", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnServicios.ForeColor = Color.White;
-            btnServicios.Image = (Image)resources.GetObject("btnServicios.Image");
-            btnServicios.ImageAlign = ContentAlignment.MiddleLeft;
-            btnServicios.Location = new Point(0, 146);
-            btnServicios.Name = "btnServicios";
-            btnServicios.Size = new Size(220, 60);
-            btnServicios.TabIndex = 15;
-            btnServicios.Text = "Servicios";
-            btnServicios.UseVisualStyleBackColor = false;
-            btnServicios.Click += btnServicios_Click;
             // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1330, 747);
+            ClientSize = new Size(1500, 800);
             Controls.Add(panelDesktop);
             Controls.Add(panelTitleBar);
             Controls.Add(panelMenu);

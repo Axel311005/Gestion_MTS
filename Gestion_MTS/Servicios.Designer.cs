@@ -30,15 +30,18 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
-            txtNombreServ = new TextBox();
-            txtDescripServ = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
-            btnAddServicio = new Button();
-            btnUpdateServ = new Button();
-            btnDeleteServ = new Button();
+            label5 = new Label();
+            cboCategoria = new ComboBox();
             dgvServicios = new DataGridView();
+            btnDeleteServ = new Button();
+            btnUpdateServ = new Button();
+            btnAddServicio = new Button();
+            label2 = new Label();
+            label1 = new Label();
+            txtDescripServ = new TextBox();
+            txtNombreServ = new TextBox();
+            tabPage2 = new TabPage();
+            dgvCategoriaServicios = new DataGridView();
             btnDeleteCateg = new Button();
             btnUpdateCateg = new Button();
             btnAddCateg = new Button();
@@ -46,11 +49,10 @@
             label4 = new Label();
             txtDescripcionCateg = new TextBox();
             txtNombreCategoria = new TextBox();
-            dgvCategoriaServicios = new DataGridView();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
-            tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvServicios).BeginInit();
+            tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCategoriaServicios).BeginInit();
             SuspendLayout();
             // 
@@ -67,6 +69,8 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(label5);
+            tabPage1.Controls.Add(cboCategoria);
             tabPage1.Controls.Add(dgvServicios);
             tabPage1.Controls.Add(btnDeleteServ);
             tabPage1.Controls.Add(btnUpdateServ);
@@ -82,6 +86,93 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Servicios";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(699, 133);
+            label5.Name = "label5";
+            label5.Size = new Size(74, 20);
+            label5.TabIndex = 9;
+            label5.Text = "Categoria";
+            // 
+            // cboCategoria
+            // 
+            cboCategoria.FormattingEnabled = true;
+            cboCategoria.Location = new Point(656, 190);
+            cboCategoria.Name = "cboCategoria";
+            cboCategoria.Size = new Size(151, 28);
+            cboCategoria.TabIndex = 8;
+            // 
+            // dgvServicios
+            // 
+            dgvServicios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvServicios.Dock = DockStyle.Bottom;
+            dgvServicios.Location = new Point(3, 400);
+            dgvServicios.Name = "dgvServicios";
+            dgvServicios.RowHeadersWidth = 51;
+            dgvServicios.Size = new Size(1172, 188);
+            dgvServicios.TabIndex = 7;
+            // 
+            // btnDeleteServ
+            // 
+            btnDeleteServ.Location = new Point(666, 265);
+            btnDeleteServ.Name = "btnDeleteServ";
+            btnDeleteServ.Size = new Size(94, 29);
+            btnDeleteServ.TabIndex = 6;
+            btnDeleteServ.Text = "Eliminar";
+            btnDeleteServ.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdateServ
+            // 
+            btnUpdateServ.Location = new Point(515, 265);
+            btnUpdateServ.Name = "btnUpdateServ";
+            btnUpdateServ.Size = new Size(94, 29);
+            btnUpdateServ.TabIndex = 5;
+            btnUpdateServ.Text = "Actualizar";
+            btnUpdateServ.UseVisualStyleBackColor = true;
+            // 
+            // btnAddServicio
+            // 
+            btnAddServicio.Location = new Point(349, 265);
+            btnAddServicio.Name = "btnAddServicio";
+            btnAddServicio.Size = new Size(94, 29);
+            btnAddServicio.TabIndex = 4;
+            btnAddServicio.Text = "Agregar";
+            btnAddServicio.UseVisualStyleBackColor = true;
+            btnAddServicio.Click += btnAddServicio_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(522, 133);
+            label2.Name = "label2";
+            label2.Size = new Size(87, 20);
+            label2.TabIndex = 3;
+            label2.Text = "Descripción";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(349, 133);
+            label1.Name = "label1";
+            label1.Size = new Size(64, 20);
+            label1.TabIndex = 2;
+            label1.Text = "Nombre";
+            // 
+            // txtDescripServ
+            // 
+            txtDescripServ.Location = new Point(492, 190);
+            txtDescripServ.Name = "txtDescripServ";
+            txtDescripServ.Size = new Size(125, 27);
+            txtDescripServ.TabIndex = 1;
+            // 
+            // txtNombreServ
+            // 
+            txtNombreServ.Location = new Point(316, 190);
+            txtNombreServ.Name = "txtNombreServ";
+            txtNombreServ.Size = new Size(125, 27);
+            txtNombreServ.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -101,74 +192,15 @@
             tabPage2.Text = "Categorias  de Servicios";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // txtNombreServ
+            // dgvCategoriaServicios
             // 
-            txtNombreServ.Location = new Point(410, 193);
-            txtNombreServ.Name = "txtNombreServ";
-            txtNombreServ.Size = new Size(125, 27);
-            txtNombreServ.TabIndex = 0;
-            // 
-            // txtDescripServ
-            // 
-            txtDescripServ.Location = new Point(586, 193);
-            txtDescripServ.Name = "txtDescripServ";
-            txtDescripServ.Size = new Size(125, 27);
-            txtDescripServ.TabIndex = 1;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(443, 136);
-            label1.Name = "label1";
-            label1.Size = new Size(64, 20);
-            label1.TabIndex = 2;
-            label1.Text = "Nombre";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(601, 136);
-            label2.Name = "label2";
-            label2.Size = new Size(87, 20);
-            label2.TabIndex = 3;
-            label2.Text = "Descripción";
-            // 
-            // btnAddServicio
-            // 
-            btnAddServicio.Location = new Point(349, 265);
-            btnAddServicio.Name = "btnAddServicio";
-            btnAddServicio.Size = new Size(94, 29);
-            btnAddServicio.TabIndex = 4;
-            btnAddServicio.Text = "Agregar";
-            btnAddServicio.UseVisualStyleBackColor = true;
-            // 
-            // btnUpdateServ
-            // 
-            btnUpdateServ.Location = new Point(515, 265);
-            btnUpdateServ.Name = "btnUpdateServ";
-            btnUpdateServ.Size = new Size(94, 29);
-            btnUpdateServ.TabIndex = 5;
-            btnUpdateServ.Text = "Actualizar";
-            btnUpdateServ.UseVisualStyleBackColor = true;
-            // 
-            // btnDeleteServ
-            // 
-            btnDeleteServ.Location = new Point(666, 265);
-            btnDeleteServ.Name = "btnDeleteServ";
-            btnDeleteServ.Size = new Size(94, 29);
-            btnDeleteServ.TabIndex = 6;
-            btnDeleteServ.Text = "Eliminar";
-            btnDeleteServ.UseVisualStyleBackColor = true;
-            // 
-            // dgvServicios
-            // 
-            dgvServicios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvServicios.Dock = DockStyle.Bottom;
-            dgvServicios.Location = new Point(3, 400);
-            dgvServicios.Name = "dgvServicios";
-            dgvServicios.RowHeadersWidth = 51;
-            dgvServicios.Size = new Size(1172, 188);
-            dgvServicios.TabIndex = 7;
+            dgvCategoriaServicios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCategoriaServicios.Dock = DockStyle.Bottom;
+            dgvCategoriaServicios.Location = new Point(3, 356);
+            dgvCategoriaServicios.Name = "dgvCategoriaServicios";
+            dgvCategoriaServicios.RowHeadersWidth = 51;
+            dgvCategoriaServicios.Size = new Size(1172, 232);
+            dgvCategoriaServicios.TabIndex = 14;
             // 
             // btnDeleteCateg
             // 
@@ -196,6 +228,7 @@
             btnAddCateg.TabIndex = 11;
             btnAddCateg.Text = "Agregar";
             btnAddCateg.UseVisualStyleBackColor = true;
+            btnAddCateg.Click += btnAddCateg_Click;
             // 
             // label3
             // 
@@ -229,16 +262,6 @@
             txtNombreCategoria.Size = new Size(125, 27);
             txtNombreCategoria.TabIndex = 7;
             // 
-            // dgvCategoriaServicios
-            // 
-            dgvCategoriaServicios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCategoriaServicios.Dock = DockStyle.Bottom;
-            dgvCategoriaServicios.Location = new Point(3, 356);
-            dgvCategoriaServicios.Name = "dgvCategoriaServicios";
-            dgvCategoriaServicios.RowHeadersWidth = 51;
-            dgvCategoriaServicios.Size = new Size(1172, 232);
-            dgvCategoriaServicios.TabIndex = 14;
-            // 
             // Servicios
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -247,12 +270,13 @@
             Controls.Add(tabControl1);
             Name = "Servicios";
             Text = "Servicios";
+            Load += Servicios_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvServicios).EndInit();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvServicios).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvCategoriaServicios).EndInit();
             ResumeLayout(false);
         }
@@ -278,5 +302,7 @@
         private Label label4;
         private TextBox txtDescripcionCateg;
         private TextBox txtNombreCategoria;
+        private Label label5;
+        private ComboBox cboCategoria;
     }
 }

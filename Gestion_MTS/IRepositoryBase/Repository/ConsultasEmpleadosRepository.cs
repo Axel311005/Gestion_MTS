@@ -8,15 +8,23 @@ using System.Threading.Tasks;
 
 namespace Gestion_MTS.ConsultasAdo.Net
 {
-    public class ConsultasEmpleados
+    public class ConsultasEmpleadosRepository
     {
+
+        private readonly string _connectionString;
+
+        public ConsultasEmpleadosRepository(string connectionString)
+        {
+            _connectionString = connectionString;
+        }
+
         public DataTable GetEmpleados()
         {
             DataTable empleados = new DataTable();
 
             string query = "SELECT * FROM VistaEmpleados";
 
-            using (SqlConnection connection = new SqlConnection(DataBaseConnection.connectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -40,7 +48,7 @@ namespace Gestion_MTS.ConsultasAdo.Net
             DataTable roles = new DataTable();
             string query = "SELECT nombre FROM roles";
 
-            using (SqlConnection connection = new SqlConnection(DataBaseConnection.connectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -67,7 +75,7 @@ namespace Gestion_MTS.ConsultasAdo.Net
 
             string query = "Select TOP 1 id_rol from roles where nombre = @roles";
 
-            using (SqlConnection connection = new SqlConnection(DataBaseConnection.connectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
@@ -96,7 +104,7 @@ namespace Gestion_MTS.ConsultasAdo.Net
                 }
 
             }
-
+                
 
         }
 
@@ -105,7 +113,7 @@ namespace Gestion_MTS.ConsultasAdo.Net
         {
             string query = "INSERT INTO empleados (nombre, apellido, salario, fecha_nacimiento, cedula, celular, direccion, id_rol, id_sucursal) VALUES(@nombre, @apellido, @salario, @nacimiento, @cedula, @celular, @direccion, @id_rol, @id_sucursal)";
 
-            using (SqlConnection connection = new SqlConnection(DataBaseConnection.connectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
