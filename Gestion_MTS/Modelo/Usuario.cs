@@ -10,7 +10,7 @@ namespace Gestion_MTS.Clases
     {
         public int IdUsuario { get; set; }
         public string NombreUsuario { get; set; } = string.Empty;
-        public string Contraseña { get; set; } = string.Empty;
+        public string? Contraseña { get; set; } = string.Empty;
         public int IdEmpleado { get; set; }
     }
 }

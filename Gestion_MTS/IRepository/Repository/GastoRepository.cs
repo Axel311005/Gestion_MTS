@@ -93,9 +93,10 @@ namespace Gestion_MTS.IRepository.Repository
             return gastos;
         }
 
-        public void Update(Gasto ado)
+        public void Update(Gasto ado, int id)
         {
-            string query = "Update gastos SET descripcion = @descripcion , monto = @monto , id_sucursal = @id_sucursal, FechaGasto= @fecha";
+            string query = "Update gastos SET descripcion = @descripcion , monto = @monto , id_sucursal = @id_sucursal, FechaGasto= @fecha " +
+                "WHERE id_gasto = @id";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
@@ -104,6 +105,7 @@ namespace Gestion_MTS.IRepository.Repository
                 command.Parameters.AddWithValue("@monto", ado.monto);
                 command.Parameters.AddWithValue("@id_sucursal", ado.IdSucursal);
                 command.Parameters.AddWithValue("@fecha", ado.FechaGasto);
+                command.Parameters.AddWithValue("@id", id);
 
                 try
                 {

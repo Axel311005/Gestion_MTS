@@ -49,12 +49,53 @@ namespace Gestion_MTS.IRepository.Repository
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            string query = "DELETE FROM usuarios WHERE id_usuario = @id_usuario";
+
+            using (SqlConnection connection = new SqlConnection(_connection))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+
+                // Asignación de parámetros
+                command.Parameters.AddWithValue("@id_usuario", id);
+
+                try
+                {
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected == 0)
+                    {
+                        throw new Exception("No se encontró ID especificado.");
+                    }
+                }
+                catch (Exception e)
+                {
+                    throw new Exception("Error " + e.Message);
+                }
+            }
         }
 
         public DataTable GetAll()
         {
-            throw new NotImplementedException();
+            DataTable usuarios = new DataTable();
+
+            string query = "Select u.id_usuario, u.nombre_usuario, (e.nombre + ' ' + e.apellido) AS pertenece FROM usuarios u " +
+                "INNER JOIN empleados e ON u.id_empleado = e.id_empleado"; 
+            using (SqlConnection connection = new SqlConnection(_connection))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                try
+                {
+                    connection.Open();
+                    adapter.Fill(usuarios);
+                }
+                catch (Exception e)
+                {
+                    throw new Exception("Error: " + e.Message);
+                }
+            }
+            return usuarios;
         }
 
         public Usuario? GetByUserName(string userName) {
@@ -127,9 +168,48 @@ namespace Gestion_MTS.IRepository.Repository
             return null;
         }
 
-        public void Update(Usuario ado)
+        public void Update(Usuario ado, int id)
         {
-            throw new NotImplementedException();
+            string query;
+             
+            if(ado.Contraseña != null)
+            {
+                query = "UPDATE usuarios SET nombre_usuario = @nombre, contraseña = @pass, id_empleado = @idEmpleado" +
+                " WHERE id_usuario = @id";
+            } else
+            {
+                query = "UPDATE usuarios SET nombre_usuario = @nombre, id_empleado = @idEmpleado" +
+                " WHERE id_usuario = @id";
+            }
+
+            using (SqlConnection connection = new SqlConnection(_connection))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+
+                command.Parameters.AddWithValue("@nombre", ado.NombreUsuario);
+                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@idEmpleado", ado.IdEmpleado);
+
+                if(ado.Contraseña != null)
+                {
+                    command.Parameters.AddWithValue("@pass", ado.Contraseña);
+                }
+
+                try
+                {
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected == 0)
+                    {
+                        throw new Exception("No se encontró el ID especificado.");
+                    }
+                }
+                catch (Exception e)
+                {
+                    throw new Exception("Error " + e.Message);
+                }
+            }
         }
     }
 }

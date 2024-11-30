@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             panelMenu = new Panel();
+            btnUsers = new Button();
             btnServicios = new Button();
             btnSucursales = new Button();
             btnArqueo = new Button();
@@ -50,7 +51,6 @@
             lblTitle = new Label();
             panelDesktop = new Panel();
             pictureBox1 = new PictureBox();
-            btnUsers = new Button();
             panelMenu.SuspendLayout();
             SubMenuReportes.SuspendLayout();
             panelLogo.SuspendLayout();
@@ -82,9 +82,30 @@
             panelMenu.Size = new Size(192, 591);
             panelMenu.TabIndex = 0;
             // 
+            // btnUsers
+            // 
+            btnUsers.BackColor = Color.Transparent;
+            btnUsers.Dock = DockStyle.Top;
+            btnUsers.FlatAppearance.BorderSize = 0;
+            btnUsers.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 89, 0);
+            btnUsers.FlatStyle = FlatStyle.Flat;
+            btnUsers.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnUsers.ForeColor = Color.White;
+            btnUsers.Image = (Image)resources.GetObject("btnUsers.Image");
+            btnUsers.ImageAlign = ContentAlignment.MiddleLeft;
+            btnUsers.Location = new Point(0, 436);
+            btnUsers.Margin = new Padding(3, 2, 3, 2);
+            btnUsers.Name = "btnUsers";
+            btnUsers.Size = new Size(192, 45);
+            btnUsers.TabIndex = 16;
+            btnUsers.Text = "Usuarios";
+            btnUsers.UseVisualStyleBackColor = false;
+            btnUsers.Click += btnUsers_Click;
+            // 
             // btnServicios
             // 
             btnServicios.BackColor = Color.Transparent;
+            btnServicios.Dock = DockStyle.Top;
             btnServicios.FlatAppearance.BorderSize = 0;
             btnServicios.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 89, 0);
             btnServicios.FlatStyle = FlatStyle.Flat;
@@ -92,7 +113,7 @@
             btnServicios.ForeColor = Color.White;
             btnServicios.Image = (Image)resources.GetObject("btnServicios.Image");
             btnServicios.ImageAlign = ContentAlignment.MiddleLeft;
-            btnServicios.Location = new Point(0, 110);
+            btnServicios.Location = new Point(0, 391);
             btnServicios.Margin = new Padding(3, 2, 3, 2);
             btnServicios.Name = "btnServicios";
             btnServicios.Size = new Size(192, 45);
@@ -104,6 +125,7 @@
             // btnSucursales
             // 
             btnSucursales.BackColor = Color.Transparent;
+            btnSucursales.Dock = DockStyle.Top;
             btnSucursales.FlatAppearance.BorderSize = 0;
             btnSucursales.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 89, 0);
             btnSucursales.FlatStyle = FlatStyle.Flat;
@@ -111,7 +133,7 @@
             btnSucursales.ForeColor = Color.White;
             btnSucursales.Image = (Image)resources.GetObject("btnSucursales.Image");
             btnSucursales.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSucursales.Location = new Point(0, 357);
+            btnSucursales.Location = new Point(0, 346);
             btnSucursales.Margin = new Padding(3, 2, 3, 2);
             btnSucursales.Name = "btnSucursales";
             btnSucursales.Size = new Size(192, 45);
@@ -123,6 +145,7 @@
             // btnArqueo
             // 
             btnArqueo.BackColor = Color.Transparent;
+            btnArqueo.Dock = DockStyle.Top;
             btnArqueo.FlatAppearance.BorderSize = 0;
             btnArqueo.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 89, 0);
             btnArqueo.FlatStyle = FlatStyle.Flat;
@@ -130,7 +153,7 @@
             btnArqueo.ForeColor = Color.White;
             btnArqueo.Image = (Image)resources.GetObject("btnArqueo.Image");
             btnArqueo.ImageAlign = ContentAlignment.MiddleLeft;
-            btnArqueo.Location = new Point(0, 305);
+            btnArqueo.Location = new Point(0, 301);
             btnArqueo.Margin = new Padding(3, 2, 3, 2);
             btnArqueo.Name = "btnArqueo";
             btnArqueo.Size = new Size(192, 45);
@@ -143,10 +166,11 @@
             // 
             SubMenuReportes.Controls.Add(btnReporteServicios);
             SubMenuReportes.Controls.Add(btnReporteVentas);
-            SubMenuReportes.Location = new Point(23, 461);
+            SubMenuReportes.Dock = DockStyle.Top;
+            SubMenuReportes.Location = new Point(0, 240);
             SubMenuReportes.Margin = new Padding(3, 2, 3, 2);
             SubMenuReportes.Name = "SubMenuReportes";
-            SubMenuReportes.Size = new Size(170, 61);
+            SubMenuReportes.Size = new Size(192, 61);
             SubMenuReportes.TabIndex = 12;
             SubMenuReportes.Visible = false;
             // 
@@ -189,6 +213,7 @@
             // btnReporte
             // 
             btnReporte.BackColor = Color.Transparent;
+            btnReporte.Dock = DockStyle.Top;
             btnReporte.FlatAppearance.BorderSize = 0;
             btnReporte.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 89, 0);
             btnReporte.FlatStyle = FlatStyle.Flat;
@@ -196,7 +221,7 @@
             btnReporte.ForeColor = Color.White;
             btnReporte.Image = (Image)resources.GetObject("btnReporte.Image");
             btnReporte.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReporte.Location = new Point(0, 418);
+            btnReporte.Location = new Point(0, 195);
             btnReporte.Margin = new Padding(3, 2, 3, 2);
             btnReporte.Name = "btnReporte";
             btnReporte.Size = new Size(192, 45);
@@ -208,6 +233,7 @@
             // btnFactura
             // 
             btnFactura.BackColor = Color.Transparent;
+            btnFactura.Dock = DockStyle.Top;
             btnFactura.FlatAppearance.BorderSize = 0;
             btnFactura.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 89, 0);
             btnFactura.FlatStyle = FlatStyle.Flat;
@@ -215,7 +241,7 @@
             btnFactura.ForeColor = Color.White;
             btnFactura.Image = (Image)resources.GetObject("btnFactura.Image");
             btnFactura.ImageAlign = ContentAlignment.MiddleLeft;
-            btnFactura.Location = new Point(0, 259);
+            btnFactura.Location = new Point(0, 150);
             btnFactura.Margin = new Padding(3, 2, 3, 2);
             btnFactura.Name = "btnFactura";
             btnFactura.Size = new Size(192, 45);
@@ -227,6 +253,7 @@
             // btnEmpleados
             // 
             btnEmpleados.BackColor = Color.Transparent;
+            btnEmpleados.Dock = DockStyle.Top;
             btnEmpleados.FlatAppearance.BorderSize = 0;
             btnEmpleados.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 89, 0);
             btnEmpleados.FlatStyle = FlatStyle.Flat;
@@ -234,7 +261,7 @@
             btnEmpleados.ForeColor = Color.White;
             btnEmpleados.Image = (Image)resources.GetObject("btnEmpleados.Image");
             btnEmpleados.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEmpleados.Location = new Point(0, 163);
+            btnEmpleados.Location = new Point(0, 105);
             btnEmpleados.Margin = new Padding(3, 2, 3, 2);
             btnEmpleados.Name = "btnEmpleados";
             btnEmpleados.Size = new Size(192, 45);
@@ -391,25 +418,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
-            // 
-            // btnUsers
-            // 
-            btnUsers.BackColor = Color.Transparent;
-            btnUsers.FlatAppearance.BorderSize = 0;
-            btnUsers.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 89, 0);
-            btnUsers.FlatStyle = FlatStyle.Flat;
-            btnUsers.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnUsers.ForeColor = Color.White;
-            btnUsers.Image = (Image)resources.GetObject("btnUsers.Image");
-            btnUsers.ImageAlign = ContentAlignment.MiddleLeft;
-            btnUsers.Location = new Point(1, 212);
-            btnUsers.Margin = new Padding(3, 2, 3, 2);
-            btnUsers.Name = "btnUsers";
-            btnUsers.Size = new Size(192, 45);
-            btnUsers.TabIndex = 16;
-            btnUsers.Text = "Usuarios";
-            btnUsers.UseVisualStyleBackColor = false;
-            btnUsers.Click += btnUsers_Click;
             // 
             // MainMenu
             // 
