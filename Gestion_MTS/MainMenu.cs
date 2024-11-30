@@ -143,25 +143,6 @@ namespace Gestion_MTS
             Application.Exit();
         }
 
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void btnVentana_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Normal;
-            btnVentana.Visible = false;
-            btnMaximizar.Visible = true;
-        }
-
-        private void btnMaximizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-            btnVentana.Visible = true;
-            btnMaximizar.Visible = false;
-        }
-
         private void panelTitleBar_MouseDown_1(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -177,7 +158,7 @@ namespace Gestion_MTS
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
-
+            //MessageBox.Show($"{Context.AppContext.GetContext().userId}");
         }
 
         private void btnArqueo_Click(object sender, EventArgs e)
@@ -192,7 +173,28 @@ namespace Gestion_MTS
 
         private void btnServicios_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Servicios(), sender); 
+            OpenChildForm(new Servicios(), sender);
+        }
+
+        private void btnResize_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+                return;
+            }
+
+            this.WindowState = FormWindowState.Normal;
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Usuarios(), sender);
         }
     }
 }
