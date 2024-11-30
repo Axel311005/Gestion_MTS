@@ -92,16 +92,17 @@ namespace Gestion_MTS.IRepository.Repository
             return local;
         }
 
-        public void Update(LocalizacionEnBodega ado)
+        public void Update(LocalizacionEnBodega ado, int id)
         {
-            string query = "Update localizacionesBodega SET descripcion = @descripcion, id_bodega = @id_bodega";
+            string query = "Update localizacionesBodega SET descripcion = @descripcion, id_bodega = @id_bodega " +
+                "WHERE id_localizacionBodega = @id";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
                 command.Parameters.AddWithValue("@descripcion", ado.descripcion);
                 command.Parameters.AddWithValue("@id_bodega", ado.id_bodega);
-
+                command.Parameters.AddWithValue("@id", id);
 
                 try
                 {

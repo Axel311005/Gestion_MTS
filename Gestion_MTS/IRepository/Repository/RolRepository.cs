@@ -91,16 +91,17 @@ namespace Gestion_MTS.IRepository.Repository
             return roles;
         }
 
-        public void Update(Rol ado)
+        public void Update(Rol ado, int id)
         {
-            string query = "Update roles SET nombre = @nombre , descripcion = @descripcion";
+            string query = "Update roles SET nombre = @nombre , descripcion = @descripcion " +
+                "WHERE id_rol = @id";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
                 command.Parameters.AddWithValue("@nombre", ado.nombre);
                 command.Parameters.AddWithValue("@descripcion", ado.descripcion);
-
+                command.Parameters.AddWithValue("@id", id);
 
                 try
                 {

@@ -94,9 +94,10 @@ namespace Gestion_MTS.IRepository.Repository
             return clientes;
         }
 
-        public void Update(Cliente ado)
+        public void Update(Cliente ado, int id)
         {
-            string query = "Update clientes SET nombre = @nombre , apellido = @apellido , direccion = @direccion";
+            string query = "Update clientes SET nombre = @nombre , apellido = @apellido , direccion = @direccion " +
+                "WHERE id_cliente = @id";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
@@ -104,7 +105,7 @@ namespace Gestion_MTS.IRepository.Repository
                 command.Parameters.AddWithValue("@nombre", ado.Nombre);
                 command.Parameters.AddWithValue("@apellido", ado.Apellido);
                 command.Parameters.AddWithValue("@direccion", ado.Direccion);
-
+                command.Parameters.AddWithValue("@id", id);
 
 
                 try

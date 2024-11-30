@@ -91,16 +91,17 @@ namespace Gestion_MTS.IRepository.Repository
             return sucursal;
         }
 
-        public void Update(Sucursal ado)
+        public void Update(Sucursal ado, int id)
         {
-            string query = "Update sucursales SET ubicacion = @ubicacion, telefono = @telefono";
+            string query = "Update sucursales SET ubicacion = @ubicacion, telefono = @telefono " +
+                "WHERE id_sucursal = @id";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
                 command.Parameters.AddWithValue("@ubicacion", ado.ubicacion);
                 command.Parameters.AddWithValue("@telefono", ado.telefono);
-
+                command.Parameters.AddWithValue("@id", id);
 
                 try
                 {

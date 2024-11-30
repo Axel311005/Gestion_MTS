@@ -92,7 +92,7 @@ namespace Gestion_MTS.IRepository.Repository
             return bodegas;
         }
 
-        public void Update(Bodega bodega)
+        public void Update(Bodega bodega, int id)
         {
             string query = "UPDATE bodegas SET nombre = @nombre, id_sucursal = @id_sucursal WHERE id_bodega = @id_bodega";
 

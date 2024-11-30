@@ -11,6 +11,8 @@ using System.Windows.Forms;
 
 namespace Gestion_MTS
 {
+    using Context;
+
     public partial class MainMenu : Form
     {
 
@@ -159,6 +161,18 @@ namespace Gestion_MTS
         private void MainMenu_Load(object sender, EventArgs e)
         {
             //MessageBox.Show($"{Context.AppContext.GetContext().userId}");
+
+            int userRole = AppContext.GetContext().roleId;
+
+            if ((UserRoles)userRole != UserRoles.Admin)
+            {
+                btnArqueo.Hide();
+                btnEmpleados.Hide();
+                btnInventario.Hide();
+                btnServicios.Hide();
+                btnSucursales.Hide();
+                btnUsers.Hide();
+            }
         }
 
         private void btnArqueo_Click(object sender, EventArgs e)
