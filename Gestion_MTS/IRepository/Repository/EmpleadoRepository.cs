@@ -102,6 +102,7 @@ namespace Gestion_MTS.IRepository.Repository
             return empleados;
         }
 
+
         public DataTable GetEmployeesSimplified()
         {
             DataTable empleados = new DataTable();
