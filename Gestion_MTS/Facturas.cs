@@ -18,7 +18,7 @@ namespace Gestion_MTS
     {
         private string _connection = ConfigurationManager.ConnectionStrings["constring"].ConnectionString;
         private List<DetalleServicioDto> servicios = new List<DetalleServicioDto>();
-        private List<DetalleProducto> productos = new List<DetalleProducto>();
+        private List<DetalleProductoDto> productos = new List<DetalleProductoDto>();
 
         public Facturas()
         {
@@ -57,23 +57,89 @@ namespace Gestion_MTS
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            if (txtProductQuantity.Text.Trim() == "") {
+            if (txtProductQuantity.Text.Trim() == "")
+            {
                 MessageBox.Show("El campo cantidad es obligatorio", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (!int.TryParse(txtProductQuantity.Text, out var quantity)) {
+            if (!int.TryParse(txtProductQuantity.Text, out var quantity))
+            {
                 MessageBox.Show("El campo cantidad debe ser un numero entero", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
+            int productIdx = productos.FindIndex(p => p.IdProducto == Convert.ToInt32(cmbProducts.SelectedValue));
+
+            if (productIdx != -1)
+            {
+                productos[productIdx].Cantidad += quantity;
+                RefreshData();
+                return;
+            }
+
             productos.Add(
-                new DetalleProducto
+                new DetalleProductoDto
                 {
                     IdProducto = Convert.ToInt32(cmbProducts.SelectedValue),
-                    Cantidad = quantity
+                    Cantidad = quantity,
+                    NombreProducto = cmbProducts.Text,
                 }
             );
+
+            RefreshData();
+        }
+
+        private void RefreshData()
+        {
+            dgvProducts.DataSource = null;
+            dgvProducts.DataSource = productos;
+
+            dgvServices.DataSource = null;
+            dgvServices.DataSource = servicios;
+
+            dgvProducts.Columns["IdProducto"].Visible = false;
+            dgvServices.Columns["IdServicio"].Visible = false;
+            dgvServices.Columns["IdEmpleado"].Visible = false;
+        }
+
+        private void btnAddService_Click(object sender, EventArgs e)
+        {
+            if (txtAmount.Text.Trim() == "")
+            {
+                MessageBox.Show("El campo monto es obligatorio", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!decimal.TryParse(txtAmount.Text, out var amount))
+            {
+                MessageBox.Show("El campo monto debe ser un numero", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            servicios.Add(
+                new DetalleServicioDto
+                {
+                    IdServicio = Convert.ToInt32(cmbServicios.SelectedValue),
+                    IdEmpleado = Convert.ToInt32(cmbEmpleados.SelectedValue),
+                    NombreEmpleado = cmbEmpleados.Text,
+                    NombreServicio = cmbServicios.Text,
+                    Amount = amount
+                }
+            );
+
+            RefreshData();
+        }
+
+        private void dgvProducts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var selectedProduct = (DetalleProductoDto)dgvProducts.SelectedRows[0].DataBoundItem;
+
+                txtProductQuantity.Text = selectedProduct.Cantidad.ToString();
+                cmbProducts.SelectedValue = selectedProduct.IdProducto;
+            }
         }
     }
 }

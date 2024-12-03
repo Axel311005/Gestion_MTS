@@ -45,12 +45,12 @@
             btnUpdateRequestedService = new Button();
             lblAddedServices = new Label();
             dgvServices = new DataGridView();
+            txtAmount = new TextBox();
             lblAmount = new Label();
             cmbEmpleados = new ComboBox();
             lblEmployee = new Label();
             cmbServicios = new ComboBox();
             lblService = new Label();
-            txtAmount = new TextBox();
             grpProducts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
             grpServices.SuspendLayout();
@@ -128,11 +128,14 @@
             // dgvProducts
             // 
             dgvProducts.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProducts.Location = new Point(476, 39);
             dgvProducts.Name = "dgvProducts";
+            dgvProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvProducts.Size = new Size(333, 100);
             dgvProducts.TabIndex = 4;
+            dgvProducts.CellClick += dgvProducts_CellClick;
             // 
             // txtProductQuantity
             // 
@@ -196,6 +199,7 @@
             btnAddService.TabIndex = 14;
             btnAddService.Text = "Agregar Servicio";
             btnAddService.UseVisualStyleBackColor = true;
+            btnAddService.Click += btnAddService_Click;
             // 
             // btnDeleteRequestedService
             // 
@@ -227,11 +231,20 @@
             // dgvServices
             // 
             dgvServices.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            dgvServices.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvServices.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvServices.Location = new Point(482, 39);
             dgvServices.Name = "dgvServices";
+            dgvServices.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvServices.Size = new Size(327, 108);
             dgvServices.TabIndex = 10;
+            // 
+            // txtAmount
+            // 
+            txtAmount.Location = new Point(81, 94);
+            txtAmount.Name = "txtAmount";
+            txtAmount.Size = new Size(100, 23);
+            txtAmount.TabIndex = 9;
             // 
             // lblAmount
             // 
@@ -275,13 +288,6 @@
             lblService.Size = new Size(48, 15);
             lblService.TabIndex = 4;
             lblService.Text = "Servicio";
-            // 
-            // txtAmount
-            // 
-            txtAmount.Location = new Point(81, 94);
-            txtAmount.Name = "txtAmount";
-            txtAmount.Size = new Size(100, 23);
-            txtAmount.TabIndex = 9;
             // 
             // Facturas
             // 

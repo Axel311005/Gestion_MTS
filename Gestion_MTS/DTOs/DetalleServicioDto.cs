@@ -11,6 +11,10 @@ namespace Gestion_MTS.DTOs
         public int IdEmpleado { get; set; } 
         public int IdServicio { get; set; }
 
-        public int Quantity { get; set;}
+        public decimal Amount { get; set;}
+
+        public string NombreEmpleado { get; set; }
+
+        public string NombreServicio { get; set; }
     }
 }
