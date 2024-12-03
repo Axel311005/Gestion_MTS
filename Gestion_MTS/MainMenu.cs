@@ -162,17 +162,17 @@ namespace Gestion_MTS
         {
             //MessageBox.Show($"{Context.AppContext.GetContext().userId}");
 
-            //int userRole = AppContext.GetContext().roleId;
+            int userRole = AppContext.GetContext().roleId;
 
-            //if ((UserRoles)userRole != UserRoles.Admin)
-            //{
-            //    btnArqueo.Hide();
-            //    btnEmpleados.Hide();
-            //    btnInventario.Hide();
-            //    btnServicios.Hide();
-            //    btnSucursales.Hide();
-            //    btnUsers.Hide();
-            //}
+            if ((UserRoles)userRole != UserRoles.Admin)
+            {
+                btnArqueo.Hide();
+                btnEmpleados.Hide();
+                btnInventario.Hide();
+                btnServicios.Hide();
+                btnSucursales.Hide();
+                btnUsers.Hide();
+            }
         }
 
         private void btnArqueo_Click(object sender, EventArgs e)
