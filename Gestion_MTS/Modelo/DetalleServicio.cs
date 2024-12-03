@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gestion_MTS.Clases
 {
-    public class DetalleServicioDto
+    public class DetalleServicio
     {
         public int IdDetalleServicio { get; set; }
         public int? IdEmpleado { get; set; } // Opcional si el empleado no siempre está presente

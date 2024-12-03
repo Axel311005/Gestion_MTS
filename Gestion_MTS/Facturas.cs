@@ -1,4 +1,5 @@
 ﻿using Gestion_MTS.Clases;
+using Gestion_MTS.DTOs;
 using Gestion_MTS.IRepository.Repository;
 using System;
 using System.Collections.Generic;
@@ -69,7 +70,7 @@ namespace Gestion_MTS
             productos.Add(
                 new DetalleProducto
                 {
-                    IdProducto = Convert.ToInt32(cmbProducts.SelectedValue)
+                    IdProducto = Convert.ToInt32(cmbProducts.SelectedValue),
                     Cantidad = quantity
                 }
             );
