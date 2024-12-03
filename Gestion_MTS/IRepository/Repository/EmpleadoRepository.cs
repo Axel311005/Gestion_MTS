@@ -101,10 +101,10 @@ namespace Gestion_MTS.IRepository.Repository
             return empleados;
         }
 
-        public void Update(Empleado ado)
+        public void Update(Empleado ado, int id)
         {
             string query = "Update empleados SET nombre = @nombre , apellido = @apellido,salario = @salario,fecha_nacimiento=@nacimiento,cedula=@cedula,celular =@celular, direccion=@direccion," +
-                "id_rol = @id_rol, id_sucursal = @id_sucursal ";
+                "id_rol = @id_rol, id_sucursal = @id_sucursal WHERE id_empleado = @id";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
@@ -118,7 +118,7 @@ namespace Gestion_MTS.IRepository.Repository
                 command.Parameters.AddWithValue("@direccion", ado.direccion);
                 command.Parameters.AddWithValue("@id_rol", ado.id_rol);
                 command.Parameters.AddWithValue("@id_sucursal", ado.id_sucursal);
-
+                command.Parameters.AddWithValue("@id", id);
 
                 try
                 {

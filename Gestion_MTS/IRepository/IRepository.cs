@@ -11,7 +11,7 @@ namespace Gestion_MTS.IRepository
     {
         DataTable GetAll(); 
         void Add(T ado);
-        void Update(T ado);
+        void Update(T ado, int id);
         void Delete(int id);
     }
 }

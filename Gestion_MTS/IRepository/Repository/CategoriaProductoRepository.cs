@@ -90,16 +90,17 @@ namespace Gestion_MTS.IRepository.Repository
             return categorias;
         }
 
-        public void Update(CategoriaProducto ado)
+        public void Update(CategoriaProducto ado, int id)
         {
-            string query = "Update categoriasProducto SET nombre = @nombre , descripcion = @descripcion";
+            string query = "Update categoriasProducto SET nombre = @nombre , descripcion = @descripcion " +
+                "WHERE id_categoriaProducto = @id";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
                 command.Parameters.AddWithValue("@nombre", ado.Nombre);
                 command.Parameters.AddWithValue("@descripcion", ado.Descripcion);
-
+                command.Parameters.AddWithValue("@id", id);
 
                 try
                 {

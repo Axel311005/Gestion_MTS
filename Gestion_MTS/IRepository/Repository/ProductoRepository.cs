@@ -99,7 +99,7 @@ namespace Gestion_MTS.IRepository.Repository
             return productos;
         }
 
-        public void Update(Producto producto)
+        public void Update(Producto producto, int id)
         {
             string query = "EXEC spActualizarProducto @id_producto, @codigo, @estado, @descripcion, @nombre, @precio_unitario, @stock, @stock_minimo, @id_categoriaProducto, @id_localizacionBodega";
 
