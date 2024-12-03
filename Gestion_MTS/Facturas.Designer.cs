@@ -32,11 +32,13 @@
             // 
             // Facturas
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1131, 609);
+            ClientSize = new Size(990, 457);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Facturas";
             Text = "Gestión Facturas";
+            Load += Facturas_Load;
             ResumeLayout(false);
         }
 
