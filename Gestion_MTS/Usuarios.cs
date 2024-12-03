@@ -1,4 +1,4 @@
-﻿using BCrypt.Net;
+using BCrypt.Net;
 using Gestion_MTS.Clases;
 using Gestion_MTS.IRepository.Repository;
 using System;
@@ -30,7 +30,9 @@ namespace Gestion_MTS
             EmpleadoRepository empleadoRepo = new EmpleadoRepository(db_connection);
             UsuarioRepository userRepo = new UsuarioRepository(db_connection);
 
-            var empleados = empleadoRepo.GetAllUsers();
+
+            var empleados = empleadoRepo.GetEmployeesSimplified();
+
 
             cmbEmployeeId.DataSource = empleados;
             cmbEmployeeId.DisplayMember = "nombre";

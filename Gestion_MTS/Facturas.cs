@@ -16,5 +16,10 @@ namespace Gestion_MTS
         {
             InitializeComponent();
         }
+
+        private void Facturas_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

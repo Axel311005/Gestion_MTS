@@ -1,4 +1,5 @@
 ﻿using Gestion_MTS.Clases;
+using Gestion_MTS.Vistas;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -101,11 +102,12 @@ namespace Gestion_MTS.IRepository.Repository
             return empleados;
         }
 
-        public DataTable GetAllUsers()
+
+        public DataTable GetEmployeesSimplified()
         {
             DataTable empleados = new DataTable();
 
-            string query = "SELECT * FROM ViewUsers";
+            string query = "SELECT * FROM EmployeesSimplified";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -124,6 +126,7 @@ namespace Gestion_MTS.IRepository.Repository
             }
             return empleados;
         }
+
 
         public void Update(Empleado ado, int id)
         {
