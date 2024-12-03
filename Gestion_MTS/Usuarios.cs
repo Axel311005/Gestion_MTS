@@ -30,7 +30,7 @@ namespace Gestion_MTS
             EmpleadoRepository empleadoRepo = new EmpleadoRepository(db_connection);
             UsuarioRepository userRepo = new UsuarioRepository(db_connection);
 
-            var empleados = empleadoRepo.GetAll();
+            var empleados = empleadoRepo.GetAllUsers();
 
             cmbEmployeeId.DataSource = empleados;
             cmbEmployeeId.DisplayMember = "nombre";

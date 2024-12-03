@@ -101,6 +101,30 @@ namespace Gestion_MTS.IRepository.Repository
             return empleados;
         }
 
+        public DataTable GetAllUsers()
+        {
+            DataTable empleados = new DataTable();
+
+            string query = "SELECT * FROM ViewUsers";
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                try
+                {
+                    connection.Open();
+                    adapter.Fill(empleados);
+                }
+                catch (Exception e)
+                {
+
+                    throw new Exception("Error:" + e.Message);
+                }
+            }
+            return empleados;
+        }
+
         public void Update(Empleado ado, int id)
         {
             string query = "Update empleados SET nombre = @nombre , apellido = @apellido,salario = @salario,fecha_nacimiento=@nacimiento,cedula=@cedula,celular =@celular, direccion=@direccion," +
