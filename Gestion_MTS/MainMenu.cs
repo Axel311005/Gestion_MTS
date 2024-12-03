@@ -162,7 +162,7 @@ namespace Gestion_MTS
         {
             //MessageBox.Show($"{Context.AppContext.GetContext().userId}");
 
-            int userRole = AppContext.GetContext().roleId;
+            /*int userRole = AppContext.GetContext().roleId;
 
             if ((UserRoles)userRole != UserRoles.Admin)
             {
@@ -172,7 +172,7 @@ namespace Gestion_MTS
                 btnServicios.Hide();
                 btnSucursales.Hide();
                 btnUsers.Hide();
-            }
+            }*/
         }
 
         private void btnArqueo_Click(object sender, EventArgs e)

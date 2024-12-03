@@ -126,6 +126,30 @@ namespace Gestion_MTS.IRepository.Repository
             return empleados;
         }
 
+        public DataTable GetMechanicEmployees()
+        {
+            DataTable mecanicos = new DataTable();
+
+            string query = "SELECT * FROM MechanicEmployees";
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                try
+                {
+                    connection.Open();
+                    adapter.Fill(mecanicos);
+                }
+                catch (Exception e)
+                {
+
+                    throw new Exception("Error:" + e.Message);
+                }
+            }
+            return mecanicos;
+        }
+
         public List<VistaVentasEmpleados> GetEmployeeSells()
         {
             List<VistaVentasEmpleados> employeeSells = new List<VistaVentasEmpleados>();

@@ -99,6 +99,28 @@ namespace Gestion_MTS.IRepository.Repository
             return productos;
         }
 
+        public DataTable GetSimplifiedProducts()
+        {
+            DataTable productos = new DataTable();
+
+            string query = "Select * from ProductsSimplified";
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                try
+                {
+                    connection.Open();
+                    adapter.Fill(productos);
+                }
+                catch (Exception e)
+                {
+                    throw new Exception("Error: " + e.Message);
+                }
+            }
+            return productos;
+        }
+
         public void Update(Producto producto, int id)
         {
             string query = "EXEC spActualizarProducto @id_producto, @codigo, @estado, @descripcion, @nombre, @precio_unitario, @stock, @stock_minimo, @id_categoriaProducto, @id_localizacionBodega";

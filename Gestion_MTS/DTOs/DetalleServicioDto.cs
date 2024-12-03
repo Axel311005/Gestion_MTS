@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gestion_MTS.Clases
+namespace Gestion_MTS.DTOs
 {
     public class DetalleServicioDto
     {
-        public int IdDetalleServicio { get; set; }
-        public int? IdEmpleado { get; set; } // Opcional si el empleado no siempre está presente
+        public int IdEmpleado { get; set; } 
         public int IdServicio { get; set; }
+
+        public int Quantity { get; set;}
     }
 }
