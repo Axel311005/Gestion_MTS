@@ -102,6 +102,7 @@ namespace Gestion_MTS.IRepository.Repository
             return empleados;
         }
 
+
         public DataTable GetEmployeesSimplified()
         {
             DataTable empleados = new DataTable();
@@ -126,45 +127,6 @@ namespace Gestion_MTS.IRepository.Repository
             return empleados;
         }
 
-        public List<VistaVentasEmpleados> GetEmployeeSells()
-        {
-            List<VistaVentasEmpleados> employeeSells = new List<VistaVentasEmpleados>();
-
-            string query = "SELECT * FROM VentasEmpleado";
-
-            using (SqlConnection connection = new SqlConnection(_connectionString))
-            {
-                SqlCommand command = new SqlCommand(query, connection);
-
-                try
-                {
-                    connection.Open();
-                    
-                    SqlDataReader reader =  command.ExecuteReader();
-
-                    while(reader.Read())
-                    {
-                        employeeSells.Add(
-                            new VistaVentasEmpleados
-                            {
-                                id_empleado = reader.GetInt32(0),
-                                nombre = reader.GetString(1),
-                                apellido = reader.GetString(2),
-                                TotalVentas = reader.GetDecimal(3),
-                                AñoVenta = reader.GetInt32(4),
-                                MesVenta = reader.GetInt32(5)
-                            }
-                        );
-                    }
-
-                    return employeeSells;
-                }
-                catch (Exception e)
-                {
-                    throw new Exception("Error:" + e.Message);
-                }
-            }
-        }
 
         public void Update(Empleado ado, int id)
         {
