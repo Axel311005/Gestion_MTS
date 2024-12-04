@@ -11,13 +11,13 @@ namespace Gestion_MTS.Vistas
 {
     public class VistaEmpleados
     {
-        public string nombre { get; set; }
-        public string apellido { get; set; }
-        public DateOnly fecha_nacimiento { get; set; }
-        public string cedula { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public DateTime Cumpleaños { get; set; }
+        public string Identificación { get; set; }
         public string celular { get; set; }
         public string direccion { get; set; }
-        public string rol { get; set; }
-        public string sucursal { get; set; }
+        public string Rol { get; set; }
+        public string Sucursal { get; set; }
     }
 }

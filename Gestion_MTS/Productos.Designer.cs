@@ -102,6 +102,7 @@
             btnDeleteProd.TabIndex = 9;
             btnDeleteProd.Text = "Borrar";
             btnDeleteProd.UseVisualStyleBackColor = true;
+            btnDeleteProd.Click += btnDeleteProd_Click;
             // 
             // btnUpdateProd
             // 
@@ -111,6 +112,7 @@
             btnUpdateProd.TabIndex = 8;
             btnUpdateProd.Text = "Actualizar";
             btnUpdateProd.UseVisualStyleBackColor = true;
+            btnUpdateProd.Click += btnUpdateProd_Click;
             // 
             // btnAddProd
             // 
@@ -297,6 +299,7 @@
             dgvProductos.RowHeadersWidth = 51;
             dgvProductos.Size = new Size(1091, 175);
             dgvProductos.TabIndex = 0;
+            dgvProductos.CellClick += dgvProductos_CellClick;
             // 
             // tabPage2
             // 

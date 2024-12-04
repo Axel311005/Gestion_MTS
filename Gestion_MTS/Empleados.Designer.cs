@@ -94,6 +94,7 @@
             btnDeleteEmpleado.TabIndex = 6;
             btnDeleteEmpleado.Text = "Borrar";
             btnDeleteEmpleado.UseVisualStyleBackColor = true;
+            btnDeleteEmpleado.Click += btnDeleteEmpleado_Click;
             // 
             // btnUpdateEmpleado
             // 
@@ -103,6 +104,7 @@
             btnUpdateEmpleado.TabIndex = 5;
             btnUpdateEmpleado.Text = "Editar";
             btnUpdateEmpleado.UseVisualStyleBackColor = true;
+            btnUpdateEmpleado.Click += btnUpdateEmpleado_Click;
             // 
             // btnAddEmpleado
             // 
@@ -124,6 +126,7 @@
             dgvEmpleados.RowHeadersWidth = 51;
             dgvEmpleados.Size = new Size(1031, 187);
             dgvEmpleados.TabIndex = 3;
+            dgvEmpleados.CellClick += dgvEmpleados_CellClick;
             // 
             // groupBox1
             // 
