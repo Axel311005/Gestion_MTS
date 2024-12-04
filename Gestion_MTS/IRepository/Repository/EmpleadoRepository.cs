@@ -1,4 +1,4 @@
-﻿using Gestion_MTS.Clases;
+using Gestion_MTS.Clases;
 using Gestion_MTS.Vistas;
 using System;
 using System.Collections.Generic;
@@ -165,10 +165,10 @@ namespace Gestion_MTS.IRepository.Repository
                 try
                 {
                     connection.Open();
+                    
+                    SqlDataReader reader =  command.ExecuteReader();
 
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    while (reader.Read())
+                    while(reader.Read())
                     {
                         employeeSells.Add(
                             new VistaVentasEmpleados
@@ -211,6 +211,7 @@ namespace Gestion_MTS.IRepository.Repository
                 command.Parameters.AddWithValue("@id_sucursal", ado.id_sucursal);
                 command.Parameters.AddWithValue("@id", ado.id_empleado);
 
+
                 try
                 {
                     connection.Open();
@@ -226,37 +227,6 @@ namespace Gestion_MTS.IRepository.Repository
                     throw new Exception("Error " + e.Message);
                 }
             }
-        }
-
-        public int ObtenerIdEmpleadoPorNombre(string nombre, string apellido)
-        {
-            int idEmpleado = -1; // Valor predeterminado si no se encuentra el empleado
-            
-            string query = "SELECT id_empleado FROM empleados WHERE nombre = @nombre AND apellido = @apellido";
-
-            using (SqlConnection connection = new SqlConnection(_connectionString))
-            {
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@nombre", nombre);
-                command.Parameters.AddWithValue("@apellido", apellido);
-
-                try
-                {
-                    connection.Open();
-                    object result = command.ExecuteScalar(); // Obtiene un solo valor (el ID)
-
-                    if (result != null && result != DBNull.Value)
-                    {
-                        idEmpleado = Convert.ToInt32(result);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("Error al obtener el ID del empleado: " + ex.Message);
-                }
-            }
-
-            return idEmpleado;
         }
 
     }

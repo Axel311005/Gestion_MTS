@@ -91,6 +91,28 @@ namespace Gestion_MTS.IRepository.Repository
             return servicios;
         }
 
+        public DataTable GetSimplifiedServices()
+        {
+            DataTable servicios = new DataTable();
+
+            string query = "Select * from ServicesSimplified";
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                try
+                {
+                    connection.Open();
+                    adapter.Fill(servicios);
+                }
+                catch (Exception e)
+                {
+                    throw new Exception("Error: " + e.Message);
+                }
+            }
+            return servicios;
+        }
+
         public void Update(Servicio ado, int id)
         {
             string query = "Update servicios SET nombre = @nombre , descripcion = @descripcion, id_categoriaServicio = @id_categoriaServicio " +
