@@ -127,43 +127,31 @@ namespace Gestion_MTS.IRepository.Repository
             return empleados;
         }
 
-
-        public void Update(Empleado ado, int id)
+        public DataTable GetMechanicEmployees()
         {
-            string query = "Update empleados SET nombre = @nombre , apellido = @apellido,salario = @salario,fecha_nacimiento=@nacimiento,cedula=@cedula,celular =@celular, direccion=@direccion," +
-                "id_rol = @id_rol, id_sucursal = @id_sucursal WHERE id_empleado = @id";
+            DataTable mecanicos = new DataTable();
+
+            string query = "SELECT * FROM MechanicEmployees";
+
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
-                command.Parameters.AddWithValue("@nombre", ado.nombre);
-                command.Parameters.AddWithValue("@apellido", ado.apellido);
-                command.Parameters.AddWithValue("@salario", ado.salario);
-                command.Parameters.AddWithValue("@nacimiento", ado.fecha_nacimiento);
-                command.Parameters.AddWithValue("@cedula", ado.cedula);
-                command.Parameters.AddWithValue("@celular", ado.celular);
-                command.Parameters.AddWithValue("@direccion", ado.direccion);
-                command.Parameters.AddWithValue("@id_rol", ado.id_rol);
-                command.Parameters.AddWithValue("@id_sucursal", ado.id_sucursal);
-                command.Parameters.AddWithValue("@id", ado.id_empleado);
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
 
                 try
                 {
                     connection.Open();
-                    int rowsAffected = command.ExecuteNonQuery();
-
-                    if (rowsAffected == 0)
-                    {
-                        throw new Exception("No se encontró el ID especificado.");
-                    }
+                    adapter.Fill(mecanicos);
                 }
                 catch (Exception e)
                 {
-                    throw new Exception("Error " + e.Message);
+
+                    throw new Exception("Error:" + e.Message);
                 }
             }
+            return mecanicos;
         }
-
         public List<VistaVentasEmpleados> GetEmployeeSells()
         {
             List<VistaVentasEmpleados> employeeSells = new List<VistaVentasEmpleados>();
@@ -200,6 +188,42 @@ namespace Gestion_MTS.IRepository.Repository
                 catch (Exception e)
                 {
                     throw new Exception("Error:" + e.Message);
+                }
+            }
+        }
+
+        public void Update(Empleado ado, int id)
+        {
+            string query = "Update empleados SET nombre = @nombre , apellido = @apellido,salario = @salario,fecha_nacimiento=@nacimiento,cedula=@cedula,celular =@celular, direccion=@direccion," +
+                "id_rol = @id_rol, id_sucursal = @id_sucursal WHERE id_empleado = @id";
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+
+                command.Parameters.AddWithValue("@nombre", ado.nombre);
+                command.Parameters.AddWithValue("@apellido", ado.apellido);
+                command.Parameters.AddWithValue("@salario", ado.salario);
+                command.Parameters.AddWithValue("@nacimiento", ado.fecha_nacimiento);
+                command.Parameters.AddWithValue("@cedula", ado.cedula);
+                command.Parameters.AddWithValue("@celular", ado.celular);
+                command.Parameters.AddWithValue("@direccion", ado.direccion);
+                command.Parameters.AddWithValue("@id_rol", ado.id_rol);
+                command.Parameters.AddWithValue("@id_sucursal", ado.id_sucursal);
+                command.Parameters.AddWithValue("@id", ado.id_empleado);
+
+                try
+                {
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected == 0)
+                    {
+                        throw new Exception("No se encontró el ID especificado.");
+                    }
+                }
+                catch (Exception e)
+                {
+                    throw new Exception("Error " + e.Message);
                 }
             }
         }
