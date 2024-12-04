@@ -95,6 +95,7 @@
             btnDeleteRequestedProduct.TabIndex = 8;
             btnDeleteRequestedProduct.Text = "Eliminar Pedido";
             btnDeleteRequestedProduct.UseVisualStyleBackColor = true;
+            btnDeleteRequestedProduct.Click += btnDeleteRequestedProduct_Click;
             // 
             // btnUpdateRequestedProduct
             // 
@@ -104,6 +105,7 @@
             btnUpdateRequestedProduct.TabIndex = 7;
             btnUpdateRequestedProduct.Text = "Actualizar Pedido";
             btnUpdateRequestedProduct.UseVisualStyleBackColor = true;
+            btnUpdateRequestedProduct.Click += btnUpdateRequestedProduct_Click;
             // 
             // btnAddProduct
             // 
@@ -209,6 +211,7 @@
             btnDeleteRequestedService.TabIndex = 13;
             btnDeleteRequestedService.Text = "Eliminar Pedido";
             btnDeleteRequestedService.UseVisualStyleBackColor = true;
+            btnDeleteRequestedService.Click += btnDeleteRequestedService_Click;
             // 
             // btnUpdateRequestedService
             // 
@@ -218,6 +221,7 @@
             btnUpdateRequestedService.TabIndex = 12;
             btnUpdateRequestedService.Text = "ActualizarPedido";
             btnUpdateRequestedService.UseVisualStyleBackColor = true;
+            btnUpdateRequestedService.Click += btnUpdateRequestedService_Click;
             // 
             // lblAddedServices
             // 
@@ -238,6 +242,7 @@
             dgvServices.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvServices.Size = new Size(327, 108);
             dgvServices.TabIndex = 10;
+            dgvServices.CellClick += dgvServices_CellClick;
             // 
             // txtAmount
             // 
