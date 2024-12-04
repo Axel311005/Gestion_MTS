@@ -1,4 +1,4 @@
-﻿using Gestion_MTS.Clases;
+using Gestion_MTS.Clases;
 using Gestion_MTS.Vistas;
 using System;
 using System.Collections.Generic;
@@ -136,7 +136,9 @@ namespace Gestion_MTS.IRepository.Repository
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
+
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
+
                 try
                 {
                     connection.Open();
@@ -150,7 +152,6 @@ namespace Gestion_MTS.IRepository.Repository
             }
             return mecanicos;
         }
-
         public List<VistaVentasEmpleados> GetEmployeeSells()
         {
             List<VistaVentasEmpleados> employeeSells = new List<VistaVentasEmpleados>();
@@ -208,7 +209,8 @@ namespace Gestion_MTS.IRepository.Repository
                 command.Parameters.AddWithValue("@direccion", ado.direccion);
                 command.Parameters.AddWithValue("@id_rol", ado.id_rol);
                 command.Parameters.AddWithValue("@id_sucursal", ado.id_sucursal);
-                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@id", ado.id_empleado);
+
 
                 try
                 {
@@ -226,5 +228,6 @@ namespace Gestion_MTS.IRepository.Repository
                 }
             }
         }
+
     }
 }

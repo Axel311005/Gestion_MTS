@@ -153,5 +153,36 @@ namespace Gestion_MTS.IRepository.Repository
                 }
             }
         }
+
+        public int ObtenerIdProductoPorNombre(string nombreProducto)
+        {
+            int idProducto = -1; // Valor predeterminado si no se encuentra el producto
+            
+            string query = "SELECT id_producto FROM productos WHERE nombre = @nombre";
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@nombre", nombreProducto);
+
+                try
+                {
+                    connection.Open();
+                    object result = command.ExecuteScalar(); // Obtiene un solo valor (el ID)
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        idProducto = Convert.ToInt32(result);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al obtener el ID del producto: " + ex.Message);
+                }
+            }
+
+            return idProducto;
+        }
+
     }
 }
