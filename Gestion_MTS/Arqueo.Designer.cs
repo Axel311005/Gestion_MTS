@@ -1,4 +1,4 @@
-﻿namespace Gestion_MTS
+namespace Gestion_MTS
 {
     partial class Arqueo
     {
@@ -96,7 +96,9 @@
             label2.Size = new Size(159, 26);
             label2.TabIndex = 6;
             label2.Text = "Fecha Inicio";
-          
+
+            
+
             // 
             // label3
             // 
@@ -108,7 +110,8 @@
             label3.Size = new Size(150, 26);
             label3.TabIndex = 7;
             label3.Text = "Fecha Final";
-        
+ 
+
             // 
             // txtTotal
             // 

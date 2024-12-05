@@ -73,7 +73,7 @@
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
-            tabControl1.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold);
+            tabControl1.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tabControl1.Location = new Point(12, 12);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -94,7 +94,6 @@
             tabPage1.Size = new Size(1097, 557);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Agregar Productos";
-            
             // 
             // btnDeleteProd
             // 
