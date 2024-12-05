@@ -281,5 +281,36 @@ namespace Gestion_MTS
             RefreshData();
             MessageBox.Show("Detalle Eliminado Correctamente", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void btnGenerateFactura_Click(object sender, EventArgs e)
+        {
+            if(productos.Count < 1 && servicios.Count < 1)
+            {
+                MessageBox.Show("Necesita agregar productos o servicios a la factura", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            FacturaRepository facturaRepo = new FacturaRepository(this._connection);
+
+            int idFactura = facturaRepo.AddFactura(
+                new Factura
+                {
+                     IdCliente = Convert.ToInt32(cmbCliente.SelectedValue),
+                     IdEmpleado = Context.AppContext.GetContext()?.GetEmployeeId() ?? 1, // Por defecto se usa el empleado 1, pero cuando usemos el login el GetEmployeeId siempre deberia retornar el id del empleado con el usuario correspondiente
+                     IdTipoPago = Convert.ToInt32(cmbTipoPago.SelectedValue)
+                }
+            );
+
+            if(idFactura == 0)
+            {
+                MessageBox.Show("Ocurrio un error al crear la factura", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            facturaRepo.AddFacturaDetails(
+                new Tuple<List<DetalleProductoDto>, List<DetalleServicioDto>>(productos, servicios),
+                idFactura
+            );
+        }
     }
 }

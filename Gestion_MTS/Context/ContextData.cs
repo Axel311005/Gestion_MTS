@@ -16,7 +16,7 @@ namespace Gestion_MTS.Context
             this.roleId = roleId;
         }
 
-        public int GetEmployeeId()
+        public int? GetEmployeeId()
         {
             string _connectionString = ConfigurationManager.ConnectionStrings["constring"].ConnectionString;
 
