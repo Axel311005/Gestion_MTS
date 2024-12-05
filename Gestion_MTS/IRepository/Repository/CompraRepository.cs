@@ -118,5 +118,36 @@ namespace Gestion_MTS.IRepository.Repository
                 }
             }
         }
+
+        public int? GetIdCompra(int numeroCompra)
+        {
+            string query = "SELECT TOP 1 id_compra FROM compras WHERE numero_compra = @numeroCompra";
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@numeroCompra", numeroCompra);
+
+                try
+                {
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+
+                    if (result != null && int.TryParse(result.ToString(), out int idCompra))
+                    {
+                        return idCompra;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch (Exception e)
+                {
+                    throw new Exception("Error al obtener el ID de la compra: " + e.Message);
+                }
+            }
+        }
+
     }
 }
