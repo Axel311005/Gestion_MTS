@@ -195,6 +195,7 @@
             // 
             // tabPage2
             // 
+            tabPage2.BackColor = SystemColors.Control;
             tabPage2.Controls.Add(label3);
             tabPage2.Controls.Add(label4);
             tabPage2.Controls.Add(btnDeleteCat);
@@ -209,7 +210,6 @@
             tabPage2.Size = new Size(1178, 591);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Categorias  de Servicios";
-            tabPage2.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -275,6 +275,7 @@
             // 
             // dgvCategoriaServicios
             // 
+            dgvCategoriaServicios.BackgroundColor = SystemColors.ButtonHighlight;
             dgvCategoriaServicios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCategoriaServicios.Dock = DockStyle.Bottom;
             dgvCategoriaServicios.Location = new Point(3, 356);

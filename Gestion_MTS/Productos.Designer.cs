@@ -374,7 +374,7 @@
             // 
             // dgvCategorias
             // 
-            dgvCategorias.BackgroundColor = SystemColors.Control;
+            dgvCategorias.BackgroundColor = SystemColors.ButtonHighlight;
             dgvCategorias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCategorias.Dock = DockStyle.Bottom;
             dgvCategorias.Location = new Point(3, 333);
@@ -459,6 +459,7 @@
             // 
             // tabPage3
             // 
+            tabPage3.BackColor = SystemColors.Control;
             tabPage3.Controls.Add(btnDeleteCompra);
             tabPage3.Controls.Add(btnUpdateCompra);
             tabPage3.Controls.Add(btnAddCompra);
@@ -470,7 +471,6 @@
             tabPage3.Size = new Size(1097, 557);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Compra de Inventario";
-            tabPage3.UseVisualStyleBackColor = true;
             // 
             // btnDeleteCompra
             // 
@@ -648,6 +648,7 @@
             // 
             // tabPage4
             // 
+            tabPage4.BackColor = SystemColors.Control;
             tabPage4.Controls.Add(dgvProveedores);
             tabPage4.Controls.Add(btnDeleteProv);
             tabPage4.Controls.Add(btnUpdateProv);
@@ -659,7 +660,6 @@
             tabPage4.Size = new Size(1097, 557);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Proveedores";
-            tabPage4.UseVisualStyleBackColor = true;
             // 
             // dgvProveedores
             // 
