@@ -74,7 +74,7 @@ namespace Gestion_MTS.IRepository.Repository
         {
             DataTable tabla = new DataTable();
 
-            string query = "Select * from ViewCompras";
+            string query = "Select * from ComprasView";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);

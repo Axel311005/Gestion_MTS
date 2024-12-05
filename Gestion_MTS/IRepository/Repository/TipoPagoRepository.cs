@@ -143,5 +143,66 @@ namespace Gestion_MTS.IRepository.Repository
                 }
             }
         }
+
+        public int? GetIdTipoPago(string tipo)
+        {
+            string query = "SELECT TOP 1 id_tipo_pago FROM tiposPago WHERE tipo = @tipo";
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@tipo", tipo);
+
+                try
+                {
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+
+                    if (result != null && int.TryParse(result.ToString(), out int idTipoPago))
+                    {
+                        return idTipoPago;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch (Exception e)
+                {
+                    throw new Exception("Error al obtener el ID del tipo de pago: " + e.Message);
+                }
+            }
+        }
+
+
+        public List<string> GetTiposPago()
+        {
+            List<string> tiposPago = new List<string>();
+            string query = "SELECT tipo FROM tiposPago";
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+
+                try
+                {
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            tiposPago.Add(reader["tipo"].ToString());
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    throw new Exception("Error al obtener los tipos de pago: " + e.Message);
+                }
+            }
+
+            return tiposPago;
+        }
+
     }
 }
