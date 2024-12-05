@@ -26,7 +26,6 @@ namespace Gestion_MTS.IRepository.Repository
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
-                // Agregar parámetros
                 command.Parameters.AddWithValue("@id_compra", detalleCompra.IdCompra);
                 command.Parameters.AddWithValue("@id_proveedor", detalleCompra.IdProveedor);
                 command.Parameters.AddWithValue("@id_producto", detalleCompra.IdProducto);
