@@ -23,6 +23,10 @@ namespace Gestion_MTS
         EmpleadoRepository empleado;
         SucursalRepository sucursal;
         RolRepository rol;
+        
+
+        public int idEmp;
+        public int idRol;
 
         public Empleados()
         {
@@ -140,7 +144,7 @@ namespace Gestion_MTS
                 DataGridViewRow row = dgvEmpleados.Rows[e.RowIndex];
 
                 // Mapea los datos manualmente desde las celdas a un objeto VistaEmpleados
-                VistaEmpleados empleado = new VistaEmpleados
+                VistaEmpleados empleados = new VistaEmpleados
                 {
                     Nombre = row.Cells["Nombre"].Value?.ToString(),
                     Apellido = row.Cells["Apellido"].Value?.ToString(),
@@ -151,19 +155,22 @@ namespace Gestion_MTS
                     celular = row.Cells["celular"].Value?.ToString(),
                     direccion = row.Cells["direccion"].Value?.ToString(),
                     Rol = row.Cells["Rol"].Value?.ToString(),
-                    Sucursal = row.Cells["Sucursal"].Value?.ToString()
+                    Sucursal = row.Cells["Sucursal"].Value?.ToString(),
+                    estado = Convert.ToBoolean(row.Cells["estado"].Value)
                 };
 
                 // Llena los controles con los datos del objeto empleado
-                txtNombreEmpleado.Text = empleado.Nombre;
-                txtApellidoEmpleado.Text = empleado.Apellido;
-                txtCedula.Text = empleado.Identificación;
-                txtCelular.Text = empleado.celular;
-                txtDireccion.Text = empleado.direccion;
-                dtpNacimiento.Value = empleado.Cumpleaños;
-                cboRoles.Text = empleado.Rol;
-                cboSucursal.Text = empleado.Sucursal;
-                txtSalario.Text = ""; // Método pendiente para obtener salario
+                idEmp = Convert.ToInt32(row.Cells["id_empleado"].Value);
+                txtNombreEmpleado.Text = empleados.Nombre;
+                txtApellidoEmpleado.Text = empleados.Apellido;
+                txtCedula.Text = empleados.Identificación;
+                txtCelular.Text = empleados.celular;
+                txtDireccion.Text = empleados.direccion;
+                dtpNacimiento.Value = empleados.Cumpleaños;
+                cboRoles.Text = empleados.Rol;
+                cboSucursal.Text = empleados.Sucursal;
+                txtSalario.Text = empleado.ObtenerSalarioPorId(idEmp).ToString();
+                chbEstado.Checked = empleados.estado;
             }
         }
         private void dgvRoles_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -177,7 +184,7 @@ namespace Gestion_MTS
                     nombre = row.Cells["nombre"]?.Value?.ToString(),
                     descripcion = row.Cells["descripcion"]?.Value?.ToString()
                 };
-
+                idRol = Convert.ToInt32(row.Cells["id_rol"].Value);
                 txtNombreRol.Text = rol.nombre;
                 txtDescRol.Text = rol.descripcion;
             }
@@ -194,7 +201,7 @@ namespace Gestion_MTS
                     int id_sucursal = Convert.ToInt32(sucursal.GetIdSucursal(cboSucursal.Text));
                     var update = new Empleado
                     {
-                        id_empleado = empleado.ObtenerIdEmpleadoPorNombre(txtNombreEmpleado.Text, txtApellidoEmpleado.Text),
+                        id_empleado = idEmp,
                         nombre = txtNombreEmpleado.Text,
                         apellido = txtApellidoEmpleado.Text,
                         salario = Convert.ToDecimal(txtSalario.Text),
@@ -203,7 +210,8 @@ namespace Gestion_MTS
                         celular = txtCelular.Text,
                         direccion = txtDireccion.Text,
                         id_rol = id_rol,
-                        id_sucursal = id_sucursal
+                        id_sucursal = id_sucursal,
+                        estado = chbEstado.Checked
                     };
 
                     empleado.Update(update, 0);
@@ -227,7 +235,7 @@ namespace Gestion_MTS
                 {
                     var update = new Rol
                     {
-                        id_rol = Convert.ToInt32(rol.GetIdRol(txtNombreRol.Text)),
+                        id_rol = idRol,
                         nombre = txtNombreRol.Text,
                         descripcion = txtDescRol.Text,
                     };
@@ -258,7 +266,7 @@ namespace Gestion_MTS
                 {
                     try
                     {
-                        empleado.Delete(empleado.ObtenerIdEmpleadoPorNombre(txtNombreEmpleado.Text, txtApellidoEmpleado.Text));
+                        empleado.Delete(idEmp);
                         MessageBox.Show("¡Empleado eliminado exitosamente!", "Éxito",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Refresh();
@@ -290,7 +298,8 @@ namespace Gestion_MTS
                 {
                     try
                     {
-                        rol.Delete(Convert.ToInt32(rol.GetIdRol(txtNombreRol.Text)));
+                        rol.Delete(idRol);
+                        Refresh();
                     } 
                     catch (Exception ex)
                     {

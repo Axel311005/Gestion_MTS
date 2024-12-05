@@ -72,7 +72,7 @@ namespace Gestion_MTS.IRepository.Repository
         {
             DataTable categorias = new DataTable();
 
-            string query = "Select nombre, descripcion from categoriasServicio";
+            string query = "Select id_categoriaServicio,  nombre, descripcion from categoriasServicio";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);

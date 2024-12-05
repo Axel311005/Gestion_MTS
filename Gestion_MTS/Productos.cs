@@ -22,6 +22,8 @@ namespace Gestion_MTS
         ProductoRepository productos;
         CategoriaProductoRepository categoria;
         LocalizacionEnBodegaRepository local;
+        public int idProd;
+        public int idCategoria;
         public Productos()
         {
             InitializeComponent();
@@ -131,7 +133,7 @@ namespace Gestion_MTS
                 {
                     var update = new Producto
                     {
-                        IdProducto = productos.ObtenerIdProductoPorNombre(txtNombreProd.Text),
+                        IdProducto = idProd,
                         Codigo = txtCodigo.Text,
                         Estado = chkEstado.Checked,
                         Descripcion = txtDescripProd.Text,
@@ -168,7 +170,7 @@ namespace Gestion_MTS
                 {
                     try
                     {
-                        productos.Delete(productos.ObtenerIdProductoPorNombre(txtNombreProd.Text));
+                        productos.Delete(idProd);
                         MessageBox.Show("¡Producto eliminado exitosamente!", "Éxito",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Refresh();
@@ -219,10 +221,83 @@ namespace Gestion_MTS
                 cboCategoria.Text = product.categoria;
                 cboLocalicacion.Text = product.localizacion;
                 chkEstado.Checked = product.estado;
+                idProd = Convert.ToInt32(row.Cells["id_producto"].Value); ;
 
             }
         }
 
-        
+        public void LimpiarTextCat()
+        {
+            txtNombreCategoria.Clear();
+            txtDescripcionCateg.Clear();
+        }
+
+        private void btnUpdateCateg_Click(object sender, EventArgs e)
+        {
+            if (dgvCategorias.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    var update = new CategoriaProducto
+                    {
+                        IdCategoriaProducto = idCategoria,
+                        Nombre = txtNombreCategoria.Text,
+                        Descripcion = txtDescripcionCateg.Text,
+                    };
+                    categoria.Update(update,0);
+                    MessageBox.Show("Categoria Actualizada correctamente");
+                    LimpiarTextCat();
+                    Refresh();
+    
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al actualizar categoria " + ex.Message);
+                }
+            }
+        }
+
+        private void btnDeleteCateg_Click(object sender, EventArgs e)
+        {
+            if (dgvCategorias.Rows.Count > 0)
+            {
+                var result = MessageBox.Show($"¿Está seguro de que desea eliminar la categoria '{txtNombreCategoria.Text}'?",
+                    "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        categoria.Delete(idCategoria);
+                        Refresh();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al eliminar categoria: {ex.Message}",
+                                                                  "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void dgvCategorias_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+
+                DataGridViewRow row = dgvCategorias.Rows[e.RowIndex];
+
+                CategoriaProducto cat = new CategoriaProducto
+                {
+                    Nombre = row.Cells["nombre"]?.Value?.ToString(),
+                    Descripcion = row.Cells["descripcion"]?.Value?.ToString(),
+                };
+
+                idCategoria = Convert.ToInt32(row.Cells["id_categoriaProducto"].Value);
+                txtNombreCategoria.Text = cat.Nombre;
+                txtDescripcionCateg.Text = cat.Descripcion;
+
+            }
+        }
     }
 }
