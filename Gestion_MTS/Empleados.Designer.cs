@@ -55,10 +55,22 @@
             txtApellidoEmpleado = new TextBox();
             txtNombreEmpleado = new TextBox();
             tabPage2 = new TabPage();
+            dgvRoles = new DataGridView();
+            label7 = new Label();
+            label8 = new Label();
+            groupBox2 = new GroupBox();
+            txtNombreRol = new TextBox();
+            txtDescRol = new TextBox();
+            btnDeleteRol = new Button();
+            btnUpdateRol = new Button();
+            btnAddRol = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEmpleados).BeginInit();
             groupBox1.SuspendLayout();
+            tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvRoles).BeginInit();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -326,13 +338,115 @@
             // 
             // tabPage2
             // 
-            tabPage2.Location = new Point(4, 29);
+            tabPage2.Controls.Add(btnDeleteRol);
+            tabPage2.Controls.Add(btnUpdateRol);
+            tabPage2.Controls.Add(btnAddRol);
+            tabPage2.Controls.Add(groupBox2);
+            tabPage2.Controls.Add(dgvRoles);
+            tabPage2.Location = new Point(4, 25);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1037, 582);
+            tabPage2.Size = new Size(1037, 586);
             tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
+            tabPage2.Text = "Roles";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dgvRoles
+            // 
+            dgvRoles.BackgroundColor = SystemColors.ButtonHighlight;
+            dgvRoles.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvRoles.Dock = DockStyle.Bottom;
+            dgvRoles.GridColor = SystemColors.MenuHighlight;
+            dgvRoles.Location = new Point(3, 396);
+            dgvRoles.Name = "dgvRoles";
+            dgvRoles.RowHeadersWidth = 51;
+            dgvRoles.Size = new Size(1031, 187);
+            dgvRoles.TabIndex = 4;
+            dgvRoles.CellClick += dgvRoles_CellClick;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(29, 147);
+            label7.Name = "label7";
+            label7.Size = new Size(90, 16);
+            label7.TabIndex = 12;
+            label7.Text = "Descripción";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(29, 59);
+            label8.Name = "label8";
+            label8.Size = new Size(116, 16);
+            label8.TabIndex = 13;
+            label8.Text = "Nombre del Rol";
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(txtDescRol);
+            groupBox2.Controls.Add(txtNombreRol);
+            groupBox2.Controls.Add(label8);
+            groupBox2.Controls.Add(label7);
+            groupBox2.Location = new Point(153, 17);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(475, 294);
+            groupBox2.TabIndex = 14;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Datos Roles";
+            // 
+            // txtNombreRol
+            // 
+            txtNombreRol.Location = new Point(218, 59);
+            txtNombreRol.Name = "txtNombreRol";
+            txtNombreRol.Size = new Size(193, 22);
+            txtNombreRol.TabIndex = 14;
+            // 
+            // txtDescRol
+            // 
+            txtDescRol.Location = new Point(218, 144);
+            txtDescRol.Name = "txtDescRol";
+            txtDescRol.Size = new Size(193, 22);
+            txtDescRol.TabIndex = 15;
+            // 
+            // btnDeleteRol
+            // 
+            btnDeleteRol.BackColor = Color.FromArgb(255, 128, 0);
+            btnDeleteRol.FlatStyle = FlatStyle.Flat;
+            btnDeleteRol.ForeColor = SystemColors.ButtonHighlight;
+            btnDeleteRol.Location = new Point(738, 215);
+            btnDeleteRol.Name = "btnDeleteRol";
+            btnDeleteRol.Size = new Size(116, 36);
+            btnDeleteRol.TabIndex = 17;
+            btnDeleteRol.Text = "Borrar";
+            btnDeleteRol.UseVisualStyleBackColor = false;
+            btnDeleteRol.Click += btnDeleteRol_Click;
+            // 
+            // btnUpdateRol
+            // 
+            btnUpdateRol.BackColor = Color.FromArgb(255, 128, 0);
+            btnUpdateRol.FlatStyle = FlatStyle.Flat;
+            btnUpdateRol.ForeColor = SystemColors.ButtonHighlight;
+            btnUpdateRol.Location = new Point(738, 144);
+            btnUpdateRol.Name = "btnUpdateRol";
+            btnUpdateRol.Size = new Size(116, 36);
+            btnUpdateRol.TabIndex = 16;
+            btnUpdateRol.Text = "Editar";
+            btnUpdateRol.UseVisualStyleBackColor = false;
+            btnUpdateRol.Click += btnUpdateRol_Click;
+            // 
+            // btnAddRol
+            // 
+            btnAddRol.BackColor = Color.FromArgb(255, 128, 0);
+            btnAddRol.FlatStyle = FlatStyle.Flat;
+            btnAddRol.ForeColor = SystemColors.ButtonHighlight;
+            btnAddRol.Location = new Point(738, 80);
+            btnAddRol.Name = "btnAddRol";
+            btnAddRol.Size = new Size(116, 36);
+            btnAddRol.TabIndex = 15;
+            btnAddRol.Text = "Agregar";
+            btnAddRol.UseVisualStyleBackColor = false;
+            btnAddRol.Click += btnAddRol_Click;
             // 
             // Empleados
             // 
@@ -348,6 +462,10 @@
             ((System.ComponentModel.ISupportInitialize)dgvEmpleados).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvRoles).EndInit();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -380,5 +498,14 @@
         private Button btnAddEmpleado;
         private Label label10;
         private Label label9;
+        private DataGridView dgvRoles;
+        private Button btnDeleteRol;
+        private Button btnUpdateRol;
+        private Button btnAddRol;
+        private GroupBox groupBox2;
+        private TextBox txtDescRol;
+        private TextBox txtNombreRol;
+        private Label label8;
+        private Label label7;
     }
 }

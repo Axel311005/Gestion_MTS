@@ -73,7 +73,7 @@
             groupBox1.Controls.Add(btnAddBodega);
             groupBox1.Controls.Add(cboSucursales);
             groupBox1.Controls.Add(txtNombreBodegas);
-            groupBox1.Location = new Point(426, 12);
+            groupBox1.Location = new Point(367, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(383, 558);
             groupBox1.TabIndex = 0;
@@ -161,7 +161,7 @@
             groupBox2.Controls.Add(cboBodegas);
             groupBox2.Controls.Add(txtDescripcionLocalBod);
             groupBox2.Controls.Add(btnAddLocalBod);
-            groupBox2.Location = new Point(828, 12);
+            groupBox2.Location = new Point(756, 12);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(378, 558);
             groupBox2.TabIndex = 1;
@@ -251,7 +251,7 @@
             groupBox3.Controls.Add(txtUbiSucur);
             groupBox3.Location = new Point(12, 12);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(399, 558);
+            groupBox3.Size = new Size(349, 558);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
             groupBox3.Text = "Sucursales";
@@ -263,12 +263,12 @@
             dgvSucursales.Location = new Point(3, 367);
             dgvSucursales.Name = "dgvSucursales";
             dgvSucursales.RowHeadersWidth = 51;
-            dgvSucursales.Size = new Size(393, 188);
+            dgvSucursales.Size = new Size(343, 188);
             dgvSucursales.TabIndex = 7;
             // 
             // btnDeleteSucursal
             // 
-            btnDeleteSucursal.Location = new Point(255, 250);
+            btnDeleteSucursal.Location = new Point(238, 250);
             btnDeleteSucursal.Name = "btnDeleteSucursal";
             btnDeleteSucursal.Size = new Size(94, 29);
             btnDeleteSucursal.TabIndex = 6;
@@ -277,7 +277,7 @@
             // 
             // btnUpdateSucursal
             // 
-            btnUpdateSucursal.Location = new Point(134, 250);
+            btnUpdateSucursal.Location = new Point(119, 250);
             btnUpdateSucursal.Name = "btnUpdateSucursal";
             btnUpdateSucursal.Size = new Size(94, 29);
             btnUpdateSucursal.TabIndex = 5;
@@ -297,7 +297,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(239, 97);
+            label6.Location = new Point(206, 96);
             label6.Name = "label6";
             label6.Size = new Size(67, 20);
             label6.TabIndex = 3;
@@ -314,7 +314,7 @@
             // 
             // txtTelSucur
             // 
-            txtTelSucur.Location = new Point(212, 142);
+            txtTelSucur.Location = new Point(179, 141);
             txtTelSucur.Name = "txtTelSucur";
             txtTelSucur.Size = new Size(125, 27);
             txtTelSucur.TabIndex = 1;
@@ -330,7 +330,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1225, 642);
+            ClientSize = new Size(1155, 642);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
