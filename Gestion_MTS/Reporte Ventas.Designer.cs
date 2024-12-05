@@ -28,39 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            chartControl1 = new Syncfusion.Windows.Forms.Chart.ChartControl();
             SuspendLayout();
-            // 
-            // chartControl1
-            // 
-            chartControl1.ChartArea.CursorLocation = new Point(0, 0);
-            chartControl1.ChartArea.CursorReDraw = false;
-            // 
-            // 
-            // 
-            chartControl1.Legend.Location = new Point(415, 75);
-            chartControl1.Location = new Point(71, 68);
-            chartControl1.Name = "chartControl1";
-            chartControl1.PrimaryXAxis.LogLabelsDisplayMode = Syncfusion.Windows.Forms.Chart.LogLabelsDisplayMode.Default;
-            chartControl1.PrimaryXAxis.Margin = true;
-            chartControl1.PrimaryYAxis.LogLabelsDisplayMode = Syncfusion.Windows.Forms.Chart.LogLabelsDisplayMode.Default;
-            chartControl1.PrimaryYAxis.Margin = true;
-            chartControl1.Size = new Size(524, 300);
-            chartControl1.TabIndex = 0;
-            chartControl1.Text = "chartControl1";
-            // 
-            // 
-            // 
-            chartControl1.Title.Name = "Default";
-            chartControl1.Titles.Add(chartControl1.Title);
             // 
             // frmReporteVentas
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(699, 463);
-            Controls.Add(chartControl1);
-            Margin = new Padding(3, 2, 3, 2);
+            ClientSize = new Size(1123, 657);
             Name = "frmReporteVentas";
             Text = "Reporte de Ventas";
             Load += frmReporteVentas_Load;
@@ -68,7 +42,5 @@
         }
 
         #endregion
-
-        private Syncfusion.Windows.Forms.Chart.ChartControl chartControl1;
     }
 }
