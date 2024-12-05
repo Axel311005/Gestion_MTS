@@ -30,6 +30,8 @@ namespace Gestion_MTS
             ProductoRepository productoRepository = new ProductoRepository(_connection);
             ServicioRepository servicioRepository = new ServicioRepository(_connection);
             EmpleadoRepository empleadoRepository = new EmpleadoRepository(_connection);
+            ClienteRepository clienteRepository = new ClienteRepository(_connection);
+            TipoPagoRepository tipoPagoRepository = new TipoPagoRepository(_connection);
 
             var products = productoRepository.GetSimplifiedProducts();
 
@@ -48,6 +50,18 @@ namespace Gestion_MTS
             cmbEmpleados.DataSource = mechanics;
             cmbEmpleados.DisplayMember = "nombre";
             cmbEmpleados.ValueMember = "id_empleado";
+
+            var clients = clienteRepository.GetClientsSimplified();
+
+            cmbCliente.DataSource = clients;
+            cmbCliente.DisplayMember = "nombre";
+            cmbCliente.ValueMember = "id_cliente";
+
+            var tiposPago = tipoPagoRepository.GetTiposPagoSimplified();
+
+            cmbTipoPago.DataSource = tiposPago;
+            cmbTipoPago.DisplayMember = "tipo";
+            cmbTipoPago.ValueMember = "id_tipo_pago";
         }
 
         private void lblAddedProducts_Click(object sender, EventArgs e)

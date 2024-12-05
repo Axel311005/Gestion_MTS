@@ -51,10 +51,17 @@
             lblEmployee = new Label();
             cmbServicios = new ComboBox();
             lblService = new Label();
+            grpInfo = new GroupBox();
+            cmbCliente = new ComboBox();
+            label2 = new Label();
+            cmbTipoPago = new ComboBox();
+            label3 = new Label();
+            btnGenerateFactura = new Button();
             grpProducts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
             grpServices.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvServices).BeginInit();
+            grpInfo.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -62,7 +69,7 @@
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(47, 45);
+            label1.Location = new Point(40, 36);
             label1.Name = "label1";
             label1.Size = new Size(238, 24);
             label1.TabIndex = 0;
@@ -80,7 +87,7 @@
             grpProducts.Controls.Add(lblQuantity);
             grpProducts.Controls.Add(cmbProducts);
             grpProducts.Controls.Add(lblProduct);
-            grpProducts.Location = new Point(47, 98);
+            grpProducts.Location = new Point(40, 89);
             grpProducts.Name = "grpProducts";
             grpProducts.Size = new Size(815, 145);
             grpProducts.TabIndex = 1;
@@ -186,7 +193,7 @@
             grpServices.Controls.Add(lblEmployee);
             grpServices.Controls.Add(cmbServicios);
             grpServices.Controls.Add(lblService);
-            grpServices.Location = new Point(47, 278);
+            grpServices.Location = new Point(40, 269);
             grpServices.Name = "grpServices";
             grpServices.Size = new Size(815, 153);
             grpServices.TabIndex = 2;
@@ -294,11 +301,73 @@
             lblService.TabIndex = 4;
             lblService.Text = "Servicio";
             // 
+            // grpInfo
+            // 
+            grpInfo.Anchor = AnchorStyles.None;
+            grpInfo.Controls.Add(cmbCliente);
+            grpInfo.Controls.Add(label2);
+            grpInfo.Controls.Add(cmbTipoPago);
+            grpInfo.Controls.Add(label3);
+            grpInfo.Location = new Point(40, 458);
+            grpInfo.Name = "grpInfo";
+            grpInfo.Size = new Size(270, 100);
+            grpInfo.TabIndex = 3;
+            grpInfo.TabStop = false;
+            grpInfo.Text = "Informacion Adicional";
+            // 
+            // cmbCliente
+            // 
+            cmbCliente.FormattingEnabled = true;
+            cmbCliente.Location = new Point(76, 60);
+            cmbCliente.Name = "cmbCliente";
+            cmbCliente.Size = new Size(121, 23);
+            cmbCliente.TabIndex = 11;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(15, 63);
+            label2.Name = "label2";
+            label2.Size = new Size(44, 15);
+            label2.TabIndex = 10;
+            label2.Text = "Cliente";
+            // 
+            // cmbTipoPago
+            // 
+            cmbTipoPago.FormattingEnabled = true;
+            cmbTipoPago.Location = new Point(96, 31);
+            cmbTipoPago.Name = "cmbTipoPago";
+            cmbTipoPago.Size = new Size(121, 23);
+            cmbTipoPago.TabIndex = 9;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(14, 34);
+            label3.Name = "label3";
+            label3.Size = new Size(76, 15);
+            label3.TabIndex = 8;
+            label3.Text = "Tipo de Pago";
+            // 
+            // btnGenerateFactura
+            // 
+            btnGenerateFactura.Anchor = AnchorStyles.None;
+            btnGenerateFactura.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGenerateFactura.Location = new Point(360, 492);
+            btnGenerateFactura.Name = "btnGenerateFactura";
+            btnGenerateFactura.Size = new Size(489, 66);
+            btnGenerateFactura.TabIndex = 4;
+            btnGenerateFactura.Text = "Generar Factura";
+            btnGenerateFactura.UseVisualStyleBackColor = true;
+            // 
             // Facturas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(885, 572);
+            AutoScroll = true;
+            ClientSize = new Size(885, 584);
+            Controls.Add(btnGenerateFactura);
+            Controls.Add(grpInfo);
             Controls.Add(grpServices);
             Controls.Add(grpProducts);
             Controls.Add(label1);
@@ -312,6 +381,8 @@
             grpServices.ResumeLayout(false);
             grpServices.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvServices).EndInit();
+            grpInfo.ResumeLayout(false);
+            grpInfo.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -341,5 +412,11 @@
         private Button btnDeleteRequestedService;
         private Button btnUpdateRequestedService;
         private TextBox txtAmount;
+        private GroupBox grpInfo;
+        private ComboBox cmbCliente;
+        private Label label2;
+        private ComboBox cmbTipoPago;
+        private Label label3;
+        private Button btnGenerateFactura;
     }
 }

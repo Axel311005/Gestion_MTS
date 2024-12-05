@@ -94,6 +94,30 @@ namespace Gestion_MTS.IRepository.Repository
             return clientes;
         }
 
+        public DataTable GetClientsSimplified()
+        {
+            DataTable clients = new DataTable();
+
+            string query = "SELECT * FROM ClientsSimplified";
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                try
+                {
+                    connection.Open();
+                    adapter.Fill(clients);
+                }
+                catch (Exception e)
+                {
+
+                    throw new Exception("Error:" + e.Message);
+                }
+            }
+            return clients;
+        }
+
         public void Update(Cliente ado, int id)
         {
             string query = "Update clientes SET nombre = @nombre , apellido = @apellido , direccion = @direccion " +
