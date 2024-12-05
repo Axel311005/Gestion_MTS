@@ -49,6 +49,8 @@ namespace Gestion_MTS
 
                 var empleados = empleado.GetAll();
                 dgvEmpleados.DataSource = empleados;
+                var roles = rol.GetAll();
+                dgvRoles.DataSource = roles;
 
 
             }
@@ -65,6 +67,12 @@ namespace Gestion_MTS
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void LimpiarTextRol()
+        {
+            txtNombreRol.Clear();
+            txtDescRol.Clear();
         }
 
         private void btnAddEmpleado_Click(object sender, EventArgs e)
@@ -100,6 +108,29 @@ namespace Gestion_MTS
             }
         }
 
+        private void btnAddRol_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Rol roles = new Rol
+                {
+                    nombre = txtNombreRol.Text,
+                    descripcion = txtDescRol.Text
+                };
+
+                rol.Add(roles);
+                MessageBox.Show("Rol Agregado correctamente");
+                LimpiarTextRol();
+                Refresh();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al agregar el rol " + ex.Message);
+            }
+        }
+
         private void dgvEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -132,9 +163,23 @@ namespace Gestion_MTS
                 dtpNacimiento.Value = empleado.Cumpleaños;
                 cboRoles.Text = empleado.Rol;
                 cboSucursal.Text = empleado.Sucursal;
-
-                // Si necesitas agregar salario
                 txtSalario.Text = ""; // Método pendiente para obtener salario
+            }
+        }
+        private void dgvRoles_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvRoles.Rows[e.RowIndex];
+
+                Rol rol = new Rol
+                {
+                    nombre = row.Cells["nombre"]?.Value?.ToString(),
+                    descripcion = row.Cells["descripcion"]?.Value?.ToString()
+                };
+
+                txtNombreRol.Text = rol.nombre;
+                txtDescRol.Text = rol.descripcion;
             }
         }
 
@@ -174,12 +219,37 @@ namespace Gestion_MTS
 
             }
         }
+        private void btnUpdateRol_Click(object sender, EventArgs e)
+        {
+            if(dgvRoles.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    var update = new Rol
+                    {
+                        id_rol = Convert.ToInt32(rol.GetIdRol(txtNombreRol.Text)),
+                        nombre = txtNombreRol.Text,
+                        descripcion = txtDescRol.Text,
+                    };
+
+                    rol.Update(update, 0);
+                    MessageBox.Show("Rol actualizado correctamente");
+                    LimpiarTextRol();
+                    Refresh();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al actualizar el rol " + ex.Message);
+                }
+            }
+        }
+
 
         private void btnDeleteEmpleado_Click(object sender, EventArgs e)
         {
-            if (dgvEmpleados.Rows.Count > 0 )
+            if (dgvEmpleados.Rows.Count > 0)
             {
-                
+
                 var result =
                     MessageBox.Show($"¿Está seguro de que desea eliminar el empleado '{txtNombreEmpleado.Text}'?",
                     "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -200,12 +270,34 @@ namespace Gestion_MTS
                                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                
+
             }
             else
             {
                 MessageBox.Show("Seleccione un empleado para eliminar.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnDeleteRol_Click(object sender, EventArgs e)
+        {
+            if (dgvRoles.Rows.Count > 0)
+            {
+                var result = MessageBox.Show($"¿Está seguro de que desea eliminar el rol '{txtNombreRol.Text}'?",
+                    "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        rol.Delete(Convert.ToInt32(rol.GetIdRol(txtNombreRol.Text)));
+                    } 
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al eliminar rol: {ex.Message}",
+                                           "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
 
@@ -217,7 +309,8 @@ namespace Gestion_MTS
             txtCelular.Clear();
             txtDireccion.Clear();
             txtSalario.Clear();
-            
+
         }
+       
     }
 }

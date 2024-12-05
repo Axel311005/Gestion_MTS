@@ -73,9 +73,13 @@
             groupBox1.Controls.Add(btnAddBodega);
             groupBox1.Controls.Add(cboSucursales);
             groupBox1.Controls.Add(txtNombreBodegas);
+
+
+
             groupBox1.Font = new Font("Segoe UI Variable Display Semib", 7.8F, FontStyle.Bold);
             groupBox1.Location = new Point(426, 12);
             groupBox1.Margin = new Padding(3, 4, 3, 4);
+
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(3, 4, 3, 4);
             groupBox1.Size = new Size(383, 558);
@@ -185,9 +189,11 @@
             groupBox2.Controls.Add(cboBodegas);
             groupBox2.Controls.Add(txtDescripcionLocalBod);
             groupBox2.Controls.Add(btnAddLocalBod);
+
             groupBox2.Font = new Font("Segoe UI Variable Display Semib", 7.8F, FontStyle.Bold);
             groupBox2.Location = new Point(827, 12);
             groupBox2.Margin = new Padding(3, 4, 3, 4);
+
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(3, 4, 3, 4);
             groupBox2.Size = new Size(378, 558);
@@ -296,8 +302,11 @@
             groupBox3.Location = new Point(11, 12);
             groupBox3.Margin = new Padding(3, 4, 3, 4);
             groupBox3.Name = "groupBox3";
+
+
             groupBox3.Padding = new Padding(3, 4, 3, 4);
             groupBox3.Size = new Size(399, 558);
+
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
             groupBox3.Text = "Sucursales";
@@ -311,17 +320,20 @@
             dgvSucursales.Margin = new Padding(3, 4, 3, 4);
             dgvSucursales.Name = "dgvSucursales";
             dgvSucursales.RowHeadersWidth = 51;
-            dgvSucursales.Size = new Size(393, 188);
+            dgvSucursales.Size = new Size(343, 188);
             dgvSucursales.TabIndex = 7;
             // 
             // btnDeleteSucursal
             // 
+
+
             btnDeleteSucursal.BackColor = Color.FromArgb(255, 128, 0);
             btnDeleteSucursal.FlatStyle = FlatStyle.Flat;
             btnDeleteSucursal.Font = new Font("Segoe UI Variable Display", 7.8F, FontStyle.Bold);
             btnDeleteSucursal.ForeColor = SystemColors.ButtonHighlight;
             btnDeleteSucursal.Location = new Point(273, 249);
             btnDeleteSucursal.Margin = new Padding(3, 4, 3, 4);
+
             btnDeleteSucursal.Name = "btnDeleteSucursal";
             btnDeleteSucursal.Size = new Size(94, 29);
             btnDeleteSucursal.TabIndex = 6;
@@ -330,12 +342,15 @@
             // 
             // btnUpdateSucursal
             // 
+
+
             btnUpdateSucursal.BackColor = Color.FromArgb(255, 128, 0);
             btnUpdateSucursal.FlatStyle = FlatStyle.Flat;
             btnUpdateSucursal.Font = new Font("Segoe UI Variable Display", 7.8F, FontStyle.Bold);
             btnUpdateSucursal.ForeColor = SystemColors.ButtonHighlight;
             btnUpdateSucursal.Location = new Point(152, 249);
             btnUpdateSucursal.Margin = new Padding(3, 4, 3, 4);
+
             btnUpdateSucursal.Name = "btnUpdateSucursal";
             btnUpdateSucursal.Size = new Size(94, 29);
             btnUpdateSucursal.TabIndex = 5;
@@ -360,7 +375,10 @@
             // label6
             // 
             label6.AutoSize = true;
+
+
             label6.Location = new Point(239, 96);
+
             label6.Name = "label6";
             label6.Size = new Size(58, 17);
             label6.TabIndex = 3;
@@ -377,8 +395,11 @@
             // 
             // txtTelSucur
             // 
+
+
             txtTelSucur.Location = new Point(213, 142);
             txtTelSucur.Margin = new Padding(3, 4, 3, 4);
+
             txtTelSucur.Name = "txtTelSucur";
             txtTelSucur.Size = new Size(125, 25);
             txtTelSucur.TabIndex = 1;
@@ -395,7 +416,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1225, 642);
+            ClientSize = new Size(1155, 642);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
