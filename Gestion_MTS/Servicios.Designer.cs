@@ -107,6 +107,7 @@
             // 
             // dgvServicios
             // 
+            dgvServicios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvServicios.BackgroundColor = SystemColors.ButtonHighlight;
             dgvServicios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvServicios.Dock = DockStyle.Bottom;
@@ -182,6 +183,7 @@
             txtDescripServ.Name = "txtDescripServ";
             txtDescripServ.Size = new Size(157, 27);
             txtDescripServ.TabIndex = 1;
+            txtDescripServ.KeyPress += txtDescripServ_KeyPress;
             // 
             // txtNombreServ
             // 
@@ -189,6 +191,7 @@
             txtNombreServ.Name = "txtNombreServ";
             txtNombreServ.Size = new Size(140, 27);
             txtNombreServ.TabIndex = 0;
+            txtNombreServ.KeyPress += txtNombreServ_KeyPress;
             // 
             // tabPage2
             // 
@@ -210,6 +213,7 @@
             // 
             // dgvCategoriaServicios
             // 
+            dgvCategoriaServicios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCategoriaServicios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCategoriaServicios.Dock = DockStyle.Bottom;
             dgvCategoriaServicios.Location = new Point(3, 356);
@@ -270,6 +274,7 @@
             txtDescripcionCateg.Name = "txtDescripcionCateg";
             txtDescripcionCateg.Size = new Size(125, 27);
             txtDescripcionCateg.TabIndex = 8;
+            txtDescripcionCateg.KeyPress += txtDescripcionCateg_KeyPress;
             // 
             // txtNombreCategoria
             // 
@@ -277,6 +282,7 @@
             txtNombreCategoria.Name = "txtNombreCategoria";
             txtNombreCategoria.Size = new Size(125, 27);
             txtNombreCategoria.TabIndex = 7;
+            txtNombreCategoria.KeyPress += txtNombreCategoria_KeyPress;
             // 
             // Servicios
             // 

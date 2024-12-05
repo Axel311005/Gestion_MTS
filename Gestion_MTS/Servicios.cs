@@ -75,7 +75,7 @@ namespace Gestion_MTS
                     Descripcion = txtDescripcionCateg.Text,
                 };
 
-                categoria.Add(newCategoria);    
+                categoria.Add(newCategoria);
                 txtNombreCategoria.Clear();
                 txtDescripcionCateg.Clear();
                 MessageBox.Show("Categoria agregada correctamente");
@@ -83,7 +83,39 @@ namespace Gestion_MTS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error "+ ex.Message);
+                MessageBox.Show("Error " + ex.Message);
+            }
+        }
+
+        private void txtNombreServ_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDescripServ_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNombreCategoria_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDescripcionCateg_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

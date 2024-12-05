@@ -65,11 +65,12 @@
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
+            tabControl1.Dock = DockStyle.Fill;
             tabControl1.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold);
-            tabControl1.Location = new Point(0, 12);
+            tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1045, 615);
+            tabControl1.Size = new Size(1057, 626);
             tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -83,7 +84,7 @@
             tabPage1.Location = new Point(4, 25);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1037, 586);
+            tabPage1.Size = new Size(1049, 597);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Agregar Empleado";
             // 
@@ -132,10 +133,10 @@
             dgvEmpleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvEmpleados.Dock = DockStyle.Bottom;
             dgvEmpleados.GridColor = SystemColors.MenuHighlight;
-            dgvEmpleados.Location = new Point(3, 396);
+            dgvEmpleados.Location = new Point(3, 407);
             dgvEmpleados.Name = "dgvEmpleados";
             dgvEmpleados.RowHeadersWidth = 51;
-            dgvEmpleados.Size = new Size(1031, 187);
+            dgvEmpleados.Size = new Size(1043, 187);
             dgvEmpleados.TabIndex = 3;
             dgvEmpleados.CellClick += dgvEmpleados_CellClick;
             // 
@@ -271,6 +272,7 @@
             txtSalario.Name = "txtSalario";
             txtSalario.Size = new Size(193, 25);
             txtSalario.TabIndex = 8;
+            txtSalario.KeyPress += txtSalario_KeyPress;
             // 
             // txtCelular
             // 
@@ -278,6 +280,7 @@
             txtCelular.Name = "txtCelular";
             txtCelular.Size = new Size(193, 25);
             txtCelular.TabIndex = 7;
+            txtCelular.KeyPress += txtCelular_KeyPress;
             // 
             // chbEstado
             // 
@@ -302,6 +305,7 @@
             txtDireccion.Name = "txtDireccion";
             txtDireccion.Size = new Size(193, 25);
             txtDireccion.TabIndex = 4;
+            txtDireccion.KeyPress += txtDireccion_KeyPress;
             // 
             // txtCedula
             // 
@@ -316,6 +320,7 @@
             txtApellidoEmpleado.Name = "txtApellidoEmpleado";
             txtApellidoEmpleado.Size = new Size(193, 25);
             txtApellidoEmpleado.TabIndex = 1;
+            txtApellidoEmpleado.KeyPress += txtApellidoEmpleado_KeyPress;
             // 
             // txtNombreEmpleado
             // 
@@ -323,13 +328,14 @@
             txtNombreEmpleado.Name = "txtNombreEmpleado";
             txtNombreEmpleado.Size = new Size(193, 25);
             txtNombreEmpleado.TabIndex = 0;
+            txtNombreEmpleado.KeyPress += txtNombreEmpleado_KeyPress;
             // 
             // tabPage2
             // 
-            tabPage2.Location = new Point(4, 29);
+            tabPage2.Location = new Point(4, 25);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1037, 582);
+            tabPage2.Size = new Size(1037, 586);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "tabPage2";
             tabPage2.UseVisualStyleBackColor = true;

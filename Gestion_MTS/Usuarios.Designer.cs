@@ -62,6 +62,7 @@
             txtUserName.Name = "txtUserName";
             txtUserName.Size = new Size(138, 27);
             txtUserName.TabIndex = 1;
+            txtUserName.KeyPress += txtUserName_KeyPress;
             // 
             // txtPassword
             // 
@@ -122,6 +123,7 @@
             // 
             // dgvUsers
             // 
+            dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvUsers.BackgroundColor = SystemColors.ButtonHighlight;
             dgvUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvUsers.Dock = DockStyle.Bottom;

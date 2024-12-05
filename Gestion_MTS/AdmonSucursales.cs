@@ -133,5 +133,60 @@ namespace Gestion_MTS
         {
 
         }
+
+        private void txtUbiSucur_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTelSucur_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '-')
+            {
+                e.Handled = true;
+                return;
+            }
+
+
+            if (e.KeyChar == '-')
+            {
+
+                if (textBox.Text.Length != 4)
+                {
+                    e.Handled = true;
+                }
+                return;
+            }
+
+
+            if (textBox.Text.Length >= 9 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNombreBodegas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDescripcionLocalBod_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+       
     }
 }
