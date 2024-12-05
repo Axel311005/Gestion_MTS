@@ -41,26 +41,30 @@
             // cboSucursales
             // 
             cboSucursales.FormattingEnabled = true;
-            cboSucursales.Location = new Point(180, 142);
+            cboSucursales.Location = new Point(106, 142);
             cboSucursales.Name = "cboSucursales";
             cboSucursales.Size = new Size(151, 28);
             cboSucursales.TabIndex = 1;
             // 
             // dtpFechaInicio
             // 
-            dtpFechaInicio.Location = new Point(409, 143);
+            dtpFechaInicio.Location = new Point(379, 143);
             dtpFechaInicio.Name = "dtpFechaInicio";
             dtpFechaInicio.Size = new Size(250, 27);
             dtpFechaInicio.TabIndex = 2;
             // 
             // ObtenerGastos
             // 
-            ObtenerGastos.Location = new Point(413, 217);
+            ObtenerGastos.BackColor = Color.FromArgb(255, 128, 0);
+            ObtenerGastos.FlatStyle = FlatStyle.Flat;
+            ObtenerGastos.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ObtenerGastos.ForeColor = SystemColors.ButtonHighlight;
+            ObtenerGastos.Location = new Point(383, 258);
             ObtenerGastos.Name = "ObtenerGastos";
-            ObtenerGastos.Size = new Size(246, 29);
+            ObtenerGastos.Size = new Size(246, 35);
             ObtenerGastos.TabIndex = 3;
             ObtenerGastos.Text = "Obtener";
-            ObtenerGastos.UseVisualStyleBackColor = true;
+            ObtenerGastos.UseVisualStyleBackColor = false;
             ObtenerGastos.Click += ObtenerGastos_Click;
             // 
             // dtpFechaFinal
@@ -73,42 +77,51 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(216, 97);
+            label1.Font = new Font("Lucida Fax", 13.8F, FontStyle.Bold);
+            label1.ForeColor = Color.FromArgb(255, 128, 0);
+            label1.Location = new Point(105, 94);
             label1.Name = "label1";
-            label1.Size = new Size(77, 20);
+            label1.Size = new Size(142, 26);
             label1.TabIndex = 5;
             label1.Text = "Sucursales";
+            label1.Click += label1_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(501, 97);
+            label2.Font = new Font("Lucida Fax", 13.8F, FontStyle.Bold);
+            label2.ForeColor = Color.FromArgb(255, 128, 0);
+            label2.Location = new Point(431, 94);
             label2.Name = "label2";
-            label2.Size = new Size(87, 20);
+            label2.Size = new Size(159, 26);
             label2.TabIndex = 6;
             label2.Text = "Fecha Inicio";
+            label2.Click += this.label2_Click;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(796, 97);
+            label3.Font = new Font("Lucida Fax", 13.8F, FontStyle.Bold);
+            label3.ForeColor = Color.FromArgb(255, 128, 0);
+            label3.Location = new Point(755, 94);
             label3.Name = "label3";
-            label3.Size = new Size(82, 20);
+            label3.Size = new Size(150, 26);
             label3.TabIndex = 7;
             label3.Text = "Fecha Final";
+            label3.Click += this.label3_Click;
             // 
             // txtTotal
             // 
-            txtTotal.Location = new Point(472, 328);
+            txtTotal.Location = new Point(412, 340);
             txtTotal.Name = "txtTotal";
-            txtTotal.Size = new Size(125, 27);
+            txtTotal.Size = new Size(194, 27);
             txtTotal.TabIndex = 8;
             // 
             // Arqueo
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1343, 620);
+            ClientSize = new Size(1057, 626);
             Controls.Add(txtTotal);
             Controls.Add(label3);
             Controls.Add(label2);

@@ -69,6 +69,7 @@
             // 
             // tabPage1
             // 
+            tabPage1.BackColor = SystemColors.Control;
             tabPage1.Controls.Add(label5);
             tabPage1.Controls.Add(cboCategoria);
             tabPage1.Controls.Add(dgvServicios);
@@ -85,27 +86,28 @@
             tabPage1.Size = new Size(1178, 591);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Servicios";
-            tabPage1.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(699, 133);
+            label5.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Bold);
+            label5.Location = new Point(724, 133);
             label5.Name = "label5";
-            label5.Size = new Size(74, 20);
+            label5.Size = new Size(78, 20);
             label5.TabIndex = 9;
             label5.Text = "Categoria";
             // 
             // cboCategoria
             // 
             cboCategoria.FormattingEnabled = true;
-            cboCategoria.Location = new Point(656, 190);
+            cboCategoria.Location = new Point(687, 190);
             cboCategoria.Name = "cboCategoria";
             cboCategoria.Size = new Size(151, 28);
             cboCategoria.TabIndex = 8;
             // 
             // dgvServicios
             // 
+            dgvServicios.BackgroundColor = SystemColors.ButtonHighlight;
             dgvServicios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvServicios.Dock = DockStyle.Bottom;
             dgvServicios.Location = new Point(3, 400);
@@ -116,62 +118,76 @@
             // 
             // btnDeleteServ
             // 
-            btnDeleteServ.Location = new Point(666, 265);
+            btnDeleteServ.BackColor = Color.FromArgb(255, 128, 0);
+            btnDeleteServ.FlatStyle = FlatStyle.Flat;
+            btnDeleteServ.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnDeleteServ.ForeColor = SystemColors.ButtonHighlight;
+            btnDeleteServ.Location = new Point(733, 264);
             btnDeleteServ.Name = "btnDeleteServ";
-            btnDeleteServ.Size = new Size(94, 29);
+            btnDeleteServ.Size = new Size(150, 35);
             btnDeleteServ.TabIndex = 6;
             btnDeleteServ.Text = "Eliminar";
-            btnDeleteServ.UseVisualStyleBackColor = true;
+            btnDeleteServ.UseVisualStyleBackColor = false;
             // 
             // btnUpdateServ
             // 
-            btnUpdateServ.Location = new Point(515, 265);
+            btnUpdateServ.BackColor = Color.FromArgb(255, 128, 0);
+            btnUpdateServ.FlatStyle = FlatStyle.Flat;
+            btnUpdateServ.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnUpdateServ.ForeColor = SystemColors.ButtonHighlight;
+            btnUpdateServ.Location = new Point(509, 264);
             btnUpdateServ.Name = "btnUpdateServ";
-            btnUpdateServ.Size = new Size(94, 29);
+            btnUpdateServ.Size = new Size(150, 35);
             btnUpdateServ.TabIndex = 5;
             btnUpdateServ.Text = "Actualizar";
-            btnUpdateServ.UseVisualStyleBackColor = true;
+            btnUpdateServ.UseVisualStyleBackColor = false;
             // 
             // btnAddServicio
             // 
-            btnAddServicio.Location = new Point(349, 265);
+            btnAddServicio.BackColor = Color.FromArgb(255, 128, 0);
+            btnAddServicio.FlatStyle = FlatStyle.Flat;
+            btnAddServicio.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnAddServicio.ForeColor = SystemColors.ButtonHighlight;
+            btnAddServicio.Location = new Point(277, 264);
             btnAddServicio.Name = "btnAddServicio";
-            btnAddServicio.Size = new Size(94, 29);
+            btnAddServicio.Size = new Size(150, 35);
             btnAddServicio.TabIndex = 4;
             btnAddServicio.Text = "Agregar";
-            btnAddServicio.UseVisualStyleBackColor = true;
+            btnAddServicio.UseVisualStyleBackColor = false;
             btnAddServicio.Click += btnAddServicio_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(522, 133);
+            label2.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Bold);
+            label2.Location = new Point(530, 133);
             label2.Name = "label2";
-            label2.Size = new Size(87, 20);
+            label2.Size = new Size(92, 20);
             label2.TabIndex = 3;
             label2.Text = "Descripción";
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Bold);
             label1.Location = new Point(349, 133);
             label1.Name = "label1";
-            label1.Size = new Size(64, 20);
+            label1.Size = new Size(67, 20);
             label1.TabIndex = 2;
             label1.Text = "Nombre";
             // 
             // txtDescripServ
             // 
-            txtDescripServ.Location = new Point(492, 190);
+            txtDescripServ.Location = new Point(502, 191);
             txtDescripServ.Name = "txtDescripServ";
-            txtDescripServ.Size = new Size(125, 27);
+            txtDescripServ.Size = new Size(157, 27);
             txtDescripServ.TabIndex = 1;
             // 
             // txtNombreServ
             // 
             txtNombreServ.Location = new Point(316, 190);
             txtNombreServ.Name = "txtNombreServ";
-            txtNombreServ.Size = new Size(125, 27);
+            txtNombreServ.Size = new Size(140, 27);
             txtNombreServ.TabIndex = 0;
             // 
             // tabPage2

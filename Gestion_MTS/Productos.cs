@@ -67,7 +67,7 @@ namespace Gestion_MTS
             txtPrecio.Clear();
             txtStock.Clear();
             txtStockMin.Clear();
-            chkEstado.Checked = false;  
+            chkEstado.Checked = false;
 
         }
 
@@ -200,13 +200,13 @@ namespace Gestion_MTS
                     nombre = row.Cells["nombre"].Value?.ToString(),
                     codigo = row.Cells["codigo"].Value?.ToString(),
                     categoria = row.Cells["categoria"].Value?.ToString(),
-                    descripcion= row.Cells["descripcion"].Value?.ToString(),
+                    descripcion = row.Cells["descripcion"].Value?.ToString(),
                     precio = Convert.ToDecimal(row.Cells["precio"].Value),
                     stock = Convert.ToInt32(row.Cells["stock"].Value),
                     StockMinimo = Convert.ToInt32(row.Cells["StockMinimo"].Value),
                     sucursal = row.Cells["sucursal"].Value?.ToString(),
                     bodega = row.Cells["bodega"].Value?.ToString(),
-                    localizacion = row.Cells["localizacion"].Value?.ToString(), 
+                    localizacion = row.Cells["localizacion"].Value?.ToString(),
                     estado = Convert.ToBoolean(row.Cells["estado"].Value)
                 };
 
@@ -220,7 +220,9 @@ namespace Gestion_MTS
                 cboLocalicacion.Text = product.localizacion;
                 chkEstado.Checked = product.estado;
 
-            }   
+            }
         }
+
+        
     }
 }
