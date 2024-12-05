@@ -90,6 +90,30 @@ namespace Gestion_MTS.IRepository.Repository
             return tabla;
         }
 
+        public DataTable GetTiposPagoSimplified()
+        {
+            DataTable tiposPago = new DataTable();
+
+            string query = "SELECT * FROM TiposPagoSimplified";
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                try
+                {
+                    connection.Open();
+                    adapter.Fill(tiposPago);
+                }
+                catch (Exception e)
+                {
+
+                    throw new Exception("Error:" + e.Message);
+                }
+            }
+            return tiposPago;
+        }
+
         public void Update(TipoPago ado, int id)
         {
             string query = "UPDATE tiposPago SET tipo = @tipo where id_tipo_pago = @id_tipo_pago";
