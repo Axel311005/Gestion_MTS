@@ -119,5 +119,66 @@ namespace Gestion_MTS.IRepository.Repository
                 }
             }
         }
+
+        public int? GetIdProveedor(string nombreProveedor)
+        {
+            string query = "SELECT TOP 1 id_proveedor FROM proveedores WHERE nombre = @nombre";
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@nombre", nombreProveedor);
+
+                try
+                {
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+
+                    if (result != null && int.TryParse(result.ToString(), out int idProveedor))
+                    {
+                        return idProveedor;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch (Exception e)
+                {
+                    throw new Exception("Error al obtener el ID del proveedor: " + e.Message);
+                }
+            }
+        }
+
+        public List<string> GetNombresProveedores()
+        {
+            List<string> nombresProveedores = new List<string>();
+            string query = "SELECT nombre FROM proveedores";
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+
+                try
+                {
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            nombresProveedores.Add(reader["nombre"].ToString());
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    throw new Exception("Error al obtener los nombres de los proveedores: " + e.Message);
+                }
+            }
+
+            return nombresProveedores;
+        }
+
+
     }
 }

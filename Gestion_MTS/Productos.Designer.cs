@@ -61,18 +61,56 @@
             label11 = new Label();
             txtDescripcionCateg = new TextBox();
             txtNombreCategoria = new TextBox();
+            tabPage3 = new TabPage();
+            tabPage4 = new TabPage();
+            txtNombreProv = new TextBox();
+            txtDirecciónProv = new TextBox();
+            txtTelefonoProv = new TextBox();
+            label9 = new Label();
+            label12 = new Label();
+            label13 = new Label();
+            groupBox2 = new GroupBox();
+            btnDeleteProv = new Button();
+            btnUpdateProv = new Button();
+            btnAddProv = new Button();
+            dgvProveedores = new DataGridView();
+            comboBox1 = new ComboBox();
+            comboBox2 = new ComboBox();
+            groupBox3 = new GroupBox();
+            dgvCompras = new DataGridView();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            label14 = new Label();
+            label15 = new Label();
+            label16 = new Label();
+            label17 = new Label();
+            label18 = new Label();
+            comboBox3 = new ComboBox();
+            label19 = new Label();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            textBox3 = new TextBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
             tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCategorias).BeginInit();
+            tabPage3.SuspendLayout();
+            tabPage4.SuspendLayout();
+            groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvProveedores).BeginInit();
+            groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvCompras).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tabPage3);
+            tabControl1.Controls.Add(tabPage4);
             tabControl1.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tabControl1.Location = new Point(12, 12);
             tabControl1.Name = "tabControl1";
@@ -162,7 +200,7 @@
             groupBox1.Size = new Size(811, 363);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Agregar Productos";
+            groupBox1.Text = "Gestión de Productos";
             // 
             // label8
             // 
@@ -419,6 +457,319 @@
             txtNombreCategoria.Size = new Size(125, 22);
             txtNombreCategoria.TabIndex = 14;
             // 
+            // tabPage3
+            // 
+            tabPage3.Controls.Add(button1);
+            tabPage3.Controls.Add(button2);
+            tabPage3.Controls.Add(button3);
+            tabPage3.Controls.Add(dgvCompras);
+            tabPage3.Controls.Add(groupBox3);
+            tabPage3.Location = new Point(4, 25);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new Padding(3);
+            tabPage3.Size = new Size(1097, 557);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "Compra de Inventario";
+            tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            tabPage4.Controls.Add(dgvProveedores);
+            tabPage4.Controls.Add(btnDeleteProv);
+            tabPage4.Controls.Add(btnUpdateProv);
+            tabPage4.Controls.Add(btnAddProv);
+            tabPage4.Controls.Add(groupBox2);
+            tabPage4.Location = new Point(4, 25);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Padding = new Padding(3);
+            tabPage4.Size = new Size(1097, 557);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "Proveedores";
+            tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // txtNombreProv
+            // 
+            txtNombreProv.Location = new Point(127, 54);
+            txtNombreProv.Name = "txtNombreProv";
+            txtNombreProv.Size = new Size(194, 22);
+            txtNombreProv.TabIndex = 0;
+            // 
+            // txtDirecciónProv
+            // 
+            txtDirecciónProv.Location = new Point(136, 190);
+            txtDirecciónProv.Name = "txtDirecciónProv";
+            txtDirecciónProv.Size = new Size(194, 22);
+            txtDirecciónProv.TabIndex = 1;
+            // 
+            // txtTelefonoProv
+            // 
+            txtTelefonoProv.Location = new Point(127, 129);
+            txtTelefonoProv.Name = "txtTelefonoProv";
+            txtTelefonoProv.Size = new Size(194, 22);
+            txtTelefonoProv.TabIndex = 2;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(17, 129);
+            label9.Name = "label9";
+            label9.Size = new Size(69, 16);
+            label9.TabIndex = 10;
+            label9.Text = "Telefono";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(17, 193);
+            label12.Name = "label12";
+            label12.Size = new Size(73, 16);
+            label12.TabIndex = 11;
+            label12.Text = "Dirección";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(17, 54);
+            label13.Name = "label13";
+            label13.Size = new Size(62, 16);
+            label13.TabIndex = 12;
+            label13.Text = "Nombre";
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(txtNombreProv);
+            groupBox2.Controls.Add(label12);
+            groupBox2.Controls.Add(label13);
+            groupBox2.Controls.Add(label9);
+            groupBox2.Controls.Add(txtDirecciónProv);
+            groupBox2.Controls.Add(txtTelefonoProv);
+            groupBox2.Location = new Point(6, 21);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(419, 291);
+            groupBox2.TabIndex = 13;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Gestión de Proveedores";
+            // 
+            // btnDeleteProv
+            // 
+            btnDeleteProv.BackColor = Color.FromArgb(255, 128, 0);
+            btnDeleteProv.FlatStyle = FlatStyle.Flat;
+            btnDeleteProv.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDeleteProv.ForeColor = SystemColors.ButtonHighlight;
+            btnDeleteProv.Location = new Point(526, 192);
+            btnDeleteProv.Name = "btnDeleteProv";
+            btnDeleteProv.Size = new Size(116, 36);
+            btnDeleteProv.TabIndex = 16;
+            btnDeleteProv.Text = "Borrar";
+            btnDeleteProv.UseVisualStyleBackColor = false;
+            // 
+            // btnUpdateProv
+            // 
+            btnUpdateProv.BackColor = Color.FromArgb(255, 128, 0);
+            btnUpdateProv.FlatStyle = FlatStyle.Flat;
+            btnUpdateProv.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnUpdateProv.ForeColor = SystemColors.ButtonHighlight;
+            btnUpdateProv.Location = new Point(526, 131);
+            btnUpdateProv.Name = "btnUpdateProv";
+            btnUpdateProv.Size = new Size(116, 36);
+            btnUpdateProv.TabIndex = 15;
+            btnUpdateProv.Text = "Actualizar";
+            btnUpdateProv.UseVisualStyleBackColor = false;
+            // 
+            // btnAddProv
+            // 
+            btnAddProv.BackColor = Color.FromArgb(255, 128, 0);
+            btnAddProv.FlatStyle = FlatStyle.Flat;
+            btnAddProv.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddProv.ForeColor = SystemColors.ButtonHighlight;
+            btnAddProv.Location = new Point(526, 76);
+            btnAddProv.Name = "btnAddProv";
+            btnAddProv.Size = new Size(116, 36);
+            btnAddProv.TabIndex = 14;
+            btnAddProv.Text = "Agregar";
+            btnAddProv.UseVisualStyleBackColor = false;
+            // 
+            // dgvProveedores
+            // 
+            dgvProveedores.BackgroundColor = SystemColors.ButtonHighlight;
+            dgvProveedores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProveedores.Dock = DockStyle.Bottom;
+            dgvProveedores.Location = new Point(3, 342);
+            dgvProveedores.Name = "dgvProveedores";
+            dgvProveedores.RowHeadersWidth = 51;
+            dgvProveedores.Size = new Size(1091, 212);
+            dgvProveedores.TabIndex = 17;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(621, 69);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(151, 24);
+            comboBox1.TabIndex = 8;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(611, 139);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(151, 24);
+            comboBox2.TabIndex = 9;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(textBox3);
+            groupBox3.Controls.Add(textBox2);
+            groupBox3.Controls.Add(textBox1);
+            groupBox3.Controls.Add(label19);
+            groupBox3.Controls.Add(comboBox3);
+            groupBox3.Controls.Add(label18);
+            groupBox3.Controls.Add(label17);
+            groupBox3.Controls.Add(label16);
+            groupBox3.Controls.Add(label15);
+            groupBox3.Controls.Add(label14);
+            groupBox3.Controls.Add(comboBox1);
+            groupBox3.Controls.Add(comboBox2);
+            groupBox3.Location = new Point(25, 20);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(821, 327);
+            groupBox3.TabIndex = 10;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Gestión Compra de Inventario";
+            // 
+            // dgvCompras
+            // 
+            dgvCompras.BackgroundColor = SystemColors.ButtonHighlight;
+            dgvCompras.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCompras.Dock = DockStyle.Bottom;
+            dgvCompras.Location = new Point(3, 379);
+            dgvCompras.Name = "dgvCompras";
+            dgvCompras.RowHeadersWidth = 51;
+            dgvCompras.Size = new Size(1091, 175);
+            dgvCompras.TabIndex = 11;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(255, 128, 0);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = SystemColors.ButtonHighlight;
+            button1.Location = new Point(897, 225);
+            button1.Name = "button1";
+            button1.Size = new Size(116, 36);
+            button1.TabIndex = 14;
+            button1.Text = "Borrar";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.FromArgb(255, 128, 0);
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = SystemColors.ButtonHighlight;
+            button2.Location = new Point(897, 164);
+            button2.Name = "button2";
+            button2.Size = new Size(116, 36);
+            button2.TabIndex = 13;
+            button2.Text = "Actualizar";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.FromArgb(255, 128, 0);
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.ForeColor = SystemColors.ButtonHighlight;
+            button3.Location = new Point(897, 109);
+            button3.Name = "button3";
+            button3.Size = new Size(116, 36);
+            button3.TabIndex = 12;
+            button3.Text = "Agregar";
+            button3.UseVisualStyleBackColor = false;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(477, 70);
+            label14.Name = "label14";
+            label14.Size = new Size(102, 16);
+            label14.TabIndex = 16;
+            label14.Text = "Tipo de Pago";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(31, 276);
+            label15.Name = "label15";
+            label15.Size = new Size(49, 16);
+            label15.TabIndex = 17;
+            label15.Text = "Monto";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(31, 139);
+            label16.Name = "label16";
+            label16.Size = new Size(69, 16);
+            label16.TabIndex = 18;
+            label16.Text = "Producto";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(477, 139);
+            label17.Name = "label17";
+            label17.Size = new Size(80, 16);
+            label17.TabIndex = 19;
+            label17.Text = "Proveedor";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(31, 69);
+            label18.Name = "label18";
+            label18.Size = new Size(139, 16);
+            label18.TabIndex = 20;
+            label18.Text = "Numero de Factura";
+            // 
+            // comboBox3
+            // 
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Location = new Point(198, 139);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(186, 24);
+            comboBox3.TabIndex = 21;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(31, 211);
+            label19.Name = "label19";
+            label19.Size = new Size(69, 16);
+            label19.TabIndex = 22;
+            label19.Text = "Cantidad";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(198, 67);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(186, 22);
+            textBox1.TabIndex = 23;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(198, 208);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(186, 22);
+            textBox2.TabIndex = 24;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(198, 273);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(186, 22);
+            textBox3.TabIndex = 25;
+            // 
             // Productos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -437,6 +788,14 @@
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCategorias).EndInit();
+            tabPage3.ResumeLayout(false);
+            tabPage4.ResumeLayout(false);
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvProveedores).EndInit();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvCompras).EndInit();
             ResumeLayout(false);
         }
 
@@ -475,5 +834,35 @@
         private Label label11;
         private TextBox txtDescripcionCateg;
         private TextBox txtNombreCategoria;
+        private TabPage tabPage3;
+        private TabPage tabPage4;
+        private GroupBox groupBox2;
+        private TextBox txtNombreProv;
+        private Label label12;
+        private Label label13;
+        private Label label9;
+        private TextBox txtDirecciónProv;
+        private TextBox txtTelefonoProv;
+        private DataGridView dgvProveedores;
+        private Button btnDeleteProv;
+        private Button btnUpdateProv;
+        private Button btnAddProv;
+        private Button button1;
+        private Button button2;
+        private Button button3;
+        private DataGridView dgvCompras;
+        private GroupBox groupBox3;
+        private ComboBox comboBox1;
+        private ComboBox comboBox2;
+        private Label label18;
+        private Label label17;
+        private Label label16;
+        private Label label15;
+        private Label label14;
+        private TextBox textBox3;
+        private TextBox textBox2;
+        private TextBox textBox1;
+        private Label label19;
+        private ComboBox comboBox3;
     }
 }
