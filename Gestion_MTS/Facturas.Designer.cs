@@ -172,6 +172,7 @@
             txtProductQuantity.Name = "txtProductQuantity";
             txtProductQuantity.Size = new Size(100, 19);
             txtProductQuantity.TabIndex = 3;
+            txtProductQuantity.KeyPress += txtProductQuantity_KeyPress;
             // 
             // lblQuantity
             // 
@@ -292,6 +293,7 @@
             txtAmount.Name = "txtAmount";
             txtAmount.Size = new Size(100, 19);
             txtAmount.TabIndex = 9;
+            txtAmount.KeyPress += txtAmount_KeyPress;
             // 
             // lblAmount
             // 

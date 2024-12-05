@@ -85,6 +85,7 @@
             // 
             // dgvBodegas
             // 
+            dgvBodegas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvBodegas.BackgroundColor = SystemColors.ControlLightLight;
             dgvBodegas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvBodegas.Dock = DockStyle.Bottom;
@@ -127,7 +128,7 @@
             btnDeleteBodega.TabIndex = 4;
             btnDeleteBodega.Text = "Borrar";
             btnDeleteBodega.UseVisualStyleBackColor = false;
-            btnDeleteBodega.Click += btnDeleteBodega_Click;
+
             // 
             // btnUpdateBodega
             // 
@@ -175,6 +176,7 @@
             txtNombreBodegas.Name = "txtNombreBodegas";
             txtNombreBodegas.Size = new Size(201, 25);
             txtNombreBodegas.TabIndex = 0;
+            txtNombreBodegas.KeyPress += txtNombreBodegas_KeyPress;
             // 
             // groupBox2
             // 
@@ -198,6 +200,7 @@
             // 
             // dgvLocalBodega
             // 
+            dgvLocalBodega.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvLocalBodega.BackgroundColor = SystemColors.ButtonHighlight;
             dgvLocalBodega.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvLocalBodega.Dock = DockStyle.Bottom;
@@ -271,6 +274,7 @@
             txtDescripcionLocalBod.Name = "txtDescripcionLocalBod";
             txtDescripcionLocalBod.Size = new Size(170, 25);
             txtDescripcionLocalBod.TabIndex = 1;
+            txtDescripcionLocalBod.KeyPress += txtDescripcionLocalBod_KeyPress;
             // 
             // btnAddLocalBod
             // 
@@ -308,6 +312,7 @@
             // 
             // dgvSucursales
             // 
+            dgvSucursales.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvSucursales.BackgroundColor = SystemColors.ButtonHighlight;
             dgvSucursales.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvSucursales.Dock = DockStyle.Bottom;
@@ -389,6 +394,7 @@
             txtTelSucur.Name = "txtTelSucur";
             txtTelSucur.Size = new Size(125, 25);
             txtTelSucur.TabIndex = 1;
+            txtTelSucur.KeyPress += txtTelSucur_KeyPress;
             // 
             // txtUbiSucur
             // 
@@ -397,6 +403,7 @@
             txtUbiSucur.Name = "txtUbiSucur";
             txtUbiSucur.Size = new Size(125, 25);
             txtUbiSucur.TabIndex = 0;
+            txtUbiSucur.KeyPress += txtUbiSucur_KeyPress;
             // 
             // AdmonSucursales
             // 

@@ -107,6 +107,7 @@
             // 
             // dgvServicios
             // 
+            dgvServicios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvServicios.BackgroundColor = SystemColors.ButtonHighlight;
             dgvServicios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvServicios.Dock = DockStyle.Bottom;
@@ -185,6 +186,7 @@
             txtDescripServ.Name = "txtDescripServ";
             txtDescripServ.Size = new Size(157, 27);
             txtDescripServ.TabIndex = 1;
+            txtDescripServ.KeyPress += txtDescripServ_KeyPress;
             // 
             // txtNombreServ
             // 
@@ -192,6 +194,7 @@
             txtNombreServ.Name = "txtNombreServ";
             txtNombreServ.Size = new Size(140, 27);
             txtNombreServ.TabIndex = 0;
+            txtNombreServ.KeyPress += txtNombreServ_KeyPress;
             // 
             // tabPage2
             // 
@@ -210,6 +213,49 @@
             tabPage2.Size = new Size(1178, 591);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Categorias  de Servicios";
+
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dgvCategoriaServicios
+            // 
+            dgvCategoriaServicios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvCategoriaServicios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCategoriaServicios.Dock = DockStyle.Bottom;
+            dgvCategoriaServicios.Location = new Point(3, 356);
+            dgvCategoriaServicios.Name = "dgvCategoriaServicios";
+            dgvCategoriaServicios.RowHeadersWidth = 51;
+            dgvCategoriaServicios.Size = new Size(1172, 232);
+            dgvCategoriaServicios.TabIndex = 14;
+            // 
+            // btnDeleteCateg
+            // 
+            btnDeleteCateg.Location = new Point(677, 237);
+            btnDeleteCateg.Name = "btnDeleteCateg";
+            btnDeleteCateg.Size = new Size(94, 29);
+            btnDeleteCateg.TabIndex = 13;
+            btnDeleteCateg.Text = "Eliminar";
+            btnDeleteCateg.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdateCateg
+            // 
+            btnUpdateCateg.Location = new Point(526, 237);
+            btnUpdateCateg.Name = "btnUpdateCateg";
+            btnUpdateCateg.Size = new Size(94, 29);
+            btnUpdateCateg.TabIndex = 12;
+            btnUpdateCateg.Text = "Actualizar";
+            btnUpdateCateg.UseVisualStyleBackColor = true;
+            // 
+            // btnAddCateg
+            // 
+            btnAddCateg.Location = new Point(360, 237);
+            btnAddCateg.Name = "btnAddCateg";
+            btnAddCateg.Size = new Size(94, 29);
+            btnAddCateg.TabIndex = 11;
+            btnAddCateg.Text = "Agregar";
+            btnAddCateg.UseVisualStyleBackColor = true;
+            btnAddCateg.Click += btnAddCateg_Click;
+
+
             // 
             // label3
             // 
@@ -291,6 +337,7 @@
             txtDescripcionCateg.Name = "txtDescripcionCateg";
             txtDescripcionCateg.Size = new Size(125, 27);
             txtDescripcionCateg.TabIndex = 8;
+            txtDescripcionCateg.KeyPress += txtDescripcionCateg_KeyPress;
             // 
             // txtNombreCategoria
             // 
@@ -298,6 +345,7 @@
             txtNombreCategoria.Name = "txtNombreCategoria";
             txtNombreCategoria.Size = new Size(125, 27);
             txtNombreCategoria.TabIndex = 7;
+            txtNombreCategoria.KeyPress += txtNombreCategoria_KeyPress;
             // 
             // Servicios
             // 

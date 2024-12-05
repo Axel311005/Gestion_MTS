@@ -306,6 +306,7 @@
             txtStockMin.Name = "txtStockMin";
             txtStockMin.Size = new Size(125, 25);
             txtStockMin.TabIndex = 5;
+            txtStockMin.KeyPress += txtStockMin_KeyPress;
             // 
             // txtStock
             // 
@@ -313,6 +314,7 @@
             txtStock.Name = "txtStock";
             txtStock.Size = new Size(125, 25);
             txtStock.TabIndex = 4;
+            txtStock.KeyPress += txtStock_KeyPress;
             // 
             // txtPrecio
             // 
@@ -320,6 +322,7 @@
             txtPrecio.Name = "txtPrecio";
             txtPrecio.Size = new Size(125, 25);
             txtPrecio.TabIndex = 3;
+            txtPrecio.KeyPress += txtPrecio_KeyPress;
             // 
             // txtDescripProd
             // 
@@ -327,6 +330,7 @@
             txtDescripProd.Name = "txtDescripProd";
             txtDescripProd.Size = new Size(125, 25);
             txtDescripProd.TabIndex = 2;
+            txtDescripProd.KeyPress += txtDescripProd_KeyPress;
             // 
             // txtNombreProd
             // 
@@ -334,6 +338,7 @@
             txtNombreProd.Name = "txtNombreProd";
             txtNombreProd.Size = new Size(125, 25);
             txtNombreProd.TabIndex = 1;
+            txtNombreProd.KeyPress += txtNombreProd_KeyPress;
             // 
             // txtCodigo
             // 
@@ -449,6 +454,7 @@
             txtDescripcionCateg.Name = "txtDescripcionCateg";
             txtDescripcionCateg.Size = new Size(125, 22);
             txtDescripcionCateg.TabIndex = 15;
+            txtDescripcionCateg.KeyPress += txtDescripcionCateg_KeyPress;
             // 
             // txtNombreCategoria
             // 
@@ -456,6 +462,7 @@
             txtNombreCategoria.Name = "txtNombreCategoria";
             txtNombreCategoria.Size = new Size(125, 22);
             txtNombreCategoria.TabIndex = 14;
+            txtNombreCategoria.KeyPress += txtNombreCategoria_KeyPress;
             // 
             // tabPage3
             // 
