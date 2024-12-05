@@ -22,6 +22,16 @@ namespace Gestion_MTS
         ProductoRepository productos;
         CategoriaProductoRepository categoria;
         LocalizacionEnBodegaRepository local;
+        CompraRepository compras;
+        DetalleCompraRepository DetalleCompra;
+        TipoPagoRepository tipo;
+        ProveedorRepository proveedor;
+
+        public int idProd;
+        public int idCategoria;
+        public int idCompra;
+        public int idDetalle;
+        public DateTime FechaCompra;
         public Productos()
         {
             InitializeComponent();
@@ -29,6 +39,10 @@ namespace Gestion_MTS
             productos = new ProductoRepository(connectionString);
             categoria = new CategoriaProductoRepository(connectionString);
             local = new LocalizacionEnBodegaRepository(connectionString);
+            compras = new CompraRepository(connectionString);
+            DetalleCompra = new DetalleCompraRepository(connectionString);
+            tipo = new TipoPagoRepository(connectionString);
+            proveedor = new ProveedorRepository(connectionString);
 
         }
 
@@ -37,6 +51,9 @@ namespace Gestion_MTS
             Refresh();
             cboCategoria.DataSource = categoria.GetCategoria();
             cboLocalicacion.DataSource = local.GetLocalizacion();
+            cboProductComp.DataSource = productos.GetNombresProductos();
+            cboProveedorCompra.DataSource = proveedor.GetNombresProveedores();
+            cboTipoPagoComp.DataSource = tipo.GetTiposPago();
         }
 
         private void Refresh()
@@ -47,7 +64,7 @@ namespace Gestion_MTS
                 var products = productos.GetAll();
                 dgvProductos.DataSource = products;
                 dgvCategorias.DataSource = categoria.GetAll();
-
+                dgvCompras.DataSource = compras.GetAll();
 
             }
             catch (SqlException sqlEx)
@@ -131,7 +148,7 @@ namespace Gestion_MTS
                 {
                     var update = new Producto
                     {
-                        IdProducto = productos.ObtenerIdProductoPorNombre(txtNombreProd.Text),
+                        IdProducto = idProd,
                         Codigo = txtCodigo.Text,
                         Estado = chkEstado.Checked,
                         Descripcion = txtDescripProd.Text,
@@ -168,7 +185,7 @@ namespace Gestion_MTS
                 {
                     try
                     {
-                        productos.Delete(productos.ObtenerIdProductoPorNombre(txtNombreProd.Text));
+                        productos.Delete(idProd);
                         MessageBox.Show("¡Producto eliminado exitosamente!", "Éxito",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Refresh();
@@ -219,9 +236,203 @@ namespace Gestion_MTS
                 cboCategoria.Text = product.categoria;
                 cboLocalicacion.Text = product.localizacion;
                 chkEstado.Checked = product.estado;
+                idProd = Convert.ToInt32(row.Cells["id_producto"].Value); ;
 
             }
         }
+
+        public void LimpiarTextCat()
+        {
+            txtNombreCategoria.Clear();
+            txtDescripcionCateg.Clear();
+        }
+
+        private void btnUpdateCateg_Click(object sender, EventArgs e)
+        {
+            if (dgvCategorias.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    var update = new CategoriaProducto
+                    {
+                        IdCategoriaProducto = idCategoria,
+                        Nombre = txtNombreCategoria.Text,
+                        Descripcion = txtDescripcionCateg.Text,
+                    };
+                    categoria.Update(update, 0);
+                    MessageBox.Show("Categoria Actualizada correctamente");
+                    LimpiarTextCat();
+                    Refresh();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al actualizar categoria " + ex.Message);
+                }
+            }
+        }
+
+        private void btnDeleteCateg_Click(object sender, EventArgs e)
+        {
+            if (dgvCategorias.Rows.Count > 0)
+            {
+                var result = MessageBox.Show($"¿Está seguro de que desea eliminar la categoria '{txtNombreCategoria.Text}'?",
+                    "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        categoria.Delete(idCategoria);
+                        Refresh();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al eliminar categoria: {ex.Message}",
+                                                                  "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void dgvCategorias_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+
+                DataGridViewRow row = dgvCategorias.Rows[e.RowIndex];
+
+                CategoriaProducto cat = new CategoriaProducto
+                {
+                    Nombre = row.Cells["nombre"]?.Value?.ToString(),
+                    Descripcion = row.Cells["descripcion"]?.Value?.ToString(),
+                };
+
+                idCategoria = Convert.ToInt32(row.Cells["id_categoriaProducto"].Value);
+                txtNombreCategoria.Text = cat.Nombre;
+                txtDescripcionCateg.Text = cat.Descripcion;
+
+            }
+        }
+
+        private void dgvCompras_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex  >= 0)
+            {
+                DataGridViewRow row = dgvCompras.Rows[e.RowIndex];
+
+                ComprasView view = new ComprasView 
+                {
+                    NumeroFactura = Convert.ToInt32(row.Cells["NumeroFactura"].Value?.ToString()),
+                    TipoPago = row.Cells["TipoPago"].Value?.ToString(),
+                    proveedor = row.Cells["proveedor"].Value?.ToString(),
+                    producto = row.Cells["producto"].Value?.ToString(),
+                    cantidad = Convert.ToInt32(row.Cells["cantidad"].Value?.ToString()),
+                    monto = Convert.ToDecimal(row.Cells["monto"].Value?.ToString())
+
+                };
+                idCompra = Convert.ToInt32(row.Cells["id_compra"].Value);
+                idDetalle = Convert.ToInt32(row.Cells["id_detalle_compra"].Value);
+                txtNumeroFact.Text = view.NumeroFactura.ToString();
+                cboProductComp.Text = view.producto;
+                txtCantidadCompra.Text = view.cantidad.ToString();
+                txtMontoCompra.Text = view.monto.ToString();
+                cboTipoPagoComp.Text = view.TipoPago;
+                cboProveedorCompra.Text = view.proveedor;
+                FechaCompra = Convert.ToDateTime(row.Cells["fecha"].Value);
+
+            }
+        }
+
+        private void btnAddCompra_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Compra compra = new Compra
+                {
+                    NumeroCompra = Convert.ToInt32(txtNumeroFact.Text),
+                    IdTipoPago = Convert.ToInt32(tipo.GetIdTipoPago(cboTipoPagoComp.Text))
+
+                };
+
+                compras.Add(compra);
+
+                decimal monto = Convert.ToDecimal(txtMontoCompra.Text);
+                DetalleCompra detalleCompra = new DetalleCompra
+                {
+                    IdCompra = Convert.ToInt32(compras.GetIdCompra(Convert.ToInt32(txtNumeroFact.Text))),
+                    IdProveedor = Convert.ToInt32(proveedor.GetIdProveedor(cboProveedorCompra.Text)),
+                    IdProducto = Convert.ToInt32(productos.ObtenerIdProductoPorNombre(cboProductComp.Text)),
+                    Cantidad = Convert.ToInt32(txtCantidadCompra.Text),
+                    Monto = monto
+
+                };
+
+               
+
+                DetalleCompra.Add(detalleCompra);
+
+                MessageBox.Show("Compra Agregada correctamente");
+                Refresh();
+                LimpiarTextCompras();
+
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al agregar compra " + ex.Message);
+            }
+        }
+
+        private void LimpiarTextCompras()
+        {
+            txtNumeroFact.Clear();
+            txtCantidadCompra.Clear();
+            txtMontoCompra.Clear();
+
+        }
+
+        private void btnUpdateCompra_Click(object sender, EventArgs e)
+        {
+            if(dgvCompras.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    var update = new Compra
+                    {
+                        IdCompra = idCompra,
+                        NumeroCompra = Convert.ToInt32(txtNumeroFact.Text),
+                        IdTipoPago = Convert.ToInt32(tipo.GetIdTipoPago(cboTipoPagoComp.Text)),
+                        Fecha = FechaCompra
+                    };
+
+                    compras.Update(update,0);
+
+
+                    var updateDetalle = new DetalleCompra
+                    {
+                        IdDetalleCompra = idDetalle,
+                        IdCompra = idCompra,
+                        IdProveedor = Convert.ToInt32(proveedor.GetIdProveedor(cboProveedorCompra.Text)),
+                        IdProducto = Convert.ToInt32(productos.ObtenerIdProductoPorNombre(cboProductComp.Text)),
+                        Cantidad = Convert.ToInt32(txtCantidadCompra.Text),
+                        Monto = Convert.ToDecimal(txtMontoCompra.Text)
+
+                    };
+
+                    DetalleCompra.Update(updateDetalle, 0);
+
+                    MessageBox.Show("Compra Actualizada correctamente");
+                    Refresh();
+                    LimpiarTextCompras();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al actualizar " + ex.Message);
+                }
+            }
+        }
+
 
         private void txtNombreProd_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -295,6 +506,40 @@ namespace Gestion_MTS
             if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
+
+        private void btnDeleteCompra_Click(object sender, EventArgs e)
+        {
+            if (dgvCompras.Rows.Count > 0)
+            {
+
+                var result =
+                    MessageBox.Show($"¿Está seguro de que desea eliminar la compra?",
+                    "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        DetalleCompra.Delete(idDetalle);
+                        compras.Delete(idCompra);
+                        MessageBox.Show("¡Compra eliminada exitosamente!", "Éxito",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Refresh();
+                        LimpiarTextCompras();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al eliminar compra: {ex.Message}",
+                                           "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un empleado para eliminar.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
         }
     }

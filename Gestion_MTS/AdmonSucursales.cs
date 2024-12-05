@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Gestion_MTS.Clases;
 using Gestion_MTS.ConsultasAdo.Net;
 using Gestion_MTS.IRepository.Repository;
+using Gestion_MTS.Vistas;
 
 namespace Gestion_MTS
 {
@@ -20,6 +21,12 @@ namespace Gestion_MTS
         BodegaRepository bodega;
         LocalizacionEnBodegaRepository local;
         SucursalRepository sucursal;
+
+        public int idLocal;
+        public int idBod;
+        public int idSuc;
+
+
         public AdmonSucursales()
         {
             InitializeComponent();
@@ -27,29 +34,13 @@ namespace Gestion_MTS
             bodega = new BodegaRepository(connectionString);
             local = new LocalizacionEnBodegaRepository(connectionString);
             sucursal = new SucursalRepository(connectionString);
-            cboSucursales.DataSource = sucursal.GetUbicacionSucursal();
-            cboBodegas.DataSource = bodega.GetNombreBodega();
+            
         }
 
         private void btnAddBodega_Click(object sender, EventArgs e)
         {
 
-            //hecho anteriormente
-            //try
-            //{
-            //    int id_sucursal = Convert.ToInt32(bod.GetIdSucursal(cboSucursales.Text));
-            //    bod.AddBodegas(txtNombreBodegas.Text, id_sucursal);
-            //    cboBodegas.DataSource = bod.GetBodegas();
-            //    MessageBox.Show("Bodega agregada correctamente");
-
-            //}
-            //catch (Exception ex)
-            //{
-
-            //    MessageBox.Show("Error al agregar una bodega" + ex.Message);
-            //}
-
-            //nuevoooo
+            
             try
             {
                 int id_sucursal = Convert.ToInt32(sucursal.GetIdSucursal(cboSucursales.Text));
@@ -61,6 +52,8 @@ namespace Gestion_MTS
                 bodega.Add(bodegaa);
                 cboBodegas.DataSource = bodega.GetAll();
                 MessageBox.Show("Bodega agregada correctamente");
+                txtNombreBodegas.Clear();
+                Refresh();
 
 
             }
@@ -91,6 +84,7 @@ namespace Gestion_MTS
                     id_bodega = id_bodega
                 };
                 local.Add(localizacion);
+                Refresh();
                 MessageBox.Show("Localizacion en bodega agregada correctamente");
             }
             catch (Exception ex)
@@ -114,6 +108,7 @@ namespace Gestion_MTS
                 MessageBox.Show("Sucursal agregada correctamente");
                 txtUbiSucur.Clear();
                 txtTelSucur.Clear();
+                Refresh();
             }
             catch (Exception)
             {
@@ -122,16 +117,212 @@ namespace Gestion_MTS
             }
         }
 
-        private void AdmonSucursales_Load(object sender, EventArgs e)
+        public void Refresh()
         {
             dgvBodegas.DataSource = bodega.GetAll();
             dgvLocalBodega.DataSource = local.GetAll();
             dgvSucursales.DataSource = sucursal.GetAll();
+            cboSucursales.DataSource = sucursal.GetUbicacionSucursal();
+            cboBodegas.DataSource = bodega.GetNombreBodega();
+        }
+
+        private void AdmonSucursales_Load(object sender, EventArgs e)
+        {
+            Refresh();
         }
 
         private void btnUpdateBodega_Click(object sender, EventArgs e)
         {
+            if(dgvBodegas.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    var update = new Bodega
+                    {
+                        id_bodega = idBod,
+                        nombre = txtNombreBodegas.Text,
+                        id_sucursal = Convert.ToInt32(sucursal.GetIdSucursal(cboSucursales.Text)),
+                    };
 
+                    bodega.Update(update, 0);
+                    MessageBox.Show("Bodega actualizada correctamente");
+                    Refresh();
+                    txtNombreBodegas.Clear();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al actualizar " + ex.Message);
+                }
+            }
+        }
+        private void btnUpdateSucursal_Click(object sender, EventArgs e)
+        {
+            if (dgvSucursales.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    var update = new Sucursal
+                    {
+                        id_sucursal = idSuc,
+                        ubicacion = txtUbiSucur.Text,
+                        telefono = txtTelSucur.Text
+                    };
+
+                    sucursal.Update(update, 0); 
+                    Refresh();
+                    MessageBox.Show("Sucursal actualizada correctamente");
+                    txtUbiSucur.Clear();
+                    txtTelSucur.Clear();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al actualizar " + ex.Message);
+                }
+            }
+        }
+
+        private void btnUpdateLocalBod_Click(object sender, EventArgs e)
+        {
+            if (dgvLocalBodega.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    int id_bodega = Convert.ToInt32(bodega.GetIdBodega(cboBodegas.Text));
+                    var update = new LocalizacionEnBodega
+                    {
+                        id_localizacionBodega = idLocal,
+                        descripcion = txtDescripcionLocalBod.Text,
+                        id_bodega = id_bodega
+                    };
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al actualizar " + ex.Message);
+                }
+            }
+        }
+        private void btnDeleteBodega_Click(object sender, EventArgs e)
+        {
+            if(dgvBodegas.Rows.Count > 0)
+            {
+                var result = MessageBox.Show($"¿Está seguro de que desea eliminar '{txtNombreBodegas.Text}'?",
+                    "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        bodega.Delete(idBod);
+                        Refresh();
+                        txtNombreBodegas.Clear();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al eliminar: {ex.Message}",
+                                           "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void btnDeleteSucursal_Click(object sender, EventArgs e)
+        {
+            if (dgvSucursales.Rows.Count > 0)
+            {
+                var result = MessageBox.Show($"¿Está seguro de que desea eliminar '{txtUbiSucur.Text}'?",
+                    "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        sucursal.Delete(idSuc);
+                        Refresh();
+                        txtUbiSucur.Clear();
+                        txtTelSucur.Clear();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al eliminar: {ex.Message}",
+                                           "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+        private void btnDeleteLocalBod_Click(object sender, EventArgs e)
+        {
+            if (dgvLocalBodega.Rows.Count > 0)
+            {
+                var result = MessageBox.Show($"¿Está seguro de que desea eliminar '{txtDescripcionLocalBod.Text}'?",
+                    "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        local.Delete(idLocal);
+                        Refresh();
+                        txtDescripcionLocalBod.Clear();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al eliminar: {ex.Message}",
+                                           "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void dgvSucursales_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvSucursales.Rows[e.RowIndex];
+                Sucursal suc = new Sucursal
+                {
+                    ubicacion = row.Cells["ubicacion"]?.Value?.ToString(),
+                    telefono = row.Cells["telefono"]?.Value?.ToString()
+                };
+
+                idSuc = Convert.ToInt32(row.Cells["id_sucursal"].Value);
+                txtUbiSucur.Text = suc.ubicacion;
+                txtTelSucur.Text = suc.telefono;
+            }
+        }
+
+        private void dgvBodegas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvBodegas.Rows[e.RowIndex];
+                BodegasView bodegas = new BodegasView
+                {
+                    bodega = row.Cells["bodega"]?.Value?.ToString(),
+                    sucursal = row.Cells["sucursal"]?.Value?.ToString(),
+                };
+                
+                idBod = Convert.ToInt32(row.Cells["id_bodega"].Value);
+                cboSucursales.Text = bodegas.sucursal;
+                txtNombreBodegas.Text = bodegas.bodega;
+            }
+        }
+
+        private void dgvLocalBodega_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvLocalBodega.Rows[e.RowIndex];
+
+                LocalizacionesBodegaView local = new LocalizacionesBodegaView
+                {
+                    descripcion = row.Cells["descripcion"]?.Value?.ToString(),
+                    bodega = row.Cells["bodega"]?.Value?.ToString()
+                };
+
+                idLocal = Convert.ToInt32(row.Cells["id_localizacionBodega"].Value);
+                cboBodegas.Text = local.bodega;
+                txtDescripcionLocalBod.Text = local.descripcion;
+            }
         }
 
         private void txtUbiSucur_KeyPress(object sender, KeyPressEventArgs e)

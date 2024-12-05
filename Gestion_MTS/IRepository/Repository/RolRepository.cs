@@ -72,7 +72,7 @@ namespace Gestion_MTS.IRepository.Repository
         {
             
             DataTable roles = new DataTable();
-            string query = "SELECT nombre FROM roles";
+            string query = "SELECT id_rol ,nombre, descripcion FROM roles";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -101,7 +101,7 @@ namespace Gestion_MTS.IRepository.Repository
 
                 command.Parameters.AddWithValue("@nombre", ado.nombre);
                 command.Parameters.AddWithValue("@descripcion", ado.descripcion);
-                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@id", ado.id_rol);
 
                 try
                 {

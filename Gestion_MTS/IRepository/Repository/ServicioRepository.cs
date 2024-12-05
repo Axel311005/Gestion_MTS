@@ -124,7 +124,7 @@ namespace Gestion_MTS.IRepository.Repository
                 command.Parameters.AddWithValue("@nombre", ado.Nombre);
                 command.Parameters.AddWithValue("@descripcion", ado.Descripcion);
                 command.Parameters.AddWithValue("@id_categoriaServicio", ado.IdCategoriaServicio);
-                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@id", ado.IdServicio);
 
                 try
                 {

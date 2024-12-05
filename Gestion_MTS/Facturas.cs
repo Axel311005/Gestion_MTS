@@ -30,6 +30,8 @@ namespace Gestion_MTS
             ProductoRepository productoRepository = new ProductoRepository(_connection);
             ServicioRepository servicioRepository = new ServicioRepository(_connection);
             EmpleadoRepository empleadoRepository = new EmpleadoRepository(_connection);
+            ClienteRepository clienteRepository = new ClienteRepository(_connection);
+            TipoPagoRepository tipoPagoRepository = new TipoPagoRepository(_connection);
 
             var products = productoRepository.GetSimplifiedProducts();
 
@@ -48,6 +50,18 @@ namespace Gestion_MTS
             cmbEmpleados.DataSource = mechanics;
             cmbEmpleados.DisplayMember = "nombre";
             cmbEmpleados.ValueMember = "id_empleado";
+
+            var clients = clienteRepository.GetClientsSimplified();
+
+            cmbCliente.DataSource = clients;
+            cmbCliente.DisplayMember = "nombre";
+            cmbCliente.ValueMember = "id_cliente";
+
+            var tiposPago = tipoPagoRepository.GetTiposPagoSimplified();
+
+            cmbTipoPago.DataSource = tiposPago;
+            cmbTipoPago.DisplayMember = "tipo";
+            cmbTipoPago.ValueMember = "id_tipo_pago";
         }
 
         private void lblAddedProducts_Click(object sender, EventArgs e)
@@ -268,6 +282,7 @@ namespace Gestion_MTS
             MessageBox.Show("Detalle Eliminado Correctamente", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+
         private void txtProductQuantity_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -298,6 +313,37 @@ namespace Gestion_MTS
                     e.Handled = true;
                 }
             }
+
+        private void btnGenerateFactura_Click(object sender, EventArgs e)
+        {
+            if(productos.Count < 1 && servicios.Count < 1)
+            {
+                MessageBox.Show("Necesita agregar productos o servicios a la factura", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            FacturaRepository facturaRepo = new FacturaRepository(this._connection);
+
+            int idFactura = facturaRepo.AddFactura(
+                new Factura
+                {
+                     IdCliente = Convert.ToInt32(cmbCliente.SelectedValue),
+                     IdEmpleado = Context.AppContext.GetContext()?.GetEmployeeId() ?? 1, // Por defecto se usa el empleado 1, pero cuando usemos el login el GetEmployeeId siempre deberia retornar el id del empleado con el usuario correspondiente
+                     IdTipoPago = Convert.ToInt32(cmbTipoPago.SelectedValue)
+                }
+            );
+
+            if(idFactura == 0)
+            {
+                MessageBox.Show("Ocurrio un error al crear la factura", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            facturaRepo.AddFacturaDetails(
+                new Tuple<List<DetalleProductoDto>, List<DetalleServicioDto>>(productos, servicios),
+                idFactura
+            );
+
         }
     }
 }

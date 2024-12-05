@@ -41,12 +41,12 @@
             txtDescripServ = new TextBox();
             txtNombreServ = new TextBox();
             tabPage2 = new TabPage();
-            dgvCategoriaServicios = new DataGridView();
-            btnDeleteCateg = new Button();
-            btnUpdateCateg = new Button();
-            btnAddCateg = new Button();
             label3 = new Label();
             label4 = new Label();
+            btnDeleteCat = new Button();
+            btnUpdateCat = new Button();
+            btnAddCateg = new Button();
+            dgvCategoriaServicios = new DataGridView();
             txtDescripcionCateg = new TextBox();
             txtNombreCategoria = new TextBox();
             tabControl1.SuspendLayout();
@@ -116,6 +116,7 @@
             dgvServicios.RowHeadersWidth = 51;
             dgvServicios.Size = new Size(1172, 188);
             dgvServicios.TabIndex = 7;
+            dgvServicios.CellClick += dgvServicios_CellClick;
             // 
             // btnDeleteServ
             // 
@@ -129,6 +130,7 @@
             btnDeleteServ.TabIndex = 6;
             btnDeleteServ.Text = "Eliminar";
             btnDeleteServ.UseVisualStyleBackColor = false;
+            btnDeleteServ.Click += btnDeleteServ_Click;
             // 
             // btnUpdateServ
             // 
@@ -142,6 +144,7 @@
             btnUpdateServ.TabIndex = 5;
             btnUpdateServ.Text = "Actualizar";
             btnUpdateServ.UseVisualStyleBackColor = false;
+            btnUpdateServ.Click += btnUpdateServ_Click;
             // 
             // btnAddServicio
             // 
@@ -195,12 +198,13 @@
             // 
             // tabPage2
             // 
-            tabPage2.Controls.Add(dgvCategoriaServicios);
-            tabPage2.Controls.Add(btnDeleteCateg);
-            tabPage2.Controls.Add(btnUpdateCateg);
-            tabPage2.Controls.Add(btnAddCateg);
+            tabPage2.BackColor = SystemColors.Control;
             tabPage2.Controls.Add(label3);
             tabPage2.Controls.Add(label4);
+            tabPage2.Controls.Add(btnDeleteCat);
+            tabPage2.Controls.Add(btnUpdateCat);
+            tabPage2.Controls.Add(btnAddCateg);
+            tabPage2.Controls.Add(dgvCategoriaServicios);
             tabPage2.Controls.Add(txtDescripcionCateg);
             tabPage2.Controls.Add(txtNombreCategoria);
             tabPage2.Location = new Point(4, 29);
@@ -209,6 +213,7 @@
             tabPage2.Size = new Size(1178, 591);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Categorias  de Servicios";
+
             tabPage2.UseVisualStyleBackColor = true;
             // 
             // dgvCategoriaServicios
@@ -249,24 +254,82 @@
             btnAddCateg.Text = "Agregar";
             btnAddCateg.UseVisualStyleBackColor = true;
             btnAddCateg.Click += btnAddCateg_Click;
+
+
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(612, 108);
+            label3.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Bold);
+            label3.Location = new Point(614, 103);
             label3.Name = "label3";
-            label3.Size = new Size(87, 20);
-            label3.TabIndex = 10;
+            label3.Size = new Size(92, 20);
+            label3.TabIndex = 19;
             label3.Text = "Descripción";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(454, 108);
+            label4.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Bold);
+            label4.Location = new Point(439, 103);
             label4.Name = "label4";
-            label4.Size = new Size(64, 20);
-            label4.TabIndex = 9;
+            label4.Size = new Size(67, 20);
+            label4.TabIndex = 18;
             label4.Text = "Nombre";
+            // 
+            // btnDeleteCat
+            // 
+            btnDeleteCat.BackColor = Color.FromArgb(255, 128, 0);
+            btnDeleteCat.FlatStyle = FlatStyle.Flat;
+            btnDeleteCat.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnDeleteCat.ForeColor = SystemColors.ButtonHighlight;
+            btnDeleteCat.Location = new Point(751, 228);
+            btnDeleteCat.Name = "btnDeleteCat";
+            btnDeleteCat.Size = new Size(150, 35);
+            btnDeleteCat.TabIndex = 17;
+            btnDeleteCat.Text = "Eliminar";
+            btnDeleteCat.UseVisualStyleBackColor = false;
+            btnDeleteCat.Click += btnDeleteCat_Click;
+            // 
+            // btnUpdateCat
+            // 
+            btnUpdateCat.BackColor = Color.FromArgb(255, 128, 0);
+            btnUpdateCat.FlatStyle = FlatStyle.Flat;
+            btnUpdateCat.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnUpdateCat.ForeColor = SystemColors.ButtonHighlight;
+            btnUpdateCat.Location = new Point(527, 228);
+            btnUpdateCat.Name = "btnUpdateCat";
+            btnUpdateCat.Size = new Size(150, 35);
+            btnUpdateCat.TabIndex = 16;
+            btnUpdateCat.Text = "Actualizar";
+            btnUpdateCat.UseVisualStyleBackColor = false;
+            btnUpdateCat.Click += btnUpdateCat_Click;
+            // 
+            // btnAddCateg
+            // 
+            btnAddCateg.BackColor = Color.FromArgb(255, 128, 0);
+            btnAddCateg.FlatStyle = FlatStyle.Flat;
+            btnAddCateg.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnAddCateg.ForeColor = SystemColors.ButtonHighlight;
+            btnAddCateg.Location = new Point(295, 228);
+            btnAddCateg.Name = "btnAddCateg";
+            btnAddCateg.Size = new Size(150, 35);
+            btnAddCateg.TabIndex = 15;
+            btnAddCateg.Text = "Agregar";
+            btnAddCateg.UseVisualStyleBackColor = false;
+            btnAddCateg.Click += btnAddCateg_Click_1;
+            // 
+            // dgvCategoriaServicios
+            // 
+            dgvCategoriaServicios.BackgroundColor = SystemColors.ButtonHighlight;
+            dgvCategoriaServicios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCategoriaServicios.Dock = DockStyle.Bottom;
+            dgvCategoriaServicios.Location = new Point(3, 356);
+            dgvCategoriaServicios.Name = "dgvCategoriaServicios";
+            dgvCategoriaServicios.RowHeadersWidth = 51;
+            dgvCategoriaServicios.Size = new Size(1172, 232);
+            dgvCategoriaServicios.TabIndex = 14;
+            dgvCategoriaServicios.CellClick += dgvCategoriaServicios_CellClick;
             // 
             // txtDescripcionCateg
             // 
@@ -317,14 +380,14 @@
         private Button btnAddServicio;
         private Label label2;
         private DataGridView dgvCategoriaServicios;
-        private Button btnDeleteCateg;
-        private Button btnUpdateCateg;
-        private Button btnAddCateg;
-        private Label label3;
-        private Label label4;
         private TextBox txtDescripcionCateg;
         private TextBox txtNombreCategoria;
         private Label label5;
         private ComboBox cboCategoria;
+        private Label label3;
+        private Label label4;
+        private Button btnDeleteCat;
+        private Button btnUpdateCat;
+        private Button btnAddCateg;
     }
 }

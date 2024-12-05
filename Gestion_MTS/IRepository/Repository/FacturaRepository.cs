@@ -1,4 +1,5 @@
 ﻿using Gestion_MTS.Clases;
+using Gestion_MTS.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -19,9 +20,26 @@ namespace Gestion_MTS.IRepository.Repository
             _connectionString = connectionString;
         }
 
-        public void Add(Factura factura)
+        public void Add(Factura ado)
         {
-            string query = "EXEC InsertarFactura @numero_factura, @fecha, @id_empleado, @id_tipo_pago, @id_cliente";
+            throw new NotImplementedException();
+        }
+
+        public int AddFactura(Factura factura)
+        {
+            string query = @"
+                DECLARE @newFacturaID INT;
+
+                EXEC InsertarFactura 
+                    @numero_factura, 
+                    @fecha, 
+                    @id_empleado, 
+                    @id_tipo_pago, 
+                    @id_cliente, 
+                    @newFacturaID OUTPUT;
+
+                SELECT @newFacturaID;
+            ";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -37,14 +55,88 @@ namespace Gestion_MTS.IRepository.Repository
                 try
                 {
                     connection.Open();
-                    command.ExecuteNonQuery();
-                    Console.WriteLine("Factura insertada exitosamente.");
+                    int facturaId =  Convert.ToInt32(command.ExecuteScalar());
+
+                    return facturaId;
                 }
                 catch (Exception e)
                 {
                     throw new Exception("Error al insertar la factura: " + e.Message);
                 }
             }
+        }
+
+        public void AddFacturaDetails(Tuple<List<DetalleProductoDto>, List<DetalleServicioDto>> details, int idFactura)
+        {
+            (var productsDetails, var servicesDetails) = details;
+
+            DetalleProductoRepository detalleProductoRepository = new DetalleProductoRepository(_connectionString);
+            DetalleServicioRepository detalleServicioRepository = new DetalleServicioRepository(_connectionString);
+            DetalleFacturaProductoRepository detalleFacturaProductoRepository = new DetalleFacturaProductoRepository(_connectionString);
+            DetalleFacturaServicioRepository detalleFacturaServicioRepository = new DetalleFacturaServicioRepository(_connectionString);
+
+            // CREANDO DATATABLES PARA LOS DETALLES
+
+            var productsDetailsTable = new DataTable();
+            var servicesDetailsTable = new DataTable();
+
+            // ASIGNANDO COLUMNAS A LAS TABLAS
+
+            productsDetailsTable.Columns.Add("id_producto", typeof(int));
+            productsDetailsTable.Columns.Add("cantidad", typeof(int));
+
+            servicesDetailsTable.Columns.Add("id_empleado", typeof(int));
+            servicesDetailsTable.Columns.Add("id_servicio", typeof(int));
+
+
+            // LLENANDO LAS TABLAS
+            foreach (var product in productsDetails) {
+                productsDetailsTable.Rows.Add(product.IdProducto, product.Cantidad);
+            }
+
+            foreach (var service in servicesDetails) {
+                servicesDetailsTable.Rows.Add(service.IdEmpleado, service.IdServicio);
+            }
+
+            List<int>? detailProductsIds = detalleProductoRepository.MultipleInsert(productsDetailsTable);
+
+            List<int>? detailServicesIds = detalleServicioRepository.MultipleInsert(servicesDetailsTable);
+
+            if(detailProductsIds == null || detailServicesIds == null)
+            {
+                MessageBox.Show("No se pudo agregar los detalles a la factura", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var facturaProductsDetailsTable = new DataTable();
+            var facturaServicesDetailsTable = new DataTable();
+
+            facturaProductsDetailsTable.Columns.Add("id_detalle_producto", typeof(int));
+            facturaProductsDetailsTable.Columns.Add("id_factura", typeof(int));
+
+            facturaServicesDetailsTable.Columns.Add("id_detalle_servicio", typeof(int));
+            facturaServicesDetailsTable.Columns.Add("id_factura", typeof(int));
+            facturaServicesDetailsTable.Columns.Add("monto", typeof(decimal));
+
+            foreach (var (product, idx) in productsDetails.Select((product, idx) => (product, idx)))
+            {
+                facturaProductsDetailsTable.Rows.Add(
+                    detailProductsIds[idx],
+                    idFactura
+                );
+            }
+
+            foreach (var (service, idx) in servicesDetails.Select((service, idx) => (service, idx)))
+            {
+                facturaServicesDetailsTable.Rows.Add(
+                    detailServicesIds[idx],
+                    idFactura,
+                    service.Amount
+                );
+            }
+
+            detalleFacturaProductoRepository.MultipleInsert(facturaProductsDetailsTable);
+            detalleFacturaServicioRepository.MultipleInsert(facturaServicesDetailsTable);
         }
 
         public void Delete(int id)

@@ -156,7 +156,7 @@ namespace Gestion_MTS.IRepository.Repository
 
         public int ObtenerIdProductoPorNombre(string nombreProducto)
         {
-            int idProducto = -1; // Valor predeterminado si no se encuentra el producto
+            int idProducto = -1; 
             
             string query = "SELECT id_producto FROM productos WHERE nombre = @nombre";
 
@@ -168,7 +168,7 @@ namespace Gestion_MTS.IRepository.Repository
                 try
                 {
                     connection.Open();
-                    object result = command.ExecuteScalar(); // Obtiene un solo valor (el ID)
+                    object result = command.ExecuteScalar(); 
 
                     if (result != null && result != DBNull.Value)
                     {
@@ -183,6 +183,36 @@ namespace Gestion_MTS.IRepository.Repository
 
             return idProducto;
         }
+
+        public List<string> GetNombresProductos()
+        {
+            List<string> nombresProductos = new List<string>();
+            string query = "SELECT nombre FROM productos";
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+
+                try
+                {
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            nombresProductos.Add(reader["nombre"].ToString());
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    throw new Exception("Error al obtener los nombres de los productos: " + e.Message);
+                }
+            }
+
+            return nombresProductos;
+        }
+
 
     }
 }
