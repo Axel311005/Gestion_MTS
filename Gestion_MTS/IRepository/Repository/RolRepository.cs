@@ -72,7 +72,7 @@ namespace Gestion_MTS.IRepository.Repository
         {
             
             DataTable roles = new DataTable();
-            string query = "SELECT nombre, descripcion FROM roles";
+            string query = "SELECT id_rol ,nombre, descripcion FROM roles";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {

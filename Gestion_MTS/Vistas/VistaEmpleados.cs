@@ -11,6 +11,7 @@ namespace Gestion_MTS.Vistas
 {
     public class VistaEmpleados
     {
+        public int id_empleado {  get; set; }   
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public DateTime Cumpleaños { get; set; }
@@ -19,5 +20,6 @@ namespace Gestion_MTS.Vistas
         public string direccion { get; set; }
         public string Rol { get; set; }
         public string Sucursal { get; set; }
+        public bool estado {  get; set; }
     }
 }

@@ -72,8 +72,7 @@ namespace Gestion_MTS.IRepository.Repository
         {
             DataTable local = new DataTable();
 
-            string query = "Select l.descripcion, b.nombre from localizacionesBodega l " +
-                "inner join bodegas b on b.id_bodega = l.id_bodega";
+            string query = "Select * from localizacionesBodegaView";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {

@@ -73,7 +73,7 @@ namespace Gestion_MTS.IRepository.Repository
         {
            
             DataTable bodegas = new DataTable();
-            string query = "SELECT nombre FROM bodegas";
+            string query = "SELECT * FROM BodegasView";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {

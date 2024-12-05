@@ -72,7 +72,7 @@ namespace Gestion_MTS.IRepository.Repository
         {
             DataTable categorias = new DataTable();
 
-            string query = "Select nombre, descripcion from categoriasServicio";
+            string query = "Select id_categoriaServicio, nombre, descripcion from categoriasServicio";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
@@ -100,7 +100,7 @@ namespace Gestion_MTS.IRepository.Repository
 
                 command.Parameters.AddWithValue("@nombre", ado.Nombre);
                 command.Parameters.AddWithValue("@descripcion", ado.Descripcion);
-                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@id", ado.IdCategoriaServicio);
 
                 try
                 {
