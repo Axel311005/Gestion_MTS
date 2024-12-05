@@ -260,5 +260,36 @@ namespace Gestion_MTS.IRepository.Repository
             return idEmpleado;
         }
 
+        public decimal ObtenerSalarioPorId(int id)
+        {
+            decimal salario = -1; // Valor predeterminado si no se encuentra el empleado
+
+            string query = "select salario from empleados where id_empleado = @id_empleado";
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@id_empleado", id);
+
+                try
+                {
+                    connection.Open();
+                    object result = command.ExecuteScalar(); // Obtiene un solo valor (el ID)
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        salario = Convert.ToDecimal(result);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al obtener el salario del empleado: " + ex.Message);
+                }
+            }
+
+            return salario;
+        }
+
+
     }
 }

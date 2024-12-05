@@ -344,6 +344,7 @@
             dgvCategorias.RowHeadersWidth = 51;
             dgvCategorias.Size = new Size(1091, 221);
             dgvCategorias.TabIndex = 21;
+            dgvCategorias.CellClick += dgvCategorias_CellClick;
             // 
             // btnDeleteCateg
             // 
@@ -356,6 +357,7 @@
             btnDeleteCateg.TabIndex = 20;
             btnDeleteCateg.Text = "Eliminar";
             btnDeleteCateg.UseVisualStyleBackColor = false;
+            btnDeleteCateg.Click += btnDeleteCateg_Click;
             // 
             // btnUpdateCateg
             // 
@@ -368,6 +370,7 @@
             btnUpdateCateg.TabIndex = 19;
             btnUpdateCateg.Text = "Actualizar";
             btnUpdateCateg.UseVisualStyleBackColor = false;
+            btnUpdateCateg.Click += btnUpdateCateg_Click;
             // 
             // btnAddCateg
             // 
