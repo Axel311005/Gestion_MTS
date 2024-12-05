@@ -35,8 +35,8 @@ namespace Gestion_MTS
             dgvGastos = new DataGridView();
             groupBox1 = new GroupBox();
             comboBox1 = new ComboBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            txtMontogasto = new TextBox();
+            txtdescripgastos = new TextBox();
             label7 = new Label();
             label6 = new Label();
             label4 = new Label();
@@ -61,6 +61,7 @@ namespace Gestion_MTS
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
+            tabControl1.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold);
             tabControl1.Location = new Point(12, 26);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -74,10 +75,10 @@ namespace Gestion_MTS
             tabPage1.Controls.Add(dgvGastos);
             tabPage1.Controls.Add(groupBox1);
             tabPage1.Controls.Add(btnAddGasto);
-            tabPage1.Location = new Point(4, 29);
+            tabPage1.Location = new Point(4, 25);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1025, 555);
+            tabPage1.Size = new Size(1025, 559);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Gasto";
             tabPage1.UseVisualStyleBackColor = true;
@@ -116,7 +117,7 @@ namespace Gestion_MTS
             dgvGastos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvGastos.Dock = DockStyle.Bottom;
             dgvGastos.GridColor = SystemColors.MenuHighlight;
-            dgvGastos.Location = new Point(3, 365);
+            dgvGastos.Location = new Point(3, 369);
             dgvGastos.Name = "dgvGastos";
             dgvGastos.RowHeadersWidth = 51;
             dgvGastos.Size = new Size(1019, 187);
@@ -125,11 +126,12 @@ namespace Gestion_MTS
             // groupBox1
             // 
             groupBox1.Controls.Add(comboBox1);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(txtMontogasto);
+            groupBox1.Controls.Add(txtdescripgastos);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label4);
+            groupBox1.Font = new Font("Segoe UI Variable Display Semib", 7.8F, FontStyle.Bold);
             groupBox1.Location = new Point(19, 20);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(493, 285);
@@ -142,29 +144,31 @@ namespace Gestion_MTS
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new Point(194, 168);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(233, 28);
+            comboBox1.Size = new Size(233, 25);
             comboBox1.TabIndex = 16;
             // 
-            // textBox2
+            // txtMontogasto
             // 
-            textBox2.Location = new Point(194, 112);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(233, 27);
-            textBox2.TabIndex = 15;
+            txtMontogasto.Location = new Point(194, 112);
+            txtMontogasto.Name = "txtMontogasto";
+            txtMontogasto.Size = new Size(233, 25);
+            txtMontogasto.TabIndex = 15;
+            txtMontogasto.KeyPress += txtMontogasto_KeyPress;
             // 
-            // textBox1
+            // txtdescripgastos
             // 
-            textBox1.Location = new Point(194, 64);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(233, 27);
-            textBox1.TabIndex = 14;
+            txtdescripgastos.Location = new Point(194, 64);
+            txtdescripgastos.Name = "txtdescripgastos";
+            txtdescripgastos.Size = new Size(233, 25);
+            txtdescripgastos.TabIndex = 14;
+            txtdescripgastos.KeyPress += txtdescripgastos_KeyPress;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Location = new Point(26, 119);
             label7.Name = "label7";
-            label7.Size = new Size(53, 20);
+            label7.Size = new Size(48, 17);
             label7.TabIndex = 13;
             label7.Text = "Monto";
             // 
@@ -173,16 +177,17 @@ namespace Gestion_MTS
             label6.AutoSize = true;
             label6.Location = new Point(26, 175);
             label6.Name = "label6";
-            label6.Size = new Size(63, 20);
+            label6.Size = new Size(57, 17);
             label6.TabIndex = 12;
             label6.Text = "Sucursal";
             // 
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Variable Display Semib", 7.8F, FontStyle.Bold);
             label4.Location = new Point(26, 64);
             label4.Name = "label4";
-            label4.Size = new Size(87, 20);
+            label4.Size = new Size(78, 17);
             label4.TabIndex = 10;
             label4.Text = "Descripción";
             // 
@@ -210,10 +215,10 @@ namespace Gestion_MTS
             tabPage2.Controls.Add(label2);
             tabPage2.Controls.Add(ObtenerGastos);
             tabPage2.Controls.Add(dtpFechaFinal);
-            tabPage2.Location = new Point(4, 29);
+            tabPage2.Location = new Point(4, 25);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1025, 555);
+            tabPage2.Size = new Size(1025, 559);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Arqueo de Caja";
             tabPage2.UseVisualStyleBackColor = true;
@@ -233,15 +238,16 @@ namespace Gestion_MTS
             // 
             txtTotal.Location = new Point(419, 248);
             txtTotal.Name = "txtTotal";
-            txtTotal.Size = new Size(194, 27);
+            txtTotal.Size = new Size(194, 22);
             txtTotal.TabIndex = 16;
             // 
             // cboSucursales
             // 
+            cboSucursales.Font = new Font("Segoe UI Variable Display Semib", 7.8F, FontStyle.Bold);
             cboSucursales.FormattingEnabled = true;
             cboSucursales.Location = new Point(191, 136);
             cboSucursales.Name = "cboSucursales";
-            cboSucursales.Size = new Size(151, 28);
+            cboSucursales.Size = new Size(151, 25);
             cboSucursales.TabIndex = 9;
             // 
             // label3
@@ -257,9 +263,10 @@ namespace Gestion_MTS
             // 
             // dtpFechaInicio
             // 
+            dtpFechaInicio.Font = new Font("Segoe UI Variable Display Semib", 7.8F, FontStyle.Bold);
             dtpFechaInicio.Location = new Point(377, 137);
             dtpFechaInicio.Name = "dtpFechaInicio";
-            dtpFechaInicio.Size = new Size(250, 27);
+            dtpFechaInicio.Size = new Size(250, 25);
             dtpFechaInicio.TabIndex = 10;
             // 
             // label2
@@ -288,9 +295,10 @@ namespace Gestion_MTS
             // 
             // dtpFechaFinal
             // 
+            dtpFechaFinal.Font = new Font("Segoe UI Variable Display Semib", 7.8F, FontStyle.Bold);
             dtpFechaFinal.Location = new Point(642, 134);
             dtpFechaFinal.Name = "dtpFechaFinal";
-            dtpFechaFinal.Size = new Size(250, 27);
+            dtpFechaFinal.Size = new Size(250, 25);
             dtpFechaFinal.TabIndex = 12;
             // 
             // Arqueo
@@ -334,8 +342,8 @@ namespace Gestion_MTS
         private Button btnAddGasto;
         private DataGridView dgvGastos;
         private ComboBox comboBox1;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txtMontogasto;
+        private TextBox txtdescripgastos;
         private Button btnUpdateGasto;
         private Button btnDeleteGasto;
     }

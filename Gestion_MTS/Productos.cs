@@ -549,5 +549,82 @@ namespace Gestion_MTS
         {
 
         }
+
+        private void txtNombreProv_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTelefonoProv_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '-')
+            {
+                e.Handled = true;
+                return;
+            }
+
+
+            if (e.KeyChar == '-')
+            {
+
+                if (textBox.Text.Length != 4)
+                {
+                    e.Handled = true;
+                }
+                return;
+            }
+
+
+            if (textBox.Text.Length >= 9 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNumeroFact_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCantidadCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtMontoCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+
+            if (e.KeyChar == '.' && (sender as TextBox).Text.Contains("."))
+            {
+                e.Handled = true;
+            }
+
+            // aca no permite que tenga mas de dos puntos para un decimal 
+            if ((sender as TextBox).Text.Contains("."))
+            {
+                string[] parts = (sender as TextBox).Text.Split('.');
+                if (parts.Length > 1 && parts[1].Length >= 2 && !char.IsControl(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            }
+        }
     }
 }

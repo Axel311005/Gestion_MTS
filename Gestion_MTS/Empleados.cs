@@ -23,7 +23,7 @@ namespace Gestion_MTS
         EmpleadoRepository empleado;
         SucursalRepository sucursal;
         RolRepository rol;
-        
+
 
         public int idEmp;
         public int idRol;
@@ -229,7 +229,7 @@ namespace Gestion_MTS
         }
         private void btnUpdateRol_Click(object sender, EventArgs e)
         {
-            if(dgvRoles.SelectedRows.Count > 0)
+            if (dgvRoles.SelectedRows.Count > 0)
             {
                 try
                 {
@@ -301,7 +301,7 @@ namespace Gestion_MTS
                         rol.Delete(idRol);
                         Refresh();
                         LimpiarTextRol();
-                    } 
+                    }
                     catch (Exception ex)
                     {
                         MessageBox.Show($"Error al eliminar rol: {ex.Message}",
@@ -400,6 +400,21 @@ namespace Gestion_MTS
             }
 
         }
-       
+
+        private void txtNombreRol_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDescRol_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

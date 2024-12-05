@@ -30,38 +30,39 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
-            groupBox1 = new GroupBox();
+            dgvClientes = new DataGridView();
             btnDeleteCliente = new Button();
             btnUpdateCliente = new Button();
             btnAddCliente = new Button();
-            dgvClientes = new DataGridView();
+            groupBox1 = new GroupBox();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
             txtDireccion = new TextBox();
             txtApellidoCliente = new TextBox();
             txtNombreCliente = new TextBox();
-            dgvTipoPago = new DataGridView();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            tabPage2 = new TabPage();
             groupBox2 = new GroupBox();
             label4 = new Label();
             txtTipoDePago = new TextBox();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            dgvTipoPago = new DataGridView();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
-            tabPage2.SuspendLayout();
-            groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvTipoPago).BeginInit();
+            groupBox1.SuspendLayout();
+            tabPage2.SuspendLayout();
             groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvTipoPago).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
+            tabControl1.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold);
             tabControl1.Location = new Point(12, 3);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -75,43 +76,25 @@
             tabPage1.Controls.Add(btnUpdateCliente);
             tabPage1.Controls.Add(btnAddCliente);
             tabPage1.Controls.Add(groupBox1);
-            tabPage1.Location = new Point(4, 29);
+            tabPage1.Location = new Point(4, 25);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1093, 519);
+            tabPage1.Size = new Size(1093, 523);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Clientes";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // dgvClientes
             // 
-            tabPage2.Controls.Add(groupBox2);
-            tabPage2.Controls.Add(button1);
-            tabPage2.Controls.Add(button2);
-            tabPage2.Controls.Add(button3);
-            tabPage2.Controls.Add(dgvTipoPago);
-            tabPage2.Location = new Point(4, 29);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1093, 519);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "Tipos de pago";
-            tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(txtDireccion);
-            groupBox1.Controls.Add(txtApellidoCliente);
-            groupBox1.Controls.Add(txtNombreCliente);
-            groupBox1.Location = new Point(6, 6);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(667, 297);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Gestión de Clientes";
+            dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvClientes.BackgroundColor = SystemColors.ButtonHighlight;
+            dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvClientes.Dock = DockStyle.Bottom;
+            dgvClientes.Location = new Point(3, 345);
+            dgvClientes.Name = "dgvClientes";
+            dgvClientes.RowHeadersWidth = 51;
+            dgvClientes.Size = new Size(1087, 175);
+            dgvClientes.TabIndex = 13;
             // 
             // btnDeleteCliente
             // 
@@ -152,24 +135,28 @@
             btnAddCliente.Text = "Agregar";
             btnAddCliente.UseVisualStyleBackColor = false;
             // 
-            // dgvClientes
+            // groupBox1
             // 
-            dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvClientes.BackgroundColor = SystemColors.ButtonHighlight;
-            dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvClientes.Dock = DockStyle.Bottom;
-            dgvClientes.Location = new Point(3, 341);
-            dgvClientes.Name = "dgvClientes";
-            dgvClientes.RowHeadersWidth = 51;
-            dgvClientes.Size = new Size(1087, 175);
-            dgvClientes.TabIndex = 13;
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(txtDireccion);
+            groupBox1.Controls.Add(txtApellidoCliente);
+            groupBox1.Controls.Add(txtNombreCliente);
+            groupBox1.Font = new Font("Segoe UI Variable Display Semib", 7.8F, FontStyle.Bold);
+            groupBox1.Location = new Point(6, 6);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(667, 297);
+            groupBox1.TabIndex = 0;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Gestión de Clientes";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Location = new Point(55, 214);
             label3.Name = "label3";
-            label3.Size = new Size(72, 20);
+            label3.Size = new Size(64, 17);
             label3.TabIndex = 17;
             label3.Text = "Dirección";
             // 
@@ -178,7 +165,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(55, 151);
             label2.Name = "label2";
-            label2.Size = new Size(66, 20);
+            label2.Size = new Size(57, 17);
             label2.TabIndex = 16;
             label2.Text = "Apellido";
             // 
@@ -187,7 +174,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(53, 86);
             label1.Name = "label1";
-            label1.Size = new Size(64, 20);
+            label1.Size = new Size(57, 17);
             label1.TabIndex = 15;
             label1.Text = "Nombre";
             // 
@@ -195,34 +182,65 @@
             // 
             txtDireccion.Location = new Point(160, 207);
             txtDireccion.Name = "txtDireccion";
-            txtDireccion.Size = new Size(234, 27);
+            txtDireccion.Size = new Size(234, 25);
             txtDireccion.TabIndex = 14;
             // 
             // txtApellidoCliente
             // 
             txtApellidoCliente.Location = new Point(160, 146);
             txtApellidoCliente.Name = "txtApellidoCliente";
-            txtApellidoCliente.Size = new Size(234, 27);
+            txtApellidoCliente.Size = new Size(234, 25);
             txtApellidoCliente.TabIndex = 13;
             // 
             // txtNombreCliente
             // 
             txtNombreCliente.Location = new Point(160, 80);
             txtNombreCliente.Name = "txtNombreCliente";
-            txtNombreCliente.Size = new Size(234, 27);
+            txtNombreCliente.Size = new Size(234, 25);
             txtNombreCliente.TabIndex = 12;
             // 
-            // dgvTipoPago
+            // tabPage2
             // 
-            dgvTipoPago.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvTipoPago.BackgroundColor = SystemColors.ButtonHighlight;
-            dgvTipoPago.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvTipoPago.Dock = DockStyle.Bottom;
-            dgvTipoPago.Location = new Point(3, 290);
-            dgvTipoPago.Name = "dgvTipoPago";
-            dgvTipoPago.RowHeadersWidth = 51;
-            dgvTipoPago.Size = new Size(1087, 226);
-            dgvTipoPago.TabIndex = 14;
+            tabPage2.Controls.Add(groupBox2);
+            tabPage2.Controls.Add(button1);
+            tabPage2.Controls.Add(button2);
+            tabPage2.Controls.Add(button3);
+            tabPage2.Controls.Add(dgvTipoPago);
+            tabPage2.Location = new Point(4, 25);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(1093, 523);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Tipos de pago";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(label4);
+            groupBox2.Controls.Add(txtTipoDePago);
+            groupBox2.Font = new Font("Segoe UI Variable Display Semib", 7.8F, FontStyle.Bold);
+            groupBox2.Location = new Point(6, 6);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(540, 215);
+            groupBox2.TabIndex = 18;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Gestión Tipos de pago";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(38, 82);
+            label4.Name = "label4";
+            label4.Size = new Size(137, 17);
+            label4.TabIndex = 17;
+            label4.Text = "Nombre Tipo de Pago";
+            // 
+            // txtTipoDePago
+            // 
+            txtTipoDePago.Location = new Point(245, 83);
+            txtTipoDePago.Name = "txtTipoDePago";
+            txtTipoDePago.Size = new Size(234, 25);
+            txtTipoDePago.TabIndex = 16;
             // 
             // button1
             // 
@@ -263,32 +281,17 @@
             button3.Text = "Agregar";
             button3.UseVisualStyleBackColor = false;
             // 
-            // groupBox2
+            // dgvTipoPago
             // 
-            groupBox2.Controls.Add(label4);
-            groupBox2.Controls.Add(txtTipoDePago);
-            groupBox2.Location = new Point(6, 6);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(540, 215);
-            groupBox2.TabIndex = 18;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Gestión Tipos de pago";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(38, 82);
-            label4.Name = "label4";
-            label4.Size = new Size(156, 20);
-            label4.TabIndex = 17;
-            label4.Text = "Nombre Tipo de Pago";
-            // 
-            // txtTipoDePago
-            // 
-            txtTipoDePago.Location = new Point(245, 83);
-            txtTipoDePago.Name = "txtTipoDePago";
-            txtTipoDePago.Size = new Size(234, 27);
-            txtTipoDePago.TabIndex = 16;
+            dgvTipoPago.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvTipoPago.BackgroundColor = SystemColors.ButtonHighlight;
+            dgvTipoPago.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvTipoPago.Dock = DockStyle.Bottom;
+            dgvTipoPago.Location = new Point(3, 294);
+            dgvTipoPago.Name = "dgvTipoPago";
+            dgvTipoPago.RowHeadersWidth = 51;
+            dgvTipoPago.Size = new Size(1087, 226);
+            dgvTipoPago.TabIndex = 14;
             // 
             // Informacion_Adicional
             // 
@@ -300,13 +303,13 @@
             Text = "Informacion_Adicional";
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
-            tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvTipoPago).EndInit();
+            tabPage2.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvTipoPago).EndInit();
             ResumeLayout(false);
         }
 

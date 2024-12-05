@@ -550,6 +550,7 @@
             groupBox3.Controls.Add(label14);
             groupBox3.Controls.Add(cboTipoPagoComp);
             groupBox3.Controls.Add(cboProveedorCompra);
+            groupBox3.Font = new Font("Segoe UI Variable Small Semibol", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox3.Location = new Point(25, 20);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(821, 327);
@@ -559,31 +560,34 @@
             // 
             // txtMontoCompra
             // 
-            txtMontoCompra.Location = new Point(198, 273);
+            txtMontoCompra.Location = new Point(198, 268);
             txtMontoCompra.Name = "txtMontoCompra";
-            txtMontoCompra.Size = new Size(186, 22);
+            txtMontoCompra.Size = new Size(186, 25);
             txtMontoCompra.TabIndex = 25;
+            txtMontoCompra.KeyPress += txtMontoCompra_KeyPress;
             // 
             // txtCantidadCompra
             // 
             txtCantidadCompra.Location = new Point(198, 208);
             txtCantidadCompra.Name = "txtCantidadCompra";
-            txtCantidadCompra.Size = new Size(186, 22);
+            txtCantidadCompra.Size = new Size(186, 25);
             txtCantidadCompra.TabIndex = 24;
+            txtCantidadCompra.KeyPress += txtCantidadCompra_KeyPress;
             // 
             // txtNumeroFact
             // 
             txtNumeroFact.Location = new Point(198, 67);
             txtNumeroFact.Name = "txtNumeroFact";
-            txtNumeroFact.Size = new Size(186, 22);
+            txtNumeroFact.Size = new Size(186, 25);
             txtNumeroFact.TabIndex = 23;
+            txtNumeroFact.KeyPress += txtNumeroFact_KeyPress;
             // 
             // label19
             // 
             label19.AutoSize = true;
             label19.Location = new Point(31, 211);
             label19.Name = "label19";
-            label19.Size = new Size(69, 16);
+            label19.Size = new Size(63, 17);
             label19.TabIndex = 22;
             label19.Text = "Cantidad";
             // 
@@ -592,7 +596,7 @@
             cboProductComp.FormattingEnabled = true;
             cboProductComp.Location = new Point(198, 139);
             cboProductComp.Name = "cboProductComp";
-            cboProductComp.Size = new Size(186, 24);
+            cboProductComp.Size = new Size(186, 25);
             cboProductComp.TabIndex = 21;
             // 
             // label18
@@ -600,7 +604,7 @@
             label18.AutoSize = true;
             label18.Location = new Point(31, 69);
             label18.Name = "label18";
-            label18.Size = new Size(139, 16);
+            label18.Size = new Size(126, 17);
             label18.TabIndex = 20;
             label18.Text = "Numero de Factura";
             // 
@@ -609,7 +613,7 @@
             label17.AutoSize = true;
             label17.Location = new Point(477, 139);
             label17.Name = "label17";
-            label17.Size = new Size(80, 16);
+            label17.Size = new Size(71, 17);
             label17.TabIndex = 19;
             label17.Text = "Proveedor";
             // 
@@ -618,7 +622,7 @@
             label16.AutoSize = true;
             label16.Location = new Point(31, 139);
             label16.Name = "label16";
-            label16.Size = new Size(69, 16);
+            label16.Size = new Size(64, 17);
             label16.TabIndex = 18;
             label16.Text = "Producto";
             // 
@@ -627,7 +631,7 @@
             label15.AutoSize = true;
             label15.Location = new Point(31, 276);
             label15.Name = "label15";
-            label15.Size = new Size(49, 16);
+            label15.Size = new Size(49, 17);
             label15.TabIndex = 17;
             label15.Text = "Monto";
             // 
@@ -636,7 +640,7 @@
             label14.AutoSize = true;
             label14.Location = new Point(477, 70);
             label14.Name = "label14";
-            label14.Size = new Size(102, 16);
+            label14.Size = new Size(89, 17);
             label14.TabIndex = 16;
             label14.Text = "Tipo de Pago";
             // 
@@ -645,7 +649,7 @@
             cboTipoPagoComp.FormattingEnabled = true;
             cboTipoPagoComp.Location = new Point(621, 69);
             cboTipoPagoComp.Name = "cboTipoPagoComp";
-            cboTipoPagoComp.Size = new Size(151, 24);
+            cboTipoPagoComp.Size = new Size(151, 25);
             cboTipoPagoComp.TabIndex = 8;
             // 
             // cboProveedorCompra
@@ -653,7 +657,7 @@
             cboProveedorCompra.FormattingEnabled = true;
             cboProveedorCompra.Location = new Point(621, 136);
             cboProveedorCompra.Name = "cboProveedorCompra";
-            cboProveedorCompra.Size = new Size(151, 24);
+            cboProveedorCompra.Size = new Size(151, 25);
             cboProveedorCompra.TabIndex = 9;
             // 
             // tabPage4
@@ -730,6 +734,7 @@
             groupBox2.Controls.Add(label9);
             groupBox2.Controls.Add(txtDirecciónProv);
             groupBox2.Controls.Add(txtTelefonoProv);
+            groupBox2.Font = new Font("Segoe UI Variable Display Semib", 7.8F, FontStyle.Bold);
             groupBox2.Location = new Point(6, 21);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(419, 291);
@@ -741,15 +746,16 @@
             // 
             txtNombreProv.Location = new Point(127, 54);
             txtNombreProv.Name = "txtNombreProv";
-            txtNombreProv.Size = new Size(194, 22);
+            txtNombreProv.Size = new Size(194, 25);
             txtNombreProv.TabIndex = 0;
+            txtNombreProv.KeyPress += txtNombreProv_KeyPress;
             // 
             // label12
             // 
             label12.AutoSize = true;
             label12.Location = new Point(17, 193);
             label12.Name = "label12";
-            label12.Size = new Size(73, 16);
+            label12.Size = new Size(64, 17);
             label12.TabIndex = 11;
             label12.Text = "Dirección";
             // 
@@ -758,7 +764,7 @@
             label13.AutoSize = true;
             label13.Location = new Point(17, 54);
             label13.Name = "label13";
-            label13.Size = new Size(62, 16);
+            label13.Size = new Size(57, 17);
             label13.TabIndex = 12;
             label13.Text = "Nombre";
             // 
@@ -767,23 +773,24 @@
             label9.AutoSize = true;
             label9.Location = new Point(17, 129);
             label9.Name = "label9";
-            label9.Size = new Size(69, 16);
+            label9.Size = new Size(58, 17);
             label9.TabIndex = 10;
             label9.Text = "Telefono";
             // 
             // txtDirecciónProv
             // 
-            txtDirecciónProv.Location = new Point(136, 190);
+            txtDirecciónProv.Location = new Point(127, 190);
             txtDirecciónProv.Name = "txtDirecciónProv";
-            txtDirecciónProv.Size = new Size(194, 22);
+            txtDirecciónProv.Size = new Size(194, 25);
             txtDirecciónProv.TabIndex = 1;
             // 
             // txtTelefonoProv
             // 
             txtTelefonoProv.Location = new Point(127, 129);
             txtTelefonoProv.Name = "txtTelefonoProv";
-            txtTelefonoProv.Size = new Size(194, 22);
+            txtTelefonoProv.Size = new Size(194, 25);
             txtTelefonoProv.TabIndex = 2;
+            txtTelefonoProv.KeyPress += txtTelefonoProv_KeyPress;
             // 
             // Productos
             // 

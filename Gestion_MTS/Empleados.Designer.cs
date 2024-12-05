@@ -402,6 +402,7 @@
             groupBox2.Controls.Add(txtNombreRol);
             groupBox2.Controls.Add(label8);
             groupBox2.Controls.Add(label7);
+            groupBox2.Font = new Font("Segoe UI Variable Display Semib", 7.8F, FontStyle.Bold);
             groupBox2.Location = new Point(153, 17);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(475, 294);
@@ -413,22 +414,24 @@
             // 
             txtDescRol.Location = new Point(218, 144);
             txtDescRol.Name = "txtDescRol";
-            txtDescRol.Size = new Size(193, 22);
+            txtDescRol.Size = new Size(193, 25);
             txtDescRol.TabIndex = 15;
+            txtDescRol.KeyPress += txtDescRol_KeyPress;
             // 
             // txtNombreRol
             // 
             txtNombreRol.Location = new Point(218, 59);
             txtNombreRol.Name = "txtNombreRol";
-            txtNombreRol.Size = new Size(193, 22);
+            txtNombreRol.Size = new Size(193, 25);
             txtNombreRol.TabIndex = 14;
+            txtNombreRol.KeyPress += txtNombreRol_KeyPress;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Location = new Point(29, 59);
             label8.Name = "label8";
-            label8.Size = new Size(116, 16);
+            label8.Size = new Size(100, 17);
             label8.TabIndex = 13;
             label8.Text = "Nombre del Rol";
             // 
@@ -437,7 +440,7 @@
             label7.AutoSize = true;
             label7.Location = new Point(29, 147);
             label7.Name = "label7";
-            label7.Size = new Size(90, 16);
+            label7.Size = new Size(78, 17);
             label7.TabIndex = 12;
             label7.Text = "Descripción";
             // 
