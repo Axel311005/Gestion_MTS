@@ -74,7 +74,7 @@
             groupBox1.Controls.Add(cboSucursales);
             groupBox1.Controls.Add(txtNombreBodegas);
             groupBox1.Font = new Font("Segoe UI Variable Display Semib", 7.8F, FontStyle.Bold);
-            groupBox1.Location = new Point(426, 12);
+            groupBox1.Location = new Point(378, 13);
             groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(3, 4, 3, 4);
@@ -94,6 +94,7 @@
             dgvBodegas.RowHeadersWidth = 51;
             dgvBodegas.Size = new Size(377, 188);
             dgvBodegas.TabIndex = 7;
+            dgvBodegas.CellClick += dgvBodegas_CellClick;
             // 
             // label2
             // 
@@ -186,7 +187,7 @@
             groupBox2.Controls.Add(txtDescripcionLocalBod);
             groupBox2.Controls.Add(btnAddLocalBod);
             groupBox2.Font = new Font("Segoe UI Variable Display Semib", 7.8F, FontStyle.Bold);
-            groupBox2.Location = new Point(827, 12);
+            groupBox2.Location = new Point(767, 13);
             groupBox2.Margin = new Padding(3, 4, 3, 4);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(3, 4, 3, 4);
@@ -206,6 +207,7 @@
             dgvLocalBodega.RowHeadersWidth = 51;
             dgvLocalBodega.Size = new Size(372, 188);
             dgvLocalBodega.TabIndex = 7;
+            dgvLocalBodega.CellClick += dgvLocalBodega_CellClick;
             // 
             // label4
             // 
@@ -237,6 +239,7 @@
             btnDeleteLocalBod.TabIndex = 4;
             btnDeleteLocalBod.Text = "Borrar";
             btnDeleteLocalBod.UseVisualStyleBackColor = false;
+            btnDeleteLocalBod.Click += btnDeleteLocalBod_Click;
             // 
             // btnUpdateLocalBod
             // 
@@ -250,6 +253,7 @@
             btnUpdateLocalBod.TabIndex = 3;
             btnUpdateLocalBod.Text = "Actualizar";
             btnUpdateLocalBod.UseVisualStyleBackColor = false;
+            btnUpdateLocalBod.Click += btnUpdateLocalBod_Click;
             // 
             // cboBodegas
             // 
@@ -297,7 +301,7 @@
             groupBox3.Margin = new Padding(3, 4, 3, 4);
             groupBox3.Name = "groupBox3";
             groupBox3.Padding = new Padding(3, 4, 3, 4);
-            groupBox3.Size = new Size(399, 558);
+            groupBox3.Size = new Size(351, 558);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
             groupBox3.Text = "Sucursales";
@@ -311,8 +315,9 @@
             dgvSucursales.Margin = new Padding(3, 4, 3, 4);
             dgvSucursales.Name = "dgvSucursales";
             dgvSucursales.RowHeadersWidth = 51;
-            dgvSucursales.Size = new Size(393, 188);
+            dgvSucursales.Size = new Size(345, 188);
             dgvSucursales.TabIndex = 7;
+            dgvSucursales.CellClick += dgvSucursales_CellClick;
             // 
             // btnDeleteSucursal
             // 
@@ -320,13 +325,14 @@
             btnDeleteSucursal.FlatStyle = FlatStyle.Flat;
             btnDeleteSucursal.Font = new Font("Segoe UI Variable Display", 7.8F, FontStyle.Bold);
             btnDeleteSucursal.ForeColor = SystemColors.ButtonHighlight;
-            btnDeleteSucursal.Location = new Point(273, 249);
+            btnDeleteSucursal.Location = new Point(244, 249);
             btnDeleteSucursal.Margin = new Padding(3, 4, 3, 4);
             btnDeleteSucursal.Name = "btnDeleteSucursal";
             btnDeleteSucursal.Size = new Size(94, 29);
             btnDeleteSucursal.TabIndex = 6;
             btnDeleteSucursal.Text = "Borrar";
             btnDeleteSucursal.UseVisualStyleBackColor = false;
+            btnDeleteSucursal.Click += btnDeleteSucursal_Click;
             // 
             // btnUpdateSucursal
             // 
@@ -334,13 +340,14 @@
             btnUpdateSucursal.FlatStyle = FlatStyle.Flat;
             btnUpdateSucursal.Font = new Font("Segoe UI Variable Display", 7.8F, FontStyle.Bold);
             btnUpdateSucursal.ForeColor = SystemColors.ButtonHighlight;
-            btnUpdateSucursal.Location = new Point(152, 249);
+            btnUpdateSucursal.Location = new Point(126, 249);
             btnUpdateSucursal.Margin = new Padding(3, 4, 3, 4);
             btnUpdateSucursal.Name = "btnUpdateSucursal";
             btnUpdateSucursal.Size = new Size(94, 29);
             btnUpdateSucursal.TabIndex = 5;
             btnUpdateSucursal.Text = "Actualizar";
             btnUpdateSucursal.UseVisualStyleBackColor = false;
+            btnUpdateSucursal.Click += btnUpdateSucursal_Click;
             // 
             // btnAddSucursal
             // 
@@ -348,7 +355,7 @@
             btnAddSucursal.FlatStyle = FlatStyle.Flat;
             btnAddSucursal.Font = new Font("Segoe UI Variable Display", 7.8F, FontStyle.Bold);
             btnAddSucursal.ForeColor = SystemColors.ButtonHighlight;
-            btnAddSucursal.Location = new Point(24, 249);
+            btnAddSucursal.Location = new Point(13, 249);
             btnAddSucursal.Margin = new Padding(3, 4, 3, 4);
             btnAddSucursal.Name = "btnAddSucursal";
             btnAddSucursal.Size = new Size(94, 29);
@@ -360,7 +367,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(239, 96);
+            label6.Location = new Point(221, 107);
             label6.Name = "label6";
             label6.Size = new Size(58, 17);
             label6.TabIndex = 3;
@@ -377,7 +384,7 @@
             // 
             // txtTelSucur
             // 
-            txtTelSucur.Location = new Point(213, 142);
+            txtTelSucur.Location = new Point(187, 142);
             txtTelSucur.Margin = new Padding(3, 4, 3, 4);
             txtTelSucur.Name = "txtTelSucur";
             txtTelSucur.Size = new Size(125, 25);

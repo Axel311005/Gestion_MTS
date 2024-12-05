@@ -73,7 +73,7 @@ namespace Gestion_MTS.IRepository.Repository
         {
             DataTable sucursal = new DataTable();
 
-            string query = "Select ubicacion from sucursales";
+            string query = "Select id_sucursal, ubicacion , telefono from sucursales";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
@@ -101,7 +101,7 @@ namespace Gestion_MTS.IRepository.Repository
 
                 command.Parameters.AddWithValue("@ubicacion", ado.ubicacion);
                 command.Parameters.AddWithValue("@telefono", ado.telefono);
-                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@id", ado.id_sucursal);
 
                 try
                 {

@@ -300,6 +300,7 @@ namespace Gestion_MTS
                     {
                         rol.Delete(idRol);
                         Refresh();
+                        LimpiarTextRol();
                     } 
                     catch (Exception ex)
                     {
