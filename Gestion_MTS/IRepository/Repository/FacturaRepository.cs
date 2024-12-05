@@ -20,9 +20,26 @@ namespace Gestion_MTS.IRepository.Repository
             _connectionString = connectionString;
         }
 
-        public void Add(Factura factura)
+        public void Add(Factura ado)
         {
-            string query = "EXEC InsertarFactura @numero_factura, @fecha, @id_empleado, @id_tipo_pago, @id_cliente";
+            throw new NotImplementedException();
+        }
+
+        public int AddFactura(Factura factura)
+        {
+            string query = @"
+                DECLARE @newFacturaID INT;
+
+                EXEC InsertarFactura 
+                    @numero_factura, 
+                    @fecha, 
+                    @id_empleado, 
+                    @id_tipo_pago, 
+                    @id_cliente, 
+                    @newFacturaID OUTPUT;
+
+                SELECT @newFacturaID;
+            ";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -38,8 +55,9 @@ namespace Gestion_MTS.IRepository.Repository
                 try
                 {
                     connection.Open();
-                    command.ExecuteNonQuery();
-                    Console.WriteLine("Factura insertada exitosamente.");
+                    int facturaId =  Convert.ToInt32(command.ExecuteScalar());
+
+                    return facturaId;
                 }
                 catch (Exception e)
                 {

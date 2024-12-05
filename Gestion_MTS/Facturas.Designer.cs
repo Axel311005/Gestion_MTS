@@ -428,6 +428,7 @@
             btnGenerateFactura.TabIndex = 14;
             btnGenerateFactura.Text = "Generar Factura";
             btnGenerateFactura.UseVisualStyleBackColor = false;
+            btnGenerateFactura.Click += btnGenerateFactura_Click;
             // 
             // Facturas
             // 

@@ -50,6 +50,11 @@ namespace Gestion_MTS.IRepository.Repository
                     using (var bulkCopy = new SqlBulkCopy(connection))
                     {
                         bulkCopy.DestinationTableName = "detalle_factura_servicio";
+
+                        bulkCopy.ColumnMappings.Add("id_detalle_servicio", "id_detalle_servicio");
+                        bulkCopy.ColumnMappings.Add("id_factura", "id_factura");
+                        bulkCopy.ColumnMappings.Add("monto", "monto");
+
                         bulkCopy.WriteToServer(facturaServicesDetails);
                     }
                 }
