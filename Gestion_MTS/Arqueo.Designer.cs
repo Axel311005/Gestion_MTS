@@ -96,7 +96,7 @@
             label2.Size = new Size(159, 26);
             label2.TabIndex = 6;
             label2.Text = "Fecha Inicio";
-            label2.Click += this.label2_Click;
+            
             // 
             // label3
             // 
@@ -108,7 +108,7 @@
             label3.Size = new Size(150, 26);
             label3.TabIndex = 7;
             label3.Text = "Fecha Final";
-            label3.Click += this.label3_Click;
+           
             // 
             // txtTotal
             // 
