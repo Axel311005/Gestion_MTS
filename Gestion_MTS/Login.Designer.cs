@@ -39,11 +39,13 @@
             btnMinimizar = new PictureBox();
             btnResize = new PictureBox();
             btnCerrar = new PictureBox();
+            btnSeePass = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnMinimizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnResize).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnCerrar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnSeePass).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -98,7 +100,8 @@
             txtPassword.Anchor = AnchorStyles.None;
             txtPassword.Location = new Point(155, 286);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(257, 23);
+            txtPassword.PasswordChar = '*';
+            txtPassword.Size = new Size(226, 23);
             txtPassword.TabIndex = 5;
             // 
             // lblPassword
@@ -167,12 +170,27 @@
             btnCerrar.TabStop = false;
             btnCerrar.Click += btnCerrar_Click;
             // 
+            // btnSeePass
+            // 
+            btnSeePass.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnSeePass.Cursor = Cursors.Hand;
+            btnSeePass.Image = (Image)resources.GetObject("btnSeePass.Image");
+            btnSeePass.Location = new Point(387, 285);
+            btnSeePass.Margin = new Padding(3, 2, 3, 2);
+            btnSeePass.Name = "btnSeePass";
+            btnSeePass.Size = new Size(25, 24);
+            btnSeePass.SizeMode = PictureBoxSizeMode.Zoom;
+            btnSeePass.TabIndex = 14;
+            btnSeePass.TabStop = false;
+            btnSeePass.Click += btnSeePass_Click;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(51, 51, 76);
             ClientSize = new Size(606, 450);
+            Controls.Add(btnSeePass);
             Controls.Add(pnlHeader);
             Controls.Add(txtPassword);
             Controls.Add(lblPassword);
@@ -189,6 +207,7 @@
             ((System.ComponentModel.ISupportInitialize)btnMinimizar).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnResize).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnCerrar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnSeePass).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -205,5 +224,6 @@
         private PictureBox btnMinimizar;
         private PictureBox btnCerrar;
         private PictureBox btnResize;
+        private PictureBox btnSeePass;
     }
 }

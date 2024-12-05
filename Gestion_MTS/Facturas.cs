@@ -311,6 +311,10 @@ namespace Gestion_MTS
                 new Tuple<List<DetalleProductoDto>, List<DetalleServicioDto>>(productos, servicios),
                 idFactura
             );
+
+            ImprimirFactura impFacturaForm = new ImprimirFactura(idFactura);
+
+            impFacturaForm.Show();
         }
     }
 }
