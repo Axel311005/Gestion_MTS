@@ -229,21 +229,21 @@
             // 
             // btnDeleteCateg
             // 
-            btnDeleteCateg.Location = new Point(677, 237);
-            btnDeleteCateg.Name = "btnDeleteCateg";
-            btnDeleteCateg.Size = new Size(94, 29);
-            btnDeleteCateg.TabIndex = 13;
-            btnDeleteCateg.Text = "Eliminar";
-            btnDeleteCateg.UseVisualStyleBackColor = true;
-            // 
-            // btnUpdateCateg
-            // 
-            btnUpdateCateg.Location = new Point(526, 237);
-            btnUpdateCateg.Name = "btnUpdateCateg";
-            btnUpdateCateg.Size = new Size(94, 29);
-            btnUpdateCateg.TabIndex = 12;
-            btnUpdateCateg.Text = "Actualizar";
-            btnUpdateCateg.UseVisualStyleBackColor = true;
+            //btnDeleteCateg.Location = new Point(677, 237);
+            //btnDeleteCateg.Name = "btnDeleteCateg";
+            //btnDeleteCateg.Size = new Size(94, 29);
+            //btnDeleteCateg.TabIndex = 13;
+            //btnDeleteCateg.Text = "Eliminar";
+            //btnDeleteCateg.UseVisualStyleBackColor = true;
+            //// 
+            //// btnUpdateCateg
+            //// 
+            //btnUpdateCateg.Location = new Point(526, 237);
+            //btnUpdateCateg.Name = "btnUpdateCateg";
+            //btnUpdateCateg.Size = new Size(94, 29);
+            //btnUpdateCateg.TabIndex = 12;
+            //btnUpdateCateg.Text = "Actualizar";
+            //btnUpdateCateg.UseVisualStyleBackColor = true;
             // 
             // btnAddCateg
             // 

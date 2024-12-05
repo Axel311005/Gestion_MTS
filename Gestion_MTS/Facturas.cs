@@ -313,8 +313,9 @@ namespace Gestion_MTS
                     e.Handled = true;
                 }
             }
+        }
 
-        private void btnGenerateFactura_Click(object sender, EventArgs e)
+       private void btnGenerateFactura_Click(object sender, EventArgs e)
         {
             if(productos.Count < 1 && servicios.Count < 1)
             {

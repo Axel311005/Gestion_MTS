@@ -132,6 +132,7 @@
             tabPage1.Size = new Size(1097, 557);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Agregar Productos";
+            tabPage1.Click += tabPage1_Click;
             // 
             // btnDeleteProd
             // 
@@ -379,6 +380,7 @@
             // 
             // dgvCategorias
             // 
+            dgvCategorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCategorias.BackgroundColor = SystemColors.ButtonHighlight;
             dgvCategorias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCategorias.Dock = DockStyle.Bottom;
@@ -523,6 +525,7 @@
             // 
             // dgvCompras
             // 
+            dgvCompras.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCompras.BackgroundColor = SystemColors.ButtonHighlight;
             dgvCompras.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCompras.Dock = DockStyle.Bottom;
@@ -670,6 +673,7 @@
             // 
             // dgvProveedores
             // 
+            dgvProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvProveedores.BackgroundColor = SystemColors.ButtonHighlight;
             dgvProveedores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProveedores.Dock = DockStyle.Bottom;

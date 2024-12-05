@@ -30,14 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             panelMenu = new Panel();
+            btnInfoAdicional = new Button();
             btnUsers = new Button();
             btnServicios = new Button();
             btnSucursales = new Button();
             btnArqueo = new Button();
-            SubMenuReportes = new Panel();
-            btnReporteServicios = new Button();
-            btnReporteVentas = new Button();
-            btnReporte = new Button();
             btnFactura = new Button();
             btnEmpleados = new Button();
             btnInventario = new Button();
@@ -52,7 +49,6 @@
             panelDesktop = new Panel();
             pictureBox1 = new PictureBox();
             panelMenu.SuspendLayout();
-            SubMenuReportes.SuspendLayout();
             panelLogo.SuspendLayout();
             panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnMinimizar).BeginInit();
@@ -65,12 +61,11 @@
             // panelMenu
             // 
             panelMenu.BackColor = Color.FromArgb(50, 30, 25);
+            panelMenu.Controls.Add(btnInfoAdicional);
             panelMenu.Controls.Add(btnUsers);
             panelMenu.Controls.Add(btnServicios);
             panelMenu.Controls.Add(btnSucursales);
             panelMenu.Controls.Add(btnArqueo);
-            panelMenu.Controls.Add(SubMenuReportes);
-            panelMenu.Controls.Add(btnReporte);
             panelMenu.Controls.Add(btnFactura);
             panelMenu.Controls.Add(btnEmpleados);
             panelMenu.Controls.Add(btnInventario);
@@ -80,6 +75,25 @@
             panelMenu.Name = "panelMenu";
             panelMenu.Size = new Size(219, 788);
             panelMenu.TabIndex = 0;
+            // 
+            // btnInfoAdicional
+            // 
+            btnInfoAdicional.BackColor = Color.Transparent;
+            btnInfoAdicional.Dock = DockStyle.Top;
+            btnInfoAdicional.FlatAppearance.BorderSize = 0;
+            btnInfoAdicional.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 89, 0);
+            btnInfoAdicional.FlatStyle = FlatStyle.Flat;
+            btnInfoAdicional.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnInfoAdicional.ForeColor = Color.White;
+            btnInfoAdicional.Image = (Image)resources.GetObject("btnInfoAdicional.Image");
+            btnInfoAdicional.ImageAlign = ContentAlignment.MiddleLeft;
+            btnInfoAdicional.Location = new Point(0, 500);
+            btnInfoAdicional.Name = "btnInfoAdicional";
+            btnInfoAdicional.Size = new Size(219, 60);
+            btnInfoAdicional.TabIndex = 17;
+            btnInfoAdicional.Text = "Informacion Adicional";
+            btnInfoAdicional.UseVisualStyleBackColor = false;
+            btnInfoAdicional.Click += btnInfoAdicional_Click;
             // 
             // btnUsers
             // 
@@ -92,7 +106,7 @@
             btnUsers.ForeColor = Color.White;
             btnUsers.Image = (Image)resources.GetObject("btnUsers.Image");
             btnUsers.ImageAlign = ContentAlignment.MiddleLeft;
-            btnUsers.Location = new Point(0, 581);
+            btnUsers.Location = new Point(0, 440);
             btnUsers.Name = "btnUsers";
             btnUsers.Size = new Size(219, 60);
             btnUsers.TabIndex = 16;
@@ -111,7 +125,7 @@
             btnServicios.ForeColor = Color.White;
             btnServicios.Image = (Image)resources.GetObject("btnServicios.Image");
             btnServicios.ImageAlign = ContentAlignment.MiddleLeft;
-            btnServicios.Location = new Point(0, 521);
+            btnServicios.Location = new Point(0, 380);
             btnServicios.Name = "btnServicios";
             btnServicios.Size = new Size(219, 60);
             btnServicios.TabIndex = 15;
@@ -130,7 +144,7 @@
             btnSucursales.ForeColor = Color.White;
             btnSucursales.Image = (Image)resources.GetObject("btnSucursales.Image");
             btnSucursales.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSucursales.Location = new Point(0, 461);
+            btnSucursales.Location = new Point(0, 320);
             btnSucursales.Name = "btnSucursales";
             btnSucursales.Size = new Size(219, 60);
             btnSucursales.TabIndex = 14;
@@ -149,79 +163,13 @@
             btnArqueo.ForeColor = Color.White;
             btnArqueo.Image = (Image)resources.GetObject("btnArqueo.Image");
             btnArqueo.ImageAlign = ContentAlignment.MiddleLeft;
-            btnArqueo.Location = new Point(0, 401);
+            btnArqueo.Location = new Point(0, 260);
             btnArqueo.Name = "btnArqueo";
             btnArqueo.Size = new Size(219, 60);
             btnArqueo.TabIndex = 13;
             btnArqueo.Text = "Arqueo de Caja";
             btnArqueo.UseVisualStyleBackColor = false;
             btnArqueo.Click += btnArqueo_Click;
-            // 
-            // SubMenuReportes
-            // 
-            SubMenuReportes.Controls.Add(btnReporteServicios);
-            SubMenuReportes.Controls.Add(btnReporteVentas);
-            SubMenuReportes.Dock = DockStyle.Top;
-            SubMenuReportes.Location = new Point(0, 320);
-            SubMenuReportes.Name = "SubMenuReportes";
-            SubMenuReportes.Size = new Size(219, 81);
-            SubMenuReportes.TabIndex = 12;
-            SubMenuReportes.Visible = false;
-            // 
-            // btnReporteServicios
-            // 
-            btnReporteServicios.BackColor = Color.Transparent;
-            btnReporteServicios.FlatAppearance.BorderSize = 0;
-            btnReporteServicios.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 89, 0);
-            btnReporteServicios.FlatStyle = FlatStyle.Flat;
-            btnReporteServicios.Font = new Font("Microsoft Sans Serif", 5.99999952F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnReporteServicios.ForeColor = Color.White;
-            btnReporteServicios.Image = (Image)resources.GetObject("btnReporteServicios.Image");
-            btnReporteServicios.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReporteServicios.Location = new Point(3, 41);
-            btnReporteServicios.Name = "btnReporteServicios";
-            btnReporteServicios.Size = new Size(213, 32);
-            btnReporteServicios.TabIndex = 5;
-            btnReporteServicios.Text = "Reporte Servicios";
-            btnReporteServicios.UseVisualStyleBackColor = false;
-            btnReporteServicios.Click += btnReporteServicios_Click;
-            // 
-            // btnReporteVentas
-            // 
-            btnReporteVentas.BackColor = Color.Transparent;
-            btnReporteVentas.FlatAppearance.BorderSize = 0;
-            btnReporteVentas.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 89, 0);
-            btnReporteVentas.FlatStyle = FlatStyle.Flat;
-            btnReporteVentas.Font = new Font("Microsoft Sans Serif", 5.99999952F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnReporteVentas.ForeColor = Color.White;
-            btnReporteVentas.Image = (Image)resources.GetObject("btnReporteVentas.Image");
-            btnReporteVentas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReporteVentas.Location = new Point(3, 3);
-            btnReporteVentas.Name = "btnReporteVentas";
-            btnReporteVentas.Size = new Size(213, 32);
-            btnReporteVentas.TabIndex = 3;
-            btnReporteVentas.Text = "Reporte Ventas";
-            btnReporteVentas.UseVisualStyleBackColor = false;
-            btnReporteVentas.Click += btnReporteVentas_Click;
-            // 
-            // btnReporte
-            // 
-            btnReporte.BackColor = Color.Transparent;
-            btnReporte.Dock = DockStyle.Top;
-            btnReporte.FlatAppearance.BorderSize = 0;
-            btnReporte.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 89, 0);
-            btnReporte.FlatStyle = FlatStyle.Flat;
-            btnReporte.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnReporte.ForeColor = Color.White;
-            btnReporte.Image = (Image)resources.GetObject("btnReporte.Image");
-            btnReporte.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReporte.Location = new Point(0, 260);
-            btnReporte.Name = "btnReporte";
-            btnReporte.Size = new Size(219, 60);
-            btnReporte.TabIndex = 11;
-            btnReporte.Text = "Reportes";
-            btnReporte.UseVisualStyleBackColor = false;
-            btnReporte.Click += btnReporte_Click;
             // 
             // btnFactura
             // 
@@ -416,7 +364,6 @@
             Text = "MainMenu";
             Load += MainMenu_Load;
             panelMenu.ResumeLayout(false);
-            SubMenuReportes.ResumeLayout(false);
             panelLogo.ResumeLayout(false);
             panelLogo.PerformLayout();
             panelTitleBar.ResumeLayout(false);
@@ -433,13 +380,9 @@
 
         private Panel panelMenu;
         private Panel panelLogo;
-        private Button btnReporte;
         private Button btnFactura;
         private Button btnEmpleados;
         private Button btnInventario;
-        private Panel SubMenuReportes;
-        private Button btnReporteServicios;
-        private Button btnReporteVentas;
         private Panel panelTitleBar;
         private Label lblTitle;
         private Label label1;
@@ -454,5 +397,6 @@
         private Button btnSucursales;
         private Button btnServicios;
         private Button btnUsers;
+        private Button btnInfoAdicional;
     }
 }

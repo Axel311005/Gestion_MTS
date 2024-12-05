@@ -344,18 +344,16 @@
             // 
             // tabPage2
             // 
-
             tabPage2.BackColor = SystemColors.Control;
             tabPage2.Controls.Add(btnDeleteRol);
             tabPage2.Controls.Add(btnUpdateRol);
             tabPage2.Controls.Add(btnAddRol);
             tabPage2.Controls.Add(groupBox2);
             tabPage2.Controls.Add(dgvRoles);
-
             tabPage2.Location = new Point(4, 25);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1037, 586);
+            tabPage2.Size = new Size(1049, 597);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Roles";
             // 
@@ -445,14 +443,15 @@
             // 
             // dgvRoles
             // 
+            dgvRoles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvRoles.BackgroundColor = SystemColors.ButtonHighlight;
             dgvRoles.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvRoles.Dock = DockStyle.Bottom;
             dgvRoles.GridColor = SystemColors.MenuHighlight;
-            dgvRoles.Location = new Point(3, 396);
+            dgvRoles.Location = new Point(3, 407);
             dgvRoles.Name = "dgvRoles";
             dgvRoles.RowHeadersWidth = 51;
-            dgvRoles.Size = new Size(1031, 187);
+            dgvRoles.Size = new Size(1043, 187);
             dgvRoles.TabIndex = 4;
             dgvRoles.CellClick += dgvRoles_CellClick;
             // 

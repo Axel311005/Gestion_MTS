@@ -317,11 +317,11 @@ namespace Gestion_MTS
 
         private void dgvCompras_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex  >= 0)
+            if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvCompras.Rows[e.RowIndex];
 
-                ComprasView view = new ComprasView 
+                ComprasView view = new ComprasView
                 {
                     NumeroFactura = Convert.ToInt32(row.Cells["NumeroFactura"].Value?.ToString()),
                     TipoPago = row.Cells["TipoPago"].Value?.ToString(),
@@ -368,7 +368,7 @@ namespace Gestion_MTS
 
                 };
 
-               
+
 
                 DetalleCompra.Add(detalleCompra);
 
@@ -376,7 +376,7 @@ namespace Gestion_MTS
                 Refresh();
                 LimpiarTextCompras();
 
-               
+
             }
             catch (Exception ex)
             {
@@ -394,7 +394,7 @@ namespace Gestion_MTS
 
         private void btnUpdateCompra_Click(object sender, EventArgs e)
         {
-            if(dgvCompras.SelectedRows.Count > 0)
+            if (dgvCompras.SelectedRows.Count > 0)
             {
                 try
                 {
@@ -406,7 +406,7 @@ namespace Gestion_MTS
                         Fecha = FechaCompra
                     };
 
-                    compras.Update(update,0);
+                    compras.Update(update, 0);
 
 
                     var updateDetalle = new DetalleCompra
@@ -506,6 +506,8 @@ namespace Gestion_MTS
             if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
 
         private void btnDeleteCompra_Click(object sender, EventArgs e)
         {
@@ -541,6 +543,11 @@ namespace Gestion_MTS
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

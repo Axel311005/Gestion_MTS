@@ -51,5 +51,25 @@ namespace Gestion_MTS
         {
 
         }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddGasto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpdateGasto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteGasto_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

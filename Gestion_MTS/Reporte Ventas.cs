@@ -45,9 +45,9 @@ namespace Gestion_MTS
 
             chartSeries.CategoryModel = dataSeriesModel;
 
-            chartControl1.PrimaryXAxis.ValueType = ChartValueType.Category;
+            //chartControl1.PrimaryXAxis.ValueType = ChartValueType.Category;
 
-            this.chartControl1.Skins = Skins.Metro;
+            //this.chartControl1.Skins = Skins.Metro;
         }
     }
 }
