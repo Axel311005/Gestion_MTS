@@ -1,5 +1,6 @@
 ﻿using Gestion_MTS.Clases;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -114,6 +115,78 @@ namespace Gestion_MTS.IRepository.Repository
                 {
                     throw new Exception("Error al actualizar el detalle de producto: " + e.Message);
                 }
+            }
+        }
+
+        public List<int>? MultipleInsert(DataTable productsDetails)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_connectionString))
+                {
+
+                    connection.Open();
+
+                    //TABLA TEMPORAL 
+                    string createTmpTable = @"
+                        CREATE TABLE #TempProductDetails (
+                            id_producto INT,
+                            cantidad INT
+                        );
+                    ";
+
+                    using (SqlCommand cmd = new SqlCommand(createTmpTable, connection))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    using (var bulkCopy = new SqlBulkCopy(connection))
+                    {
+                        bulkCopy.DestinationTableName = "#TempProductDetails";
+                        bulkCopy.WriteToServer(productsDetails);
+                    }
+
+                    string insertWithOutputSql = @"
+                        INSERT INTO detalle_producto (id_producto, cantidad)
+                        OUTPUT INSERTED.id_detalle_producto INTO #InsertedIds
+                        SELECT id_producto, cantidad FROM #TempProductDetails;
+                    ";
+
+                    string createInsertedIdsTmp = "CREATE TABLE #InsertedIds (id INT)";
+
+                    using (SqlCommand cmd = new SqlCommand(createInsertedIdsTmp, connection))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand(insertWithOutputSql, connection))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    List<int> insertedIds = new List<int>();
+                    string selectIdsSql = "SELECT id FROM #InsertedIds";
+                    using (SqlCommand cmd = new SqlCommand(selectIdsSql, connection))
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while(reader.Read())
+                        {
+                            insertedIds.Add(reader.GetInt32(0));
+                        }
+                    }
+
+                    return insertedIds;
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(
+                    $"Ocurrio un error : {e.Message}",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                return null;
             }
         }
     }

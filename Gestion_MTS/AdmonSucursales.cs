@@ -133,5 +133,10 @@ namespace Gestion_MTS
         {
 
         }
+
+        private void btnDeleteBodega_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
