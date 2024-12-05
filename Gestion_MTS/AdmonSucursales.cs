@@ -128,5 +128,10 @@ namespace Gestion_MTS
             dgvLocalBodega.DataSource = local.GetAll();
             dgvSucursales.DataSource = sucursal.GetAll();
         }
+
+        private void btnUpdateBodega_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

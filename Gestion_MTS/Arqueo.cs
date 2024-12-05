@@ -18,7 +18,7 @@ namespace Gestion_MTS
     public partial class Arqueo : Form
     {
 
-  
+
         ConsultasArqueoRepository arq = new ConsultasArqueoRepository();
         SucursalRepository sucursal;
         GastoRepository gasto;
@@ -28,7 +28,7 @@ namespace Gestion_MTS
             string connectionString = ConfigurationManager.ConnectionStrings["constring"].ConnectionString;
             sucursal = new SucursalRepository(connectionString);
             gasto = new GastoRepository(connectionString);
-        
+
         }
 
         private void Arqueo_Load(object sender, EventArgs e)
@@ -40,11 +40,16 @@ namespace Gestion_MTS
         private void ObtenerGastos_Click(object sender, EventArgs e)
         {
             int? suc = sucursal.GetIdSucursal(cboSucursales.Text);
-            
-            txtTotal.Text = gasto.CalcularMontoTotalGastosPorSucursal(dtpFechaInicio.Value , 
+
+            txtTotal.Text = gasto.CalcularMontoTotalGastosPorSucursal(dtpFechaInicio.Value,
                 dtpFechaFinal.Value, suc).ToString();
-            
-            
+
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
