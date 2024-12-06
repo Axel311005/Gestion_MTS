@@ -191,6 +191,7 @@
             txtApellidoCliente.Name = "txtApellidoCliente";
             txtApellidoCliente.Size = new Size(234, 25);
             txtApellidoCliente.TabIndex = 13;
+            txtApellidoCliente.KeyPress += txtApellidoCliente_KeyPress;
             // 
             // txtNombreCliente
             // 
@@ -198,6 +199,7 @@
             txtNombreCliente.Name = "txtNombreCliente";
             txtNombreCliente.Size = new Size(234, 25);
             txtNombreCliente.TabIndex = 12;
+            txtNombreCliente.KeyPress += txtNombreCliente_KeyPress;
             // 
             // tabPage2
             // 
@@ -241,6 +243,7 @@
             txtTipoDePago.Name = "txtTipoDePago";
             txtTipoDePago.Size = new Size(234, 25);
             txtTipoDePago.TabIndex = 16;
+            txtTipoDePago.KeyPress += txtTipoDePago_KeyPress;
             // 
             // button1
             // 

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gestion_MTS", "Gestion_MTS\Gestion_MTS.csproj", "{9E37D323-58E1-4BEF-AAE4-EA488A397D1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gestion_MTS", "Gestion_MTS\Gestion_MTS.csproj", "{9E37D323-58E1-4BEF-AAE4-EA488A397D1C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Informes", "Informes\Informes.csproj", "{45F38C17-D3A5-444A-A339-18732CC4F876}"
 EndProject
