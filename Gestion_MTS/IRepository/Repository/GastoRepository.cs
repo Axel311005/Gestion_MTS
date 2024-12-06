@@ -105,7 +105,7 @@ namespace Gestion_MTS.IRepository.Repository
                 command.Parameters.AddWithValue("@monto", ado.monto);
                 command.Parameters.AddWithValue("@id_sucursal", ado.IdSucursal);
                 command.Parameters.AddWithValue("@fecha", ado.FechaGasto);
-                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@id", ado.IdGasto);
 
                 try
                 {
