@@ -20,7 +20,7 @@ namespace Gestion_MTS
     {
 
 
-        
+
         SucursalRepository sucursal;
         GastoRepository gasto;
         public int idGasto;
@@ -44,14 +44,12 @@ namespace Gestion_MTS
         {
             cboSucursales.DataSource = sucursal.GetUbicacionSucursal();
             dgvGastos.DataSource = gasto.GetAll();
+            cboSucursal.DataSource = sucursal.GetUbicacionSucursal(); 
         }
 
         private void ObtenerGastos_Click(object sender, EventArgs e)
         {
-            int? suc = sucursal.GetIdSucursal(cboSucursales.Text);
-
-            txtTotal.Text = gasto.CalcularMontoTotalGastosPorSucursal(dtpFechaInicio.Value,
-                dtpFechaFinal.Value, suc).ToString();
+            
 
 
         }
@@ -66,7 +64,7 @@ namespace Gestion_MTS
 
         }
 
-        
+
 
         private void btnUpdateGasto_Click(object sender, EventArgs e)
         {
@@ -117,7 +115,7 @@ namespace Gestion_MTS
 
         private void dgvGastos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >=0)
+            if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvGastos.Rows[e.RowIndex];
 
@@ -131,7 +129,7 @@ namespace Gestion_MTS
                 };
                 idGasto = Convert.ToInt32(row.Cells["id_gasto"].Value);
                 FechaGas = Convert.ToDateTime(row.Cells["FechaGasto"]?.Value?.ToString());
-                txtdescripgastos.Text = gast.descripcion ;
+                txtdescripgastos.Text = gast.descripcion;
                 txtMontogasto.Text = gast.monto.ToString();
                 cboSucursal.Text = gast.sucursal;
             }
@@ -139,7 +137,7 @@ namespace Gestion_MTS
 
         private void btnUpdateGasto_Click_1(object sender, EventArgs e)
         {
-            if(dgvGastos.SelectedRows.Count > 0)
+            if (dgvGastos.SelectedRows.Count > 0)
             {
                 try
                 {
@@ -147,7 +145,7 @@ namespace Gestion_MTS
                     {
                         IdGasto = idGasto,
                         descripcion = txtdescripgastos.Text,
-                        monto = Convert.ToDecimal(txtMontogasto.Text),  
+                        monto = Convert.ToDecimal(txtMontogasto.Text),
                         IdSucursal = Convert.ToInt32(sucursal.GetIdSucursal(cboSucursal.Text)),
                         FechaGasto = FechaGas,
 
@@ -225,6 +223,14 @@ namespace Gestion_MTS
             txtdescripgastos.Clear();
             txtMontogasto.Clear();
 
+        }
+
+        private void ObtenerGastos_Click_1(object sender, EventArgs e)
+        {
+            int? suc = sucursal.GetIdSucursal(cboSucursales.Text);
+
+            txtTotal.Text = gasto.CalcularMontoTotalGastosPorSucursal(dtpFechaInicio.Value,
+                dtpFechaFinal.Value, suc).ToString();
         }
     }
 }
