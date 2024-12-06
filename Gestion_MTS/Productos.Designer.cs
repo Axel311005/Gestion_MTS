@@ -350,6 +350,7 @@
             // 
             // dgvProductos
             // 
+            dgvProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvProductos.BackgroundColor = SystemColors.ButtonHighlight;
             dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProductos.Dock = DockStyle.Bottom;
@@ -374,7 +375,7 @@
             tabPage2.Location = new Point(4, 25);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1097, 557);
+            tabPage2.Size = new Size(1097, 652);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Categorias Productos";
             // 
@@ -384,7 +385,7 @@
             dgvCategorias.BackgroundColor = SystemColors.ButtonHighlight;
             dgvCategorias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCategorias.Dock = DockStyle.Bottom;
-            dgvCategorias.Location = new Point(3, 333);
+            dgvCategorias.Location = new Point(3, 428);
             dgvCategorias.Name = "dgvCategorias";
             dgvCategorias.RowHeadersWidth = 51;
             dgvCategorias.Size = new Size(1091, 221);
@@ -477,7 +478,7 @@
             tabPage3.Location = new Point(4, 25);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(1097, 557);
+            tabPage3.Size = new Size(1097, 652);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Compra de Inventario";
             // 
@@ -529,7 +530,7 @@
             dgvCompras.BackgroundColor = SystemColors.ButtonHighlight;
             dgvCompras.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCompras.Dock = DockStyle.Bottom;
-            dgvCompras.Location = new Point(3, 379);
+            dgvCompras.Location = new Point(3, 474);
             dgvCompras.Name = "dgvCompras";
             dgvCompras.RowHeadersWidth = 51;
             dgvCompras.Size = new Size(1091, 175);
@@ -671,7 +672,7 @@
             tabPage4.Location = new Point(4, 25);
             tabPage4.Name = "tabPage4";
             tabPage4.Padding = new Padding(3);
-            tabPage4.Size = new Size(1097, 557);
+            tabPage4.Size = new Size(1097, 652);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Proveedores";
             // 
@@ -681,8 +682,9 @@
             dgvProveedores.BackgroundColor = SystemColors.ButtonHighlight;
             dgvProveedores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProveedores.Dock = DockStyle.Bottom;
-            dgvProveedores.Location = new Point(3, 342);
+            dgvProveedores.Location = new Point(3, 437);
             dgvProveedores.Name = "dgvProveedores";
+            dgvProveedores.ReadOnly = true;
             dgvProveedores.RowHeadersWidth = 51;
             dgvProveedores.Size = new Size(1091, 212);
             dgvProveedores.TabIndex = 17;

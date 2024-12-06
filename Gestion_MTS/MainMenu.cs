@@ -160,7 +160,7 @@ namespace Gestion_MTS
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            
+
 
             int userRole = AppContext.GetContext().roleId;
 
