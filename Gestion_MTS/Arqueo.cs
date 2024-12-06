@@ -209,6 +209,7 @@ namespace Gestion_MTS
 
                 };
 
+                gasto.Add(gast);
                 MessageBox.Show("Gasto Agregado correctamente");
                 LimpiarText();
                 Refresh();

@@ -12,6 +12,6 @@ namespace Gestion_MTS.Clases
         public string descripcion {  get; set; }
         public decimal monto { get; set; }
         public int IdSucursal { get; set; }
-        public DateTime FechaGasto { get; set; }
+        public DateTime? FechaGasto { get; set; }
     }
 }
