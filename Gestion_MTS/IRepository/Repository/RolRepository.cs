@@ -15,7 +15,7 @@ namespace Gestion_MTS.IRepository.Repository
 
         public RolRepository(string connectionString)
         {
-            _connectionString = connectionString;
+            _connectionString = connectionString; ;
         }
 
         public void Add(Rol ado)
