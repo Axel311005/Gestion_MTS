@@ -21,7 +21,7 @@ namespace Gestion_MTS.IRepository.Repository
 
         public void Add(Gasto ado)
         {
-            string query = "Insert into gastos(descripcion, monto, id_sucursal, FechaGasto) values(@descripcion, @monto, @id_sucursal, @fecha)";
+            string query = "Insert into gastos(descripcion, monto, id_sucursal) values(@descripcion, @monto, @id_sucursal)";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
@@ -29,7 +29,7 @@ namespace Gestion_MTS.IRepository.Repository
                 command.Parameters.AddWithValue("@descripcion", ado.descripcion);
                 command.Parameters.AddWithValue("@monto", ado.monto);
                 command.Parameters.AddWithValue("@id_sucursal", ado.IdSucursal);
-                command.Parameters.AddWithValue("@fecha", ado.FechaGasto);
+  
 
                 try
                 {
@@ -105,7 +105,7 @@ namespace Gestion_MTS.IRepository.Repository
                 command.Parameters.AddWithValue("@monto", ado.monto);
                 command.Parameters.AddWithValue("@id_sucursal", ado.IdSucursal);
                 command.Parameters.AddWithValue("@fecha", ado.FechaGasto);
-                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@id", ado.IdGasto);
 
                 try
                 {

@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gestion_MTS.Clases
+namespace Gestion_MTS.Vistas
 {
-    public class Gasto
+    public class VistaGastos
     {
-        public int IdGasto { get; set; }
+        public int id_gasto {  get; set; }
         public string descripcion {  get; set; }
         public decimal monto { get; set; }
-        public int IdSucursal { get; set; }
-        public DateTime? FechaGasto { get; set; }
+        public string sucursal { get; set; }
+        public DateTime FechaGasto { get; set; }
+
     }
 }
