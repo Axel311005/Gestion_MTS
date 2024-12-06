@@ -141,10 +141,9 @@ namespace Gestion_MTS
 
             if (e.RowIndex >= 0)
             {
-                // Obtén la fila seleccionada del DataGridView
                 DataGridViewRow row = dgvEmpleados.Rows[e.RowIndex];
 
-                // Mapea los datos manualmente desde las celdas a un objeto VistaEmpleados
+                
                 VistaEmpleados empleados = new VistaEmpleados
                 {
                     Nombre = row.Cells["Nombre"].Value?.ToString(),

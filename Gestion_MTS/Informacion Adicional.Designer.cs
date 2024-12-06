@@ -62,11 +62,12 @@
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
+            tabControl1.Dock = DockStyle.Fill;
             tabControl1.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold);
-            tabControl1.Location = new Point(12, 3);
+            tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1101, 552);
+            tabControl1.Size = new Size(1120, 557);
             tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -79,7 +80,7 @@
             tabPage1.Location = new Point(4, 25);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1093, 523);
+            tabPage1.Size = new Size(1112, 528);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Clientes";
             tabPage1.UseVisualStyleBackColor = true;
@@ -90,10 +91,10 @@
             dgvClientes.BackgroundColor = SystemColors.ButtonHighlight;
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvClientes.Dock = DockStyle.Bottom;
-            dgvClientes.Location = new Point(3, 345);
+            dgvClientes.Location = new Point(3, 350);
             dgvClientes.Name = "dgvClientes";
             dgvClientes.RowHeadersWidth = 51;
-            dgvClientes.Size = new Size(1087, 175);
+            dgvClientes.Size = new Size(1106, 175);
             dgvClientes.TabIndex = 13;
             dgvClientes.CellClick += dgvClientes_CellClick;
             // 

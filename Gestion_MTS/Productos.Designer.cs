@@ -111,11 +111,12 @@
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
             tabControl1.Controls.Add(tabPage4);
+            tabControl1.Dock = DockStyle.Fill;
             tabControl1.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            tabControl1.Location = new Point(12, 12);
+            tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1105, 681);
+            tabControl1.Size = new Size(1120, 697);
             tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -129,7 +130,7 @@
             tabPage1.Location = new Point(4, 25);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1097, 652);
+            tabPage1.Size = new Size(1112, 668);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Agregar Productos";
             tabPage1.Click += tabPage1_Click;
@@ -354,10 +355,10 @@
             dgvProductos.BackgroundColor = SystemColors.ButtonHighlight;
             dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProductos.Dock = DockStyle.Bottom;
-            dgvProductos.Location = new Point(3, 399);
+            dgvProductos.Location = new Point(3, 415);
             dgvProductos.Name = "dgvProductos";
             dgvProductos.RowHeadersWidth = 51;
-            dgvProductos.Size = new Size(1091, 250);
+            dgvProductos.Size = new Size(1106, 250);
             dgvProductos.TabIndex = 0;
             dgvProductos.CellClick += dgvProductos_CellClick;
             // 
@@ -803,7 +804,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(1159, 696);
+            ClientSize = new Size(1120, 697);
             Controls.Add(tabControl1);
             Name = "Productos";
             Text = "Gestion de Inventario";

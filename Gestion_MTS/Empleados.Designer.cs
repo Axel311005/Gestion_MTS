@@ -141,12 +141,14 @@
             // 
             // dgvEmpleados
             // 
+            dgvEmpleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvEmpleados.BackgroundColor = SystemColors.ButtonHighlight;
             dgvEmpleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvEmpleados.Dock = DockStyle.Bottom;
             dgvEmpleados.GridColor = SystemColors.MenuHighlight;
             dgvEmpleados.Location = new Point(3, 358);
             dgvEmpleados.Name = "dgvEmpleados";
+            dgvEmpleados.ReadOnly = true;
             dgvEmpleados.RowHeadersWidth = 51;
             dgvEmpleados.Size = new Size(1043, 236);
             dgvEmpleados.TabIndex = 3;

@@ -52,9 +52,10 @@
             // 
             pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(118, -32);
+            pictureBox1.Location = new Point(135, -43);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(348, 312);
+            pictureBox1.Size = new Size(398, 416);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -66,10 +67,11 @@
             btnIngresar.FlatStyle = FlatStyle.Flat;
             btnIngresar.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnIngresar.ForeColor = Color.DarkOrange;
-            btnIngresar.Location = new Point(155, 336);
+            btnIngresar.Location = new Point(177, 442);
+            btnIngresar.Margin = new Padding(3, 4, 3, 4);
             btnIngresar.Name = "btnIngresar";
-            btnIngresar.Padding = new Padding(0, 8, 0, 8);
-            btnIngresar.Size = new Size(257, 48);
+            btnIngresar.Padding = new Padding(0, 11, 0, 11);
+            btnIngresar.Size = new Size(294, 64);
             btnIngresar.TabIndex = 1;
             btnIngresar.Text = "Ingresar";
             btnIngresar.UseVisualStyleBackColor = false;
@@ -81,29 +83,29 @@
             lblUserName.AutoSize = true;
             lblUserName.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblUserName.ForeColor = SystemColors.ButtonFace;
-            lblUserName.Location = new Point(155, 210);
+            lblUserName.Location = new Point(177, 280);
             lblUserName.Name = "lblUserName";
-            lblUserName.Size = new Size(61, 16);
+            lblUserName.Size = new Size(74, 20);
             lblUserName.TabIndex = 2;
             lblUserName.Text = "Usuario";
             // 
             // txtUserName
             // 
             txtUserName.Anchor = AnchorStyles.None;
-            txtUserName.Location = new Point(155, 229);
+            txtUserName.Location = new Point(177, 305);
+            txtUserName.Margin = new Padding(3, 4, 3, 4);
             txtUserName.Name = "txtUserName";
-            txtUserName.Size = new Size(257, 23);
+            txtUserName.Size = new Size(293, 27);
             txtUserName.TabIndex = 3;
             // 
             // txtPassword
             // 
             txtPassword.Anchor = AnchorStyles.None;
-            txtPassword.Location = new Point(155, 286);
+            txtPassword.Location = new Point(177, 381);
+            txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
-
-            txtPassword.Size = new Size(229, 23);
-
+            txtPassword.Size = new Size(261, 27);
             txtPassword.TabIndex = 5;
             // 
             // lblPassword
@@ -112,9 +114,9 @@
             lblPassword.AutoSize = true;
             lblPassword.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblPassword.ForeColor = SystemColors.ButtonFace;
-            lblPassword.Location = new Point(155, 267);
+            lblPassword.Location = new Point(177, 356);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(86, 16);
+            lblPassword.Size = new Size(105, 20);
             lblPassword.TabIndex = 4;
             lblPassword.Text = "Contraseña";
             // 
@@ -125,8 +127,9 @@
             pnlHeader.Controls.Add(btnCerrar);
             pnlHeader.Dock = DockStyle.Top;
             pnlHeader.Location = new Point(0, 0);
+            pnlHeader.Margin = new Padding(3, 4, 3, 4);
             pnlHeader.Name = "pnlHeader";
-            pnlHeader.Size = new Size(606, 47);
+            pnlHeader.Size = new Size(693, 63);
             pnlHeader.TabIndex = 12;
             pnlHeader.MouseDown += pnlHeader_MouseDown;
             // 
@@ -135,10 +138,9 @@
             btnMinimizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnMinimizar.Cursor = Cursors.Hand;
             btnMinimizar.Image = (Image)resources.GetObject("btnMinimizar.Image");
-            btnMinimizar.Location = new Point(517, 10);
-            btnMinimizar.Margin = new Padding(3, 2, 3, 2);
+            btnMinimizar.Location = new Point(591, 13);
             btnMinimizar.Name = "btnMinimizar";
-            btnMinimizar.Size = new Size(31, 26);
+            btnMinimizar.Size = new Size(35, 35);
             btnMinimizar.SizeMode = PictureBoxSizeMode.Zoom;
             btnMinimizar.TabIndex = 14;
             btnMinimizar.TabStop = false;
@@ -149,10 +151,9 @@
             btnResize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnResize.Cursor = Cursors.Hand;
             btnResize.Image = (Image)resources.GetObject("btnResize.Image");
-            btnResize.Location = new Point(472, 10);
-            btnResize.Margin = new Padding(3, 2, 3, 2);
+            btnResize.Location = new Point(539, 13);
             btnResize.Name = "btnResize";
-            btnResize.Size = new Size(31, 26);
+            btnResize.Size = new Size(35, 35);
             btnResize.SizeMode = PictureBoxSizeMode.Zoom;
             btnResize.TabIndex = 13;
             btnResize.TabStop = false;
@@ -163,10 +164,9 @@
             btnCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnCerrar.Cursor = Cursors.Hand;
             btnCerrar.Image = (Image)resources.GetObject("btnCerrar.Image");
-            btnCerrar.Location = new Point(561, 10);
-            btnCerrar.Margin = new Padding(3, 2, 3, 2);
+            btnCerrar.Location = new Point(641, 13);
             btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(31, 26);
+            btnCerrar.Size = new Size(35, 35);
             btnCerrar.SizeMode = PictureBoxSizeMode.Zoom;
             btnCerrar.TabIndex = 12;
             btnCerrar.TabStop = false;
@@ -177,12 +177,9 @@
             btnSeePass.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnSeePass.Cursor = Cursors.Hand;
             btnSeePass.Image = (Image)resources.GetObject("btnSeePass.Image");
-
-            btnSeePass.Location = new Point(390, 286);
-
-            btnSeePass.Margin = new Padding(3, 2, 3, 2);
+            btnSeePass.Location = new Point(446, 381);
             btnSeePass.Name = "btnSeePass";
-            btnSeePass.Size = new Size(22, 23);
+            btnSeePass.Size = new Size(25, 31);
             btnSeePass.SizeMode = PictureBoxSizeMode.Zoom;
             btnSeePass.TabIndex = 14;
             btnSeePass.TabStop = false;
@@ -190,12 +187,10 @@
             // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(51, 51, 76);
-
-            ClientSize = new Size(606, 450);
-
+            ClientSize = new Size(693, 600);
             Controls.Add(btnSeePass);
             Controls.Add(pnlHeader);
             Controls.Add(txtPassword);
@@ -205,6 +200,7 @@
             Controls.Add(btnIngresar);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Login";
             Text = "Login";
             Load += Login_Load;

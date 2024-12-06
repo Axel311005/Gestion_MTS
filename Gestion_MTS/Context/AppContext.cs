@@ -10,7 +10,7 @@ namespace Gestion_MTS.Context
 {
     public class AppContext
     {
-        public static ContextData data { get; set; }
+        public static ContextData? data { get; set; }
 
         public AppContext(ContextData contextData)
         {
@@ -20,6 +20,10 @@ namespace Gestion_MTS.Context
             }
 
             data = contextData;
+        }
+
+        public static void LogOut() {
+            data = null;
         }
 
         public static ContextData GetContext()
