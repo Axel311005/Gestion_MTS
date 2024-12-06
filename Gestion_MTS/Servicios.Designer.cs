@@ -60,6 +60,7 @@
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
+            tabControl1.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold);
             tabControl1.Location = new Point(12, 12);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -102,11 +103,12 @@
             cboCategoria.FormattingEnabled = true;
             cboCategoria.Location = new Point(687, 190);
             cboCategoria.Name = "cboCategoria";
-            cboCategoria.Size = new Size(151, 28);
+            cboCategoria.Size = new Size(151, 24);
             cboCategoria.TabIndex = 8;
             // 
             // dgvServicios
             // 
+            dgvServicios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvServicios.BackgroundColor = SystemColors.ButtonHighlight;
             dgvServicios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvServicios.Dock = DockStyle.Bottom;
@@ -183,18 +185,21 @@
             // 
             txtDescripServ.Location = new Point(502, 191);
             txtDescripServ.Name = "txtDescripServ";
-            txtDescripServ.Size = new Size(157, 27);
+            txtDescripServ.Size = new Size(157, 22);
             txtDescripServ.TabIndex = 1;
+            txtDescripServ.KeyPress += txtDescripServ_KeyPress;
             // 
             // txtNombreServ
             // 
             txtNombreServ.Location = new Point(316, 190);
             txtNombreServ.Name = "txtNombreServ";
-            txtNombreServ.Size = new Size(140, 27);
+            txtNombreServ.Size = new Size(140, 22);
             txtNombreServ.TabIndex = 0;
+            txtNombreServ.KeyPress += txtNombreServ_KeyPress;
             // 
             // tabPage2
             // 
+            tabPage2.BackColor = SystemColors.Control;
             tabPage2.Controls.Add(label3);
             tabPage2.Controls.Add(label4);
             tabPage2.Controls.Add(btnDeleteCat);
@@ -203,13 +208,12 @@
             tabPage2.Controls.Add(dgvCategoriaServicios);
             tabPage2.Controls.Add(txtDescripcionCateg);
             tabPage2.Controls.Add(txtNombreCategoria);
-            tabPage2.Location = new Point(4, 29);
+            tabPage2.Location = new Point(4, 25);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1178, 591);
+            tabPage2.Size = new Size(1178, 595);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Categorias  de Servicios";
-            tabPage2.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -275,9 +279,11 @@
             // 
             // dgvCategoriaServicios
             // 
+            dgvCategoriaServicios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvCategoriaServicios.BackgroundColor = SystemColors.ButtonHighlight;
             dgvCategoriaServicios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCategoriaServicios.Dock = DockStyle.Bottom;
-            dgvCategoriaServicios.Location = new Point(3, 356);
+            dgvCategoriaServicios.Location = new Point(3, 360);
             dgvCategoriaServicios.Name = "dgvCategoriaServicios";
             dgvCategoriaServicios.RowHeadersWidth = 51;
             dgvCategoriaServicios.Size = new Size(1172, 232);
@@ -288,15 +294,17 @@
             // 
             txtDescripcionCateg.Location = new Point(597, 165);
             txtDescripcionCateg.Name = "txtDescripcionCateg";
-            txtDescripcionCateg.Size = new Size(125, 27);
+            txtDescripcionCateg.Size = new Size(125, 22);
             txtDescripcionCateg.TabIndex = 8;
+            txtDescripcionCateg.KeyPress += txtDescripcionCateg_KeyPress;
             // 
             // txtNombreCategoria
             // 
             txtNombreCategoria.Location = new Point(421, 165);
             txtNombreCategoria.Name = "txtNombreCategoria";
-            txtNombreCategoria.Size = new Size(125, 27);
+            txtNombreCategoria.Size = new Size(125, 22);
             txtNombreCategoria.TabIndex = 7;
+            txtNombreCategoria.KeyPress += txtNombreCategoria_KeyPress;
             // 
             // Servicios
             // 

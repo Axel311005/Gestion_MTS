@@ -23,7 +23,7 @@ namespace Gestion_MTS
         EmpleadoRepository empleado;
         SucursalRepository sucursal;
         RolRepository rol;
-        
+
 
         public int idEmp;
         public int idRol;
@@ -229,7 +229,7 @@ namespace Gestion_MTS
         }
         private void btnUpdateRol_Click(object sender, EventArgs e)
         {
-            if(dgvRoles.SelectedRows.Count > 0)
+            if (dgvRoles.SelectedRows.Count > 0)
             {
                 try
                 {
@@ -301,7 +301,7 @@ namespace Gestion_MTS
                         rol.Delete(idRol);
                         Refresh();
                         LimpiarTextRol();
-                    } 
+                    }
                     catch (Exception ex)
                     {
                         MessageBox.Show($"Error al eliminar rol: {ex.Message}",
@@ -320,7 +320,101 @@ namespace Gestion_MTS
             txtDireccion.Clear();
             txtSalario.Clear();
 
+
         }
-       
+
+        private void txtNombreEmpleado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtApellidoEmpleado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCelular_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '-')
+            {
+                e.Handled = true;
+                return;
+            }
+
+
+            if (e.KeyChar == '-')
+            {
+
+                if (textBox.Text.Length != 4)
+                {
+                    e.Handled = true;
+                }
+                return;
+            }
+
+
+            if (textBox.Text.Length >= 9 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSalario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+
+            if (e.KeyChar == '.' && (sender as TextBox).Text.Contains("."))
+            {
+                e.Handled = true;
+            }
+
+            // aca no permite que tenga mas de dos puntos para un decimal 
+            if ((sender as TextBox).Text.Contains("."))
+            {
+                string[] parts = (sender as TextBox).Text.Split('.');
+                if (parts.Length > 1 && parts[1].Length >= 2 && !char.IsControl(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            }
+
+        }
+
+        private void txtNombreRol_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDescRol_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

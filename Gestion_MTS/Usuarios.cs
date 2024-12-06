@@ -125,7 +125,7 @@ namespace Gestion_MTS
                         IdEmpleado = Convert.ToInt32(cmbEmployeeId.SelectedValue),
                         NombreUsuario = txtUserName.Text.Trim(),
                         IdUsuario = selectedUserId,
-                        Contraseña = trimmedPassword != "" ? 
+                        Contraseña = trimmedPassword != "" ?
                             BCrypt.HashPassword(trimmedPassword, BCrypt.GenerateSalt())
                             : null
                     },
@@ -135,7 +135,8 @@ namespace Gestion_MTS
                 MessageBox.Show("Usuario Actualizado Correctamente", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 Usuarios_Load(sender, e);
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show($"Ocurrio un error: {ex.Message}", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -152,9 +153,18 @@ namespace Gestion_MTS
                 MessageBox.Show("Usuario Eliminado Correctamente", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 Usuarios_Load(sender, e);
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show($"Ocurrio un error: {ex.Message}", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtUserName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

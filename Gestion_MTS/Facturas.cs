@@ -282,7 +282,40 @@ namespace Gestion_MTS
             MessageBox.Show("Detalle Eliminado Correctamente", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void btnGenerateFactura_Click(object sender, EventArgs e)
+
+        private void txtProductQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+
+            if (e.KeyChar == '.' && (sender as TextBox).Text.Contains("."))
+            {
+                e.Handled = true;
+            }
+
+            // aca no permite que tenga mas de dos puntos para un decimal 
+            if ((sender as TextBox).Text.Contains("."))
+            {
+                string[] parts = (sender as TextBox).Text.Split('.');
+                if (parts.Length > 1 && parts[1].Length >= 2 && !char.IsControl(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+       private void btnGenerateFactura_Click(object sender, EventArgs e)
         {
             if(productos.Count < 1 && servicios.Count < 1)
             {

@@ -125,19 +125,19 @@ namespace Gestion_MTS
 
         private void btnReporte_Click(object sender, EventArgs e)
         {
-            SubMenuReportes.Visible = true;
+            //SubMenuReportes.Visible = true;
         }
 
         private void btnReporteVentas_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmReporteVentas(), sender);
-            SubMenuReportes.Visible = false;
+            //OpenChildForm(new frmReporteVentas(), sender);
+            //SubMenuReportes.Visible = false;
         }
 
         private void btnReporteServicios_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmReporteServicios(), sender);
-            SubMenuReportes.Visible = false;
+            //OpenChildForm(new frmReporteServicios(), sender);
+            //SubMenuReportes.Visible = false;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -209,6 +209,11 @@ namespace Gestion_MTS
         private void btnUsers_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Usuarios(), sender);
+        }
+
+        private void btnInfoAdicional_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Informacion_Adicional(), sender);
         }
     }
 }

@@ -51,5 +51,62 @@ namespace Gestion_MTS
         {
 
         }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddGasto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpdateGasto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteGasto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtdescripgastos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtMontogasto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            System.Windows.Forms.TextBox textBox = sender as System.Windows.Forms.TextBox;
+
+            // Verificar que el carácter sea un dígito, un punto, o un carácter de control (como Backspace)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+                return;
+            }
+
+            // Verificar que solo se permita un punto decimal
+            if (e.KeyChar == '.' && textBox.Text.Contains("."))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            // Restringir a dos dígitos después del punto decimal
+            if (textBox.Text.Contains("."))
+            {
+                string[] parts = textBox.Text.Split('.');
+                if (parts.Length > 1 && parts[1].Length >= 2 && !char.IsControl(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            }
+        }
     }
 }

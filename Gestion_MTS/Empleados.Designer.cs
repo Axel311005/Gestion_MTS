@@ -55,33 +55,34 @@
             txtApellidoEmpleado = new TextBox();
             txtNombreEmpleado = new TextBox();
             tabPage2 = new TabPage();
-            dgvRoles = new DataGridView();
-            label7 = new Label();
-            label8 = new Label();
-            groupBox2 = new GroupBox();
-            txtNombreRol = new TextBox();
-            txtDescRol = new TextBox();
             btnDeleteRol = new Button();
             btnUpdateRol = new Button();
             btnAddRol = new Button();
+            groupBox2 = new GroupBox();
+            txtDescRol = new TextBox();
+            txtNombreRol = new TextBox();
+            label8 = new Label();
+            label7 = new Label();
+            dgvRoles = new DataGridView();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEmpleados).BeginInit();
             groupBox1.SuspendLayout();
             tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvRoles).BeginInit();
             groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvRoles).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
+            tabControl1.Dock = DockStyle.Fill;
             tabControl1.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold);
-            tabControl1.Location = new Point(0, 12);
+            tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1045, 615);
+            tabControl1.Size = new Size(1057, 626);
             tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -95,7 +96,7 @@
             tabPage1.Location = new Point(4, 25);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1037, 586);
+            tabPage1.Size = new Size(1049, 597);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Agregar Empleado";
             // 
@@ -144,10 +145,10 @@
             dgvEmpleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvEmpleados.Dock = DockStyle.Bottom;
             dgvEmpleados.GridColor = SystemColors.MenuHighlight;
-            dgvEmpleados.Location = new Point(3, 396);
+            dgvEmpleados.Location = new Point(3, 407);
             dgvEmpleados.Name = "dgvEmpleados";
             dgvEmpleados.RowHeadersWidth = 51;
-            dgvEmpleados.Size = new Size(1031, 187);
+            dgvEmpleados.Size = new Size(1043, 187);
             dgvEmpleados.TabIndex = 3;
             dgvEmpleados.CellClick += dgvEmpleados_CellClick;
             // 
@@ -283,6 +284,7 @@
             txtSalario.Name = "txtSalario";
             txtSalario.Size = new Size(193, 25);
             txtSalario.TabIndex = 8;
+            txtSalario.KeyPress += txtSalario_KeyPress;
             // 
             // txtCelular
             // 
@@ -290,6 +292,7 @@
             txtCelular.Name = "txtCelular";
             txtCelular.Size = new Size(193, 25);
             txtCelular.TabIndex = 7;
+            txtCelular.KeyPress += txtCelular_KeyPress;
             // 
             // chbEstado
             // 
@@ -314,6 +317,7 @@
             txtDireccion.Name = "txtDireccion";
             txtDireccion.Size = new Size(193, 25);
             txtDireccion.TabIndex = 4;
+            txtDireccion.KeyPress += txtDireccion_KeyPress;
             // 
             // txtCedula
             // 
@@ -328,6 +332,7 @@
             txtApellidoEmpleado.Name = "txtApellidoEmpleado";
             txtApellidoEmpleado.Size = new Size(193, 25);
             txtApellidoEmpleado.TabIndex = 1;
+            txtApellidoEmpleado.KeyPress += txtApellidoEmpleado_KeyPress;
             // 
             // txtNombreEmpleado
             // 
@@ -335,9 +340,11 @@
             txtNombreEmpleado.Name = "txtNombreEmpleado";
             txtNombreEmpleado.Size = new Size(193, 25);
             txtNombreEmpleado.TabIndex = 0;
+            txtNombreEmpleado.KeyPress += txtNombreEmpleado_KeyPress;
             // 
             // tabPage2
             // 
+            tabPage2.BackColor = SystemColors.Control;
             tabPage2.Controls.Add(btnDeleteRol);
             tabPage2.Controls.Add(btnUpdateRol);
             tabPage2.Controls.Add(btnAddRol);
@@ -346,68 +353,9 @@
             tabPage2.Location = new Point(4, 25);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1037, 586);
+            tabPage2.Size = new Size(1049, 597);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Roles";
-            tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // dgvRoles
-            // 
-            dgvRoles.BackgroundColor = SystemColors.ButtonHighlight;
-            dgvRoles.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvRoles.Dock = DockStyle.Bottom;
-            dgvRoles.GridColor = SystemColors.MenuHighlight;
-            dgvRoles.Location = new Point(3, 396);
-            dgvRoles.Name = "dgvRoles";
-            dgvRoles.RowHeadersWidth = 51;
-            dgvRoles.Size = new Size(1031, 187);
-            dgvRoles.TabIndex = 4;
-            dgvRoles.CellClick += dgvRoles_CellClick;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(29, 147);
-            label7.Name = "label7";
-            label7.Size = new Size(90, 16);
-            label7.TabIndex = 12;
-            label7.Text = "Descripción";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(29, 59);
-            label8.Name = "label8";
-            label8.Size = new Size(116, 16);
-            label8.TabIndex = 13;
-            label8.Text = "Nombre del Rol";
-            // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(txtDescRol);
-            groupBox2.Controls.Add(txtNombreRol);
-            groupBox2.Controls.Add(label8);
-            groupBox2.Controls.Add(label7);
-            groupBox2.Location = new Point(153, 17);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(475, 294);
-            groupBox2.TabIndex = 14;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Datos Roles";
-            // 
-            // txtNombreRol
-            // 
-            txtNombreRol.Location = new Point(218, 59);
-            txtNombreRol.Name = "txtNombreRol";
-            txtNombreRol.Size = new Size(193, 22);
-            txtNombreRol.TabIndex = 14;
-            // 
-            // txtDescRol
-            // 
-            txtDescRol.Location = new Point(218, 144);
-            txtDescRol.Name = "txtDescRol";
-            txtDescRol.Size = new Size(193, 22);
-            txtDescRol.TabIndex = 15;
             // 
             // btnDeleteRol
             // 
@@ -448,6 +396,68 @@
             btnAddRol.UseVisualStyleBackColor = false;
             btnAddRol.Click += btnAddRol_Click;
             // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(txtDescRol);
+            groupBox2.Controls.Add(txtNombreRol);
+            groupBox2.Controls.Add(label8);
+            groupBox2.Controls.Add(label7);
+            groupBox2.Font = new Font("Segoe UI Variable Display Semib", 7.8F, FontStyle.Bold);
+            groupBox2.Location = new Point(153, 17);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(475, 294);
+            groupBox2.TabIndex = 14;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Datos Roles";
+            // 
+            // txtDescRol
+            // 
+            txtDescRol.Location = new Point(218, 144);
+            txtDescRol.Name = "txtDescRol";
+            txtDescRol.Size = new Size(193, 25);
+            txtDescRol.TabIndex = 15;
+            txtDescRol.KeyPress += txtDescRol_KeyPress;
+            // 
+            // txtNombreRol
+            // 
+            txtNombreRol.Location = new Point(218, 59);
+            txtNombreRol.Name = "txtNombreRol";
+            txtNombreRol.Size = new Size(193, 25);
+            txtNombreRol.TabIndex = 14;
+            txtNombreRol.KeyPress += txtNombreRol_KeyPress;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(29, 59);
+            label8.Name = "label8";
+            label8.Size = new Size(100, 17);
+            label8.TabIndex = 13;
+            label8.Text = "Nombre del Rol";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(29, 147);
+            label7.Name = "label7";
+            label7.Size = new Size(78, 17);
+            label7.TabIndex = 12;
+            label7.Text = "Descripción";
+            // 
+            // dgvRoles
+            // 
+            dgvRoles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvRoles.BackgroundColor = SystemColors.ButtonHighlight;
+            dgvRoles.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvRoles.Dock = DockStyle.Bottom;
+            dgvRoles.GridColor = SystemColors.MenuHighlight;
+            dgvRoles.Location = new Point(3, 407);
+            dgvRoles.Name = "dgvRoles";
+            dgvRoles.RowHeadersWidth = 51;
+            dgvRoles.Size = new Size(1043, 187);
+            dgvRoles.TabIndex = 4;
+            dgvRoles.CellClick += dgvRoles_CellClick;
+            // 
             // Empleados
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -463,9 +473,9 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvRoles).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvRoles).EndInit();
             ResumeLayout(false);
         }
 
