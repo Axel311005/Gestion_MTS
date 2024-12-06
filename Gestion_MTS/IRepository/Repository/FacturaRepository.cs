@@ -1,5 +1,6 @@
 ﻿using Gestion_MTS.Clases;
 using Gestion_MTS.DTOs;
+using Gestion_MTS.Vistas;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -31,7 +32,6 @@ namespace Gestion_MTS.IRepository.Repository
                 DECLARE @newFacturaID INT;
 
                 EXEC InsertarFactura 
-                    @numero_factura, 
                     @fecha, 
                     @id_empleado, 
                     @id_tipo_pago, 
@@ -46,7 +46,6 @@ namespace Gestion_MTS.IRepository.Repository
                 SqlCommand command = new SqlCommand(query, connection);
 
                 // Agregar parámetros
-                command.Parameters.AddWithValue("@numero_factura", (object)factura.NumeroFactura ?? DBNull.Value);
                 command.Parameters.AddWithValue("@fecha", (object)factura.Fecha ?? DBNull.Value);
                 command.Parameters.AddWithValue("@id_empleado", factura.IdEmpleado);
                 command.Parameters.AddWithValue("@id_tipo_pago", factura.IdTipoPago);
@@ -213,6 +212,127 @@ namespace Gestion_MTS.IRepository.Repository
                 catch (Exception e)
                 {
                     throw new Exception("Error al actualizar la factura: " + e.Message);
+                }
+            }
+        }
+
+        public FacturaInfo? GetFacturaInfo(int idFactura)
+        {
+            string query = "SELECT * FROM getFacturaInfo(@id_factura)";
+            FacturaInfo factura;
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+
+                // Agregar parámetros
+                command.Parameters.AddWithValue("@id_factura", idFactura);
+
+                try
+                {
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader()) { 
+                        
+                        if(reader.Read())
+                        {
+                            factura = new FacturaInfo
+                            {
+                                numeroFactura = reader.GetInt32(0),
+                                fecha = reader.GetDateTime(1),
+                                empleado = reader.GetString(2),
+                                tipoPago = reader.GetString(3),
+                                cliente = reader.GetString(4)
+                            };
+
+                            return factura;
+                        }
+                        return null;
+                    }
+                }
+                catch (Exception e)
+                {
+                    return null;
+                }
+            }
+        }
+
+        public List<FacturaProductInfo> GetFacturaProducts(int idFactura)
+        {
+            string query = "SELECT * FROM getFacturaProducts(@id_factura)";
+            List<FacturaProductInfo> facturaProducts = new List<FacturaProductInfo>();
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+
+                // Agregar parámetros
+                command.Parameters.AddWithValue("@id_factura", idFactura);
+
+                try
+                {
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+
+                        while(reader.Read())
+                        {
+                            FacturaProductInfo factura = new FacturaProductInfo
+                            {
+                                nombre = reader.GetString(0),
+                                precioUnitario = reader.GetDecimal(1),
+                                cantidad = reader.GetInt32(2),
+                                monto = reader.GetDecimal(3)
+                            };
+
+                            facturaProducts.Add(factura);
+                        }
+                        return facturaProducts;
+                    }
+                }
+                catch (Exception e)
+                {
+                    return facturaProducts;
+                }
+            }
+        }
+
+        public List<FacturaServicesInfo> GetFacturaServices(int idFactura)
+        {
+            string query = "SELECT * FROM getFacturaServices(@id_factura)";
+            List<FacturaServicesInfo> facturaServices = new List<FacturaServicesInfo>();
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+
+                // Agregar parámetros
+                command.Parameters.AddWithValue("@id_factura", idFactura);
+
+                try
+                {
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+                            FacturaServicesInfo factura = new FacturaServicesInfo
+                            {
+                                nombre = reader.GetString(0),
+                                monto = reader.GetDecimal(1)
+                            };
+
+                            facturaServices.Add(factura);
+                        }
+                        return facturaServices;
+                    }
+                }
+                catch (Exception e)
+                {
+                    return facturaServices;
                 }
             }
         }

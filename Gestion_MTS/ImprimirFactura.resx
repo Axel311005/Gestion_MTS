@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!--
-    Microsoft ResX Schema 
+    Microsoft ResX Schema
 
     Version 2.0
 
@@ -48,7 +48,7 @@
     value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
     value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="mtsLogo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABDgAAAQ4CAYAAADsEGyPAAAABGdBTUEAALGPC/xhBQAA/8dJREFUeF7s
         3Qd8lFXa///f83+e3XWt9JLee6cXUYoVRcXeV9e1ra4Fe+8NGyiKKDYUsaOIKKJSpZcQQgoh9BIgQAhh
@@ -6125,50 +6125,10 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwIkaOJxsU1amGkkAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnMinimizar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
-        AAAASElEQVRYR+3SsQ3AIAwFUe9GCvYn6WEBVjDfUkpaIFLuSddbtg0AALh7Vo/qm7vVFQNUdUr7xABx
-        gljHbE0rKyq9nwAAwG+ZDVlN9k2cEcsBAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btnResize.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
-        AAABSUlEQVRYR+3XwW3CQBQEUJN+QmupIEI5UAMnmkBCKQRa4cDJmdmZLAFs49Xf9SlPWkX+a88QK7FF
-        V0vf9x9YF6y5rlhbXx6HsFOKLXP15XEIK70DiS9vCz0rrF1qfOBT2kHHaDn5tDaQ/4a1T003d8c+tT5k
-        D/3mLOeHynx6XcgdLfd+li6oCZmT5aSReFQH8l6Wk8biURyyZpWTtsSjGOTMLidti0cxyPlSXDZaTtj7
-        fWJePIpB0Lfykslywj4f22f+9CgGQe9YR6wN1mT5vxDeXt/mA9ba4xgEzfqDwP7ji+XgrRgEvfyXwN7Q
-        W+3T2zEOSzy6g3HRQ6aY8sSjDKO25aRM8SjBYftyUq54tFw5KVt8vFw5KT9btpzUkbHsr7blpJ5B7ctJ
-        XU+WKSf1FeGTs857nBDGb6mlTr48DmFbrJIPUfEOdN0PHrhWjturakIAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnCerrar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
-        AAAB4klEQVRYR62XS0rEQBRFFVT8tIifDfRSdCPOnDhREHHmFgTBkQtwrKioIP7Aib8NOHOkExcgxHOT
-        PGnspPJSqQMXqlPvvXttk6IzIrIsW0bH6AZto4l8IyGaibbQCTpAfdtYQT9okDM0mRckgFmz6EGDB/hG
-        fW2e5h+HuUBT5YxomFFlbuyp4LFYV9IpBL0hc3Gkot1iXcslah2CniZzsabCaXSXf6znCrlDUOsx1804
-        Zg0Kca2rAW5RL28IQM0M0tMUYvgm54InhL6p2hDsxZkbbESH4Fo3c4MCT4h79BeCdRpzg0JvCN1sac0N
-        GjwhdIYoSIj25gaNnhAh4s0NBsSG6G5uMKhtiHTmBgMVQodREzq605oLhupubzqyxQuaL9vSwEDPozbI
-        E0oTgkFtzQ2FWCjHxMGAWHPjGcWFoNFjrh8sTTXtQ9DgMc8fNeR5RHVjLpbjw1DoNi9b1JMmBAWtzQ2u
-        eUK8ouoQbESbG+x5QyyVLQVc6GxuUOMJ8YaKECxk7vkB6X5boraHmk5NfRNzKt7PP9bTytygxxPiUIWf
-        xbqSKHOD3qYQXyr6KNZDuP7nTTAjFOJdBVVvRp3+8v8wqy7EhjbH0DrSsao3oE00XvYmg5l6Pd9BekLO
-        0WqWZaO/LOWV3AEiMWoAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnSeePass.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAETSURBVDhPzZKxS0JRHIUfTQ0h0hDh5NjoH+DQIBEO0iAR
-        0eTg4OTc5t8jjm9uam4SJ4mICBGJxgh5fue+c99T0N0PPnj3/M71yn0vOT6yLDvFAb7gAlf4ikM8c20/
-        FJr4jof4xGvXd2HQxT+1QD/yhJf20Zn4xwdvyyFoeSBUvPCoQBnOVQB1b+Kghkul5t55Gz+wEYqgGUa0
-        p6ZwHJYlVZe/8mXWwCtn1ZCUTBSm+XNBxWW9AbHGhbNKSEpShXX8DcucO5d1qT+266yDEe2pK48DnSRm
-        GP/FifSzTp+iUDccVEDQ80CoqEvURyX1vL257227MLjFb7UOoJvvuL4fCrrpZ3xDfVh65zp9hOeuHQ1J
-        sgHLp/Rvp8zSngAAAABJRU5ErkJggg==
-</value>
-  </data>
+  <metadata name="printFactura.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="printDialogFactura.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>135, 17</value>
+  </metadata>
 </root>

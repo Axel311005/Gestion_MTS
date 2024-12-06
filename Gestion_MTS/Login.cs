@@ -28,7 +28,8 @@ namespace Gestion_MTS
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            if (txtPassword.Text.Trim() == "" || txtUserName.Text.Trim() == "") {
+            if (txtPassword.Text.Trim() == "" || txtUserName.Text.Trim() == "")
+            {
                 MessageBox.Show("Todos los campos son obligatorios!", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
@@ -39,12 +40,13 @@ namespace Gestion_MTS
             {
                 Usuario? actualUser = usuarioRepository.GetByUserName(txtUserName.Text.Trim());
 
-                if (actualUser == null) {
+                if (actualUser == null)
+                {
                     MessageBox.Show("No se encontro un usuario con los datos especificados", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                if(!BCrypt.Verify(txtPassword.Text.Trim(), actualUser.Contraseña))
+                if (!BCrypt.Verify(txtPassword.Text.Trim(), actualUser.Contraseña))
                 {
                     MessageBox.Show("Contraseña incorrecta", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -62,7 +64,7 @@ namespace Gestion_MTS
                     new ContextData(
                         actualUser.IdUsuario,
                         (int)userRole
-                    )    
+                    )
                 );
 
                 MainMenu mainMenu = new MainMenu();
@@ -70,7 +72,8 @@ namespace Gestion_MTS
 
                 this.Hide();
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show($"Ocurrio un error: {ex.Message}", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -103,12 +106,24 @@ namespace Gestion_MTS
 
         private void btnResize_Click(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Normal) {
+            if (this.WindowState == FormWindowState.Normal)
+            {
                 this.WindowState = FormWindowState.Maximized;
                 return;
             }
 
             this.WindowState = FormWindowState.Normal;
+        }
+
+        private void btnSeePass_Click(object sender, EventArgs e)
+        {
+            if(txtPassword.PasswordChar == '*')
+            {
+                txtPassword.PasswordChar = '\0';
+                return;
+            }
+
+            txtPassword.PasswordChar = '*';
         }
     }
 }

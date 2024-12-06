@@ -118,8 +118,8 @@ namespace Gestion_MTS.IRepository.Repository
                     {
                         user.IdUsuario = reader.GetInt32(0);
                         user.NombreUsuario = reader.GetString(1);
-                        user.IdEmpleado = reader.GetInt32(2);
-                        user.Contraseña = reader.GetString(3);
+                        user.Contraseña = reader.GetString(2);
+                        user.IdEmpleado = reader.GetInt32(3);
 
                         return user;
                     }
