@@ -101,7 +101,7 @@ namespace Gestion_MTS.IRepository.Repository
 
                 command.Parameters.AddWithValue("@descripcion", ado.descripcion);
                 command.Parameters.AddWithValue("@id_bodega", ado.id_bodega);
-                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@id", ado.id_localizacionBodega);
 
                 try
                 {

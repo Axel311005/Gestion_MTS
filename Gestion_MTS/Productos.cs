@@ -50,11 +50,7 @@ namespace Gestion_MTS
         private void Productos_Load(object sender, EventArgs e)
         {
             Refresh();
-            cboCategoria.DataSource = categoria.GetCategoria();
-            cboLocalicacion.DataSource = local.GetLocalizacion();
-            cboProductComp.DataSource = productos.GetNombresProductos();
-            cboProveedorCompra.DataSource = proveedor.GetNombresProveedores();
-            cboTipoPagoComp.DataSource = tipo.GetTiposPago();
+            
         }
 
         private void Refresh()
@@ -67,6 +63,11 @@ namespace Gestion_MTS
                 dgvCategorias.DataSource = categoria.GetAll();
                 dgvCompras.DataSource = compras.GetAll();
                 dgvProveedores.DataSource = proveedor.GetAll();
+                cboCategoria.DataSource = categoria.GetCategoria();
+                cboLocalicacion.DataSource = local.GetLocalizacion();
+                cboProductComp.DataSource = productos.GetNombresProductos();
+                cboProveedorCompra.DataSource = proveedor.GetNombresProveedores();
+                cboTipoPagoComp.DataSource = tipo.GetTiposPago();
 
             }
             catch (SqlException sqlEx)
@@ -287,6 +288,7 @@ namespace Gestion_MTS
                     {
                         categoria.Delete(idCategoria);
                         Refresh();
+                        LimpiarTextCat();
                     }
                     catch (Exception ex)
                     {

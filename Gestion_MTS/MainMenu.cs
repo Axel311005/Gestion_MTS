@@ -216,5 +216,14 @@ namespace Gestion_MTS
         {
             OpenChildForm(new Informacion_Adicional(), sender);
         }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Context.AppContext.LogOut();
+            this.Hide();
+
+            Login loginForm = new Login();
+            loginForm.Show();
+        }
     }
 }
