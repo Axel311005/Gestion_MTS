@@ -68,7 +68,7 @@ namespace Gestion_MTS
                 Label nameLabel = new Label
                 {
                     Text = $"{p.nombre}",
-                    Top = 30 * (idx + 1) + 36,
+                    Top = 36 * (idx + 1) + 36,
                     Left = 13,
                     AutoSize = true
                 };
@@ -76,7 +76,7 @@ namespace Gestion_MTS
                 Label priceLabel = new Label
                 {
                     Text = $"{p.precioUnitario}",
-                    Top = 30 * (idx + 1) + 36,
+                    Top = 36 * (idx + 1) + 36,
                     Left = 113,
                     AutoSize = true
                 };
@@ -84,7 +84,7 @@ namespace Gestion_MTS
                 Label quantityLabel = new Label
                 {
                     Text = $"{p.cantidad}",
-                    Top = 30 * (idx + 1) + 36,
+                    Top = 36 * (idx + 1) + 36,
                     Left = 193,
                     AutoSize = true
                 };
@@ -92,7 +92,7 @@ namespace Gestion_MTS
                 Label amountLabel = new Label
                 {
                     Text = $"{p.monto}",
-                    Top = 30 * (idx + 1) + 36,
+                    Top = 36 * (idx + 1) + 36,
                     Left = 293,
                     AutoSize = true
                 };

@@ -101,7 +101,9 @@
             txtPassword.Location = new Point(155, 286);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
+
             txtPassword.Size = new Size(229, 23);
+
             txtPassword.TabIndex = 5;
             // 
             // lblPassword
@@ -175,7 +177,9 @@
             btnSeePass.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnSeePass.Cursor = Cursors.Hand;
             btnSeePass.Image = (Image)resources.GetObject("btnSeePass.Image");
+
             btnSeePass.Location = new Point(390, 286);
+
             btnSeePass.Margin = new Padding(3, 2, 3, 2);
             btnSeePass.Name = "btnSeePass";
             btnSeePass.Size = new Size(22, 23);
@@ -189,7 +193,9 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(51, 51, 76);
+
             ClientSize = new Size(606, 450);
+
             Controls.Add(btnSeePass);
             Controls.Add(pnlHeader);
             Controls.Add(txtPassword);
