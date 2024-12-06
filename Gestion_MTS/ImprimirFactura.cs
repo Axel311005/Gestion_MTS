@@ -18,6 +18,7 @@ namespace Gestion_MTS
     {
         private int IdFactura;
         private string _connection = ConfigurationManager.ConnectionStrings["constring"].ConnectionString;
+        private Bitmap fullBitmap;
 
         public ImprimirFactura(int IdFactura)
         {
@@ -31,7 +32,7 @@ namespace Gestion_MTS
 
             FacturaInfo? facturaInfo = facturaRepo.GetFacturaInfo(this.IdFactura);
 
-            if(facturaInfo == null)
+            if (facturaInfo == null)
             {
                 MessageBox.Show("No se encontro la factura especificada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
@@ -47,14 +48,16 @@ namespace Gestion_MTS
             List<FacturaProductInfo> facturaProducts = facturaRepo.GetFacturaProducts(this.IdFactura);
             List<FacturaServicesInfo> facturaServices = facturaRepo.GetFacturaServices(this.IdFactura);
 
-            if (facturaProducts.Count != 0) { 
+            if (facturaProducts.Count != 0)
+            {
                 AddInfoToProductsSection(facturaProducts);
                 grpServices.Top = grpProducts.Top + grpProducts.Height + 34;
             }
 
-            if(facturaServices.Count != 0)
+            if (facturaServices.Count != 0)
             {
                 AddInfoToServicesSection(facturaServices);
+                btnPrintFactura.Top = grpServices.Top + grpServices.Height + 8;
             }
         }
 
@@ -65,7 +68,7 @@ namespace Gestion_MTS
                 Label nameLabel = new Label
                 {
                     Text = $"{p.nombre}",
-                    Top = 30 * (idx+1) + 36,
+                    Top = 30 * (idx + 1) + 36,
                     Left = 13,
                     AutoSize = true
                 };
@@ -73,7 +76,7 @@ namespace Gestion_MTS
                 Label priceLabel = new Label
                 {
                     Text = $"{p.precioUnitario}",
-                    Top = 30 * (idx+1) + 36,
+                    Top = 30 * (idx + 1) + 36,
                     Left = 113,
                     AutoSize = true
                 };
@@ -81,7 +84,7 @@ namespace Gestion_MTS
                 Label quantityLabel = new Label
                 {
                     Text = $"{p.cantidad}",
-                    Top = 30 * (idx+1) + 36,
+                    Top = 30 * (idx + 1) + 36,
                     Left = 193,
                     AutoSize = true
                 };
@@ -89,7 +92,7 @@ namespace Gestion_MTS
                 Label amountLabel = new Label
                 {
                     Text = $"{p.monto}",
-                    Top = 30 * (idx+1) + 36,
+                    Top = 30 * (idx + 1) + 36,
                     Left = 293,
                     AutoSize = true
                 };
@@ -108,7 +111,7 @@ namespace Gestion_MTS
                 Label nameLabel = new Label
                 {
                     Text = $"{s.nombre}",
-                    Top = 30 * (idx+1) + 36,
+                    Top = 30 * (idx + 1) + 36,
                     Left = 24,
                     AutoSize = true
                 };
@@ -116,7 +119,7 @@ namespace Gestion_MTS
                 Label amountLabel = new Label
                 {
                     Text = $"{s.monto}",
-                    Top = 30 * (idx+1) + 36,
+                    Top = 30 * (idx + 1) + 36,
                     Left = 195,
                     AutoSize = true
                 };
@@ -124,6 +127,50 @@ namespace Gestion_MTS
                 grpServices.Controls.Add(nameLabel);
                 grpServices.Controls.Add(amountLabel);
             }
+        }
+
+        private void btnPrintFactura_Click(object sender, EventArgs e)
+        {
+            var originalSize = pnlWrapper.Size;
+
+            pnlWrapper.Size = pnlWrapper.AutoScrollMinSize;
+            btnPrintFactura.Visible = false;
+
+            try
+            {
+
+                CaptureFormBitmap();
+
+                if(printDialogFactura.ShowDialog() == DialogResult.OK)
+                {
+                    printFactura.Print();
+                }
+
+            } finally
+            {
+                btnPrintFactura.Visible = true;
+                pnlWrapper.Size = originalSize;
+            }
+        }
+
+        private void printFactura_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            float scaleX = (float)e.PageBounds.Width / fullBitmap.Width;
+            float scaleY = (float)e.PageBounds.Height / fullBitmap.Height;
+            float scale = Math.Min(scaleX, scaleY);
+
+            int scaledWidth = (int)(fullBitmap.Width * scale);
+            int scaledHeight = (int)(fullBitmap.Height * scale);
+
+            // Draw the bitmap onto the print document
+            e.Graphics.DrawImage(fullBitmap, 0, 0, scaledWidth, scaledHeight);
+        }
+
+        private void CaptureFormBitmap()
+        {
+            // Create a bitmap of the form
+            fullBitmap = new Bitmap(pnlWrapper.Width, pnlWrapper.Height);
+            this.DrawToBitmap(fullBitmap, new Rectangle(0, 0, pnlWrapper.Width, pnlWrapper.Height));
         }
     }
 }

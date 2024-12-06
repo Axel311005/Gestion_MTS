@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImprimirFactura));
             pnlWrapper = new Panel();
+            btnPrintFactura = new Button();
             grpServices = new GroupBox();
             label1 = new Label();
             label4 = new Label();
@@ -48,6 +49,8 @@
             lblAtendido = new Label();
             lblDate = new Label();
             mtsLogo = new PictureBox();
+            printFactura = new System.Drawing.Printing.PrintDocument();
+            printDialogFactura = new PrintDialog();
             pnlWrapper.SuspendLayout();
             grpServices.SuspendLayout();
             grpProducts.SuspendLayout();
@@ -57,6 +60,7 @@
             // pnlWrapper
             // 
             pnlWrapper.AutoScroll = true;
+            pnlWrapper.Controls.Add(btnPrintFactura);
             pnlWrapper.Controls.Add(grpServices);
             pnlWrapper.Controls.Add(grpProducts);
             pnlWrapper.Controls.Add(lblFacturaNumber);
@@ -74,6 +78,20 @@
             pnlWrapper.Name = "pnlWrapper";
             pnlWrapper.Size = new Size(460, 516);
             pnlWrapper.TabIndex = 0;
+            // 
+            // btnPrintFactura
+            // 
+            btnPrintFactura.BackColor = Color.FromArgb(255, 128, 0);
+            btnPrintFactura.FlatStyle = FlatStyle.Flat;
+            btnPrintFactura.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnPrintFactura.ForeColor = SystemColors.ButtonHighlight;
+            btnPrintFactura.Location = new Point(39, 472);
+            btnPrintFactura.Name = "btnPrintFactura";
+            btnPrintFactura.Size = new Size(368, 41);
+            btnPrintFactura.TabIndex = 25;
+            btnPrintFactura.Text = "Imprimir Factura";
+            btnPrintFactura.UseVisualStyleBackColor = false;
+            btnPrintFactura.Click += btnPrintFactura_Click;
             // 
             // grpServices
             // 
@@ -258,6 +276,15 @@
             mtsLogo.TabIndex = 13;
             mtsLogo.TabStop = false;
             // 
+            // printFactura
+            // 
+            printFactura.PrintPage += printFactura_PrintPage;
+            // 
+            // printDialogFactura
+            // 
+            printDialogFactura.Document = printFactura;
+            printDialogFactura.UseEXDialog = true;
+            // 
             // ImprimirFactura
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -298,5 +325,8 @@
         private Label lblAtendido;
         private Label lblDate;
         private PictureBox mtsLogo;
+        private Button btnPrintFactura;
+        private System.Drawing.Printing.PrintDocument printFactura;
+        private PrintDialog printDialogFactura;
     }
 }
