@@ -345,6 +345,9 @@ namespace Gestion_MTS
                 idFactura
             );
 
+            ImprimirFactura impFacturaForm = new ImprimirFactura(idFactura);
+
+            impFacturaForm.Show();
         }
     }
 }
