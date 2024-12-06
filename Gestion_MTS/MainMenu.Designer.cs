@@ -73,7 +73,7 @@
             panelMenu.Dock = DockStyle.Left;
             panelMenu.Location = new Point(0, 0);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(219, 788);
+            panelMenu.Size = new Size(219, 847);
             panelMenu.TabIndex = 0;
             // 
             // btnInfoAdicional
@@ -336,7 +336,7 @@
             panelDesktop.Dock = DockStyle.Fill;
             panelDesktop.Location = new Point(219, 80);
             panelDesktop.Name = "panelDesktop";
-            panelDesktop.Size = new Size(1167, 708);
+            panelDesktop.Size = new Size(1167, 767);
             panelDesktop.TabIndex = 2;
             // 
             // pictureBox1
@@ -345,7 +345,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1167, 708);
+            pictureBox1.Size = new Size(1167, 767);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
@@ -354,7 +354,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1386, 788);
+            ClientSize = new Size(1386, 847);
             Controls.Add(panelDesktop);
             Controls.Add(panelTitleBar);
             Controls.Add(panelMenu);

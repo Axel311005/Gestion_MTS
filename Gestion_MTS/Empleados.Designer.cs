@@ -145,10 +145,10 @@
             dgvEmpleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvEmpleados.Dock = DockStyle.Bottom;
             dgvEmpleados.GridColor = SystemColors.MenuHighlight;
-            dgvEmpleados.Location = new Point(3, 407);
+            dgvEmpleados.Location = new Point(3, 358);
             dgvEmpleados.Name = "dgvEmpleados";
             dgvEmpleados.RowHeadersWidth = 51;
-            dgvEmpleados.Size = new Size(1043, 187);
+            dgvEmpleados.Size = new Size(1043, 236);
             dgvEmpleados.TabIndex = 3;
             dgvEmpleados.CellClick += dgvEmpleados_CellClick;
             // 
@@ -176,7 +176,7 @@
             groupBox1.Font = new Font("Segoe UI Variable Display Semib", 7.8F, FontStyle.Bold);
             groupBox1.Location = new Point(17, 22);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(806, 336);
+            groupBox1.Size = new Size(806, 315);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos Empleado";
