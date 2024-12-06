@@ -325,14 +325,23 @@ namespace Gestion_MTS
 
             FacturaRepository facturaRepo = new FacturaRepository(this._connection);
 
+            int? idEmpleado = Context.AppContext.GetContext().GetEmployeeId();
+
+            if (idEmpleado == null)
+            {
+                MessageBox.Show("No se encontro el empleado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             int idFactura = facturaRepo.AddFactura(
                 new Factura
                 {
-                     IdCliente = Convert.ToInt32(cmbCliente.SelectedValue),
-                     IdEmpleado = Context.AppContext.GetContext()?.GetEmployeeId() ?? 1, // Por defecto se usa el empleado 1, pero cuando usemos el login el GetEmployeeId siempre deberia retornar el id del empleado con el usuario correspondiente
-                     IdTipoPago = Convert.ToInt32(cmbTipoPago.SelectedValue)
+                    IdCliente = Convert.ToInt32(cmbCliente.SelectedValue),
+                    IdEmpleado = idEmpleado.Value,
+                    IdTipoPago = Convert.ToInt32(cmbTipoPago.SelectedValue)
                 }
             );
+
 
             if(idFactura == 0)
             {
