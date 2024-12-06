@@ -34,7 +34,7 @@ namespace Gestion_MTS
             btnDeleteGasto = new Button();
             dgvGastos = new DataGridView();
             groupBox1 = new GroupBox();
-            comboBox1 = new ComboBox();
+            cboSucursal = new ComboBox();
             txtMontogasto = new TextBox();
             txtdescripgastos = new TextBox();
             label7 = new Label();
@@ -96,6 +96,7 @@ namespace Gestion_MTS
             btnUpdateGasto.TabIndex = 17;
             btnUpdateGasto.Text = "Editar";
             btnUpdateGasto.UseVisualStyleBackColor = false;
+            btnUpdateGasto.Click += btnUpdateGasto_Click_1;
             // 
             // btnDeleteGasto
             // 
@@ -109,6 +110,7 @@ namespace Gestion_MTS
             btnDeleteGasto.TabIndex = 16;
             btnDeleteGasto.Text = "Borrar";
             btnDeleteGasto.UseVisualStyleBackColor = false;
+            btnDeleteGasto.Click += btnDeleteGasto_Click_1;
             // 
             // dgvGastos
             // 
@@ -122,10 +124,11 @@ namespace Gestion_MTS
             dgvGastos.RowHeadersWidth = 51;
             dgvGastos.Size = new Size(1019, 187);
             dgvGastos.TabIndex = 15;
+            dgvGastos.CellClick += dgvGastos_CellClick;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(comboBox1);
+            groupBox1.Controls.Add(cboSucursal);
             groupBox1.Controls.Add(txtMontogasto);
             groupBox1.Controls.Add(txtdescripgastos);
             groupBox1.Controls.Add(label7);
@@ -139,13 +142,13 @@ namespace Gestion_MTS
             groupBox1.TabStop = false;
             groupBox1.Text = "Gestión de Gastos";
             // 
-            // comboBox1
+            // cboSucursal
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(194, 168);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(233, 25);
-            comboBox1.TabIndex = 16;
+            cboSucursal.FormattingEnabled = true;
+            cboSucursal.Location = new Point(194, 168);
+            cboSucursal.Name = "cboSucursal";
+            cboSucursal.Size = new Size(233, 25);
+            cboSucursal.TabIndex = 16;
             // 
             // txtMontogasto
             // 
@@ -341,7 +344,7 @@ namespace Gestion_MTS
         private Button btnUpdateProd;
         private Button btnAddGasto;
         private DataGridView dgvGastos;
-        private ComboBox comboBox1;
+        private ComboBox cboSucursal;
         private TextBox txtMontogasto;
         private TextBox txtdescripgastos;
         private Button btnUpdateGasto;
