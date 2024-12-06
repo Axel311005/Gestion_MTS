@@ -295,6 +295,7 @@ namespace Gestion_MTS
             ObtenerGastos.TabIndex = 11;
             ObtenerGastos.Text = "Obtener";
             ObtenerGastos.UseVisualStyleBackColor = false;
+            ObtenerGastos.Click += ObtenerGastos_Click_1;
             // 
             // dtpFechaFinal
             // 
