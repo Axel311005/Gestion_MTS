@@ -370,10 +370,7 @@ namespace Gestion_MTS
 
         private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            
         }
 
         private void txtSalario_KeyPress(object sender, KeyPressEventArgs e)
@@ -403,16 +400,18 @@ namespace Gestion_MTS
 
         private void txtNombreRol_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
+
                 e.Handled = true;
             }
         }
 
         private void txtDescRol_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
+
                 e.Handled = true;
             }
         }

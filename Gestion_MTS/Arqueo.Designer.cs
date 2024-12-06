@@ -62,7 +62,7 @@ namespace Gestion_MTS
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold);
-            tabControl1.Location = new Point(12, 26);
+            tabControl1.Location = new Point(12, 12);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(1033, 588);
@@ -239,7 +239,7 @@ namespace Gestion_MTS
             // 
             // txtTotal
             // 
-            txtTotal.Location = new Point(419, 248);
+            txtTotal.Location = new Point(403, 277);
             txtTotal.Name = "txtTotal";
             txtTotal.Size = new Size(194, 22);
             txtTotal.TabIndex = 16;

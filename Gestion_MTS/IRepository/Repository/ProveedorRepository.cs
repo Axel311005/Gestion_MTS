@@ -75,7 +75,7 @@ namespace Gestion_MTS.IRepository.Repository
         {
             DataTable tabla = new DataTable();
 
-            string query = "Select nombre, telefono, direccion from proveedores";
+            string query = "Select id_proveedor, nombre, telefono, direccion from proveedores";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
