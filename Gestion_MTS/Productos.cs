@@ -228,7 +228,7 @@ namespace Gestion_MTS
                     bodega = row.Cells["bodega"].Value?.ToString(),
                     localizacion = row.Cells["localizacion"].Value?.ToString(),
                     estado = Convert.ToBoolean(row.Cells["estado"].Value)
-                };
+                }; ;
 
                 txtCodigo.Text = product.codigo;
                 txtNombreProd.Text = product.nombre;
