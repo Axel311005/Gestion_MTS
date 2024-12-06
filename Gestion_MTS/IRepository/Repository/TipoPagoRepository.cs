@@ -71,7 +71,7 @@ namespace Gestion_MTS.IRepository.Repository
         public DataTable GetAll()
         {
             DataTable tabla = new DataTable();
-            string query = "SELECT tipo FROM tiposPago";
+            string query = "SELECT id_tipo_pago, tipo FROM tiposPago";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {

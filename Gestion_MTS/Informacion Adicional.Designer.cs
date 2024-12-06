@@ -45,9 +45,9 @@
             groupBox2 = new GroupBox();
             label4 = new Label();
             txtTipoDePago = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            btnDeleteTipo = new Button();
+            btnUpdateTipo = new Button();
+            btnAddTipo = new Button();
             dgvTipoPago = new DataGridView();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -95,6 +95,7 @@
             dgvClientes.RowHeadersWidth = 51;
             dgvClientes.Size = new Size(1087, 175);
             dgvClientes.TabIndex = 13;
+            dgvClientes.CellClick += dgvClientes_CellClick;
             // 
             // btnDeleteCliente
             // 
@@ -108,6 +109,7 @@
             btnDeleteCliente.TabIndex = 12;
             btnDeleteCliente.Text = "Borrar";
             btnDeleteCliente.UseVisualStyleBackColor = false;
+            btnDeleteCliente.Click += btnDeleteCliente_Click;
             // 
             // btnUpdateCliente
             // 
@@ -121,6 +123,7 @@
             btnUpdateCliente.TabIndex = 11;
             btnUpdateCliente.Text = "Actualizar";
             btnUpdateCliente.UseVisualStyleBackColor = false;
+            btnUpdateCliente.Click += btnUpdateCliente_Click;
             // 
             // btnAddCliente
             // 
@@ -134,6 +137,7 @@
             btnAddCliente.TabIndex = 10;
             btnAddCliente.Text = "Agregar";
             btnAddCliente.UseVisualStyleBackColor = false;
+            btnAddCliente.Click += btnAddCliente_Click;
             // 
             // groupBox1
             // 
@@ -204,9 +208,9 @@
             // tabPage2
             // 
             tabPage2.Controls.Add(groupBox2);
-            tabPage2.Controls.Add(button1);
-            tabPage2.Controls.Add(button2);
-            tabPage2.Controls.Add(button3);
+            tabPage2.Controls.Add(btnDeleteTipo);
+            tabPage2.Controls.Add(btnUpdateTipo);
+            tabPage2.Controls.Add(btnAddTipo);
             tabPage2.Controls.Add(dgvTipoPago);
             tabPage2.Location = new Point(4, 25);
             tabPage2.Name = "tabPage2";
@@ -245,44 +249,47 @@
             txtTipoDePago.TabIndex = 16;
             txtTipoDePago.KeyPress += txtTipoDePago_KeyPress;
             // 
-            // button1
+            // btnDeleteTipo
             // 
-            button1.BackColor = Color.FromArgb(255, 128, 0);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = SystemColors.ButtonHighlight;
-            button1.Location = new Point(765, 196);
-            button1.Name = "button1";
-            button1.Size = new Size(116, 36);
-            button1.TabIndex = 17;
-            button1.Text = "Borrar";
-            button1.UseVisualStyleBackColor = false;
+            btnDeleteTipo.BackColor = Color.FromArgb(255, 128, 0);
+            btnDeleteTipo.FlatStyle = FlatStyle.Flat;
+            btnDeleteTipo.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDeleteTipo.ForeColor = SystemColors.ButtonHighlight;
+            btnDeleteTipo.Location = new Point(765, 196);
+            btnDeleteTipo.Name = "btnDeleteTipo";
+            btnDeleteTipo.Size = new Size(116, 36);
+            btnDeleteTipo.TabIndex = 17;
+            btnDeleteTipo.Text = "Borrar";
+            btnDeleteTipo.UseVisualStyleBackColor = false;
+            btnDeleteTipo.Click += btnDeleteTipo_Click;
             // 
-            // button2
+            // btnUpdateTipo
             // 
-            button2.BackColor = Color.FromArgb(255, 128, 0);
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = SystemColors.ButtonHighlight;
-            button2.Location = new Point(765, 135);
-            button2.Name = "button2";
-            button2.Size = new Size(116, 36);
-            button2.TabIndex = 16;
-            button2.Text = "Actualizar";
-            button2.UseVisualStyleBackColor = false;
+            btnUpdateTipo.BackColor = Color.FromArgb(255, 128, 0);
+            btnUpdateTipo.FlatStyle = FlatStyle.Flat;
+            btnUpdateTipo.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnUpdateTipo.ForeColor = SystemColors.ButtonHighlight;
+            btnUpdateTipo.Location = new Point(765, 135);
+            btnUpdateTipo.Name = "btnUpdateTipo";
+            btnUpdateTipo.Size = new Size(116, 36);
+            btnUpdateTipo.TabIndex = 16;
+            btnUpdateTipo.Text = "Actualizar";
+            btnUpdateTipo.UseVisualStyleBackColor = false;
+            btnUpdateTipo.Click += btnUpdateTipo_Click;
             // 
-            // button3
+            // btnAddTipo
             // 
-            button3.BackColor = Color.FromArgb(255, 128, 0);
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = SystemColors.ButtonHighlight;
-            button3.Location = new Point(765, 80);
-            button3.Name = "button3";
-            button3.Size = new Size(116, 36);
-            button3.TabIndex = 15;
-            button3.Text = "Agregar";
-            button3.UseVisualStyleBackColor = false;
+            btnAddTipo.BackColor = Color.FromArgb(255, 128, 0);
+            btnAddTipo.FlatStyle = FlatStyle.Flat;
+            btnAddTipo.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddTipo.ForeColor = SystemColors.ButtonHighlight;
+            btnAddTipo.Location = new Point(765, 80);
+            btnAddTipo.Name = "btnAddTipo";
+            btnAddTipo.Size = new Size(116, 36);
+            btnAddTipo.TabIndex = 15;
+            btnAddTipo.Text = "Agregar";
+            btnAddTipo.UseVisualStyleBackColor = false;
+            btnAddTipo.Click += btnAddTipo_Click;
             // 
             // dgvTipoPago
             // 
@@ -295,6 +302,7 @@
             dgvTipoPago.RowHeadersWidth = 51;
             dgvTipoPago.Size = new Size(1087, 226);
             dgvTipoPago.TabIndex = 14;
+            dgvTipoPago.CellClick += dgvTipoPago_CellClick;
             // 
             // Informacion_Adicional
             // 
@@ -304,6 +312,7 @@
             Controls.Add(tabControl1);
             Name = "Informacion_Adicional";
             Text = "Informacion_Adicional";
+            Load += Informacion_Adicional_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
@@ -336,8 +345,8 @@
         private GroupBox groupBox2;
         private Label label4;
         private TextBox txtTipoDePago;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button btnDeleteTipo;
+        private Button btnUpdateTipo;
+        private Button btnAddTipo;
     }
 }

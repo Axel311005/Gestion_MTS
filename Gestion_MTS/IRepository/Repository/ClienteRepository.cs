@@ -21,14 +21,14 @@ namespace Gestion_MTS.IRepository.Repository
 
         public void Add(Cliente ado)
         {
-            string query = "Insert into clientes(nombre, apellido , direccion) values(@nombre , @apellido,@direccion)";
+            string query = "Insert into clientes(nombre, apellido , direccion) values(@nombre , @apellido ,@direccion)";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
                 command.Parameters.AddWithValue("@nombre", ado.Nombre);
-                command.Parameters.AddWithValue("@descripcion", ado.Apellido);
+                command.Parameters.AddWithValue("@apellido", ado.Apellido);
                 command.Parameters.AddWithValue("@direccion", ado.Direccion);
 
 
@@ -76,7 +76,7 @@ namespace Gestion_MTS.IRepository.Repository
         {
             DataTable clientes = new DataTable();
 
-            string query = "Select nombre, apellido, direccion from clientes";
+            string query = "Select id_cliente,nombre, apellido, direccion from clientes";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
@@ -129,7 +129,7 @@ namespace Gestion_MTS.IRepository.Repository
                 command.Parameters.AddWithValue("@nombre", ado.Nombre);
                 command.Parameters.AddWithValue("@apellido", ado.Apellido);
                 command.Parameters.AddWithValue("@direccion", ado.Direccion);
-                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@id", ado.IdCliente);
 
 
                 try
