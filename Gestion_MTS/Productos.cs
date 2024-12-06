@@ -26,6 +26,7 @@ namespace Gestion_MTS
         DetalleCompraRepository DetalleCompra;
         TipoPagoRepository tipo;
         ProveedorRepository proveedor;
+        public int idProv;
 
         public int idProd;
         public int idCategoria;
@@ -65,6 +66,7 @@ namespace Gestion_MTS
                 dgvProductos.DataSource = products;
                 dgvCategorias.DataSource = categoria.GetAll();
                 dgvCompras.DataSource = compras.GetAll();
+                dgvProveedores.DataSource = proveedor.GetAll();
 
             }
             catch (SqlException sqlEx)
@@ -436,16 +438,18 @@ namespace Gestion_MTS
 
         private void txtNombreProd_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
+
                 e.Handled = true;
             }
         }
 
         private void txtDescripProd_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
+
                 e.Handled = true;
             }
         }
@@ -495,16 +499,18 @@ namespace Gestion_MTS
 
         private void txtNombreCategoria_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
+
                 e.Handled = true;
             }
         }
 
         private void txtDescripcionCateg_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
+
                 e.Handled = true;
             }
         }
@@ -552,8 +558,9 @@ namespace Gestion_MTS
 
         private void txtNombreProv_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
+
                 e.Handled = true;
             }
         }
@@ -624,6 +631,111 @@ namespace Gestion_MTS
                 {
                     e.Handled = true;
                 }
+            }
+        }
+
+        private void btnAddProv_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Proveedor prov = new Proveedor
+                {
+                    Nombre = txtNombreProv.Text,
+                    Telefono = txtTelefonoProv.Text,
+                    Direccion = txtDirecciónProv.Text,
+                };
+
+                proveedor.Add(prov);
+                MessageBox.Show("Proveedor Agregado correctamente");
+                LimpiarTextProv();
+                Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al agregar " + ex.Message);
+            }
+        }
+
+        private void LimpiarTextProv()
+        {
+            txtNombreProv.Clear();
+            txtDirecciónProv.Clear();
+            txtTelefonoProv.Clear();
+        }
+
+        private void btnUpdateProv_Click(object sender, EventArgs e)
+        {
+            if (dgvProveedores.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    var update = new Proveedor
+                    {
+                        IdProveedor = idProv,
+                        Nombre = txtNombreProv.Text,
+                        Telefono = txtTelefonoProv.Text,
+                        Direccion = txtDirecciónProv.Text,
+                    };
+
+                    proveedor.Update(update, 0);
+                    MessageBox.Show("Proveedor actualizado correctamente");
+                    LimpiarTextProv();
+                    Refresh();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al actualizar " + ex.Message);
+                }
+            }
+        }
+
+        private void btnDeleteProv_Click(object sender, EventArgs e)
+        {
+            if (dgvProveedores.Rows.Count > 0)
+            {
+                var result =
+                    MessageBox.Show($"¿Está seguro de que desea eliminar el proveedor '{txtNombreProv.Text}'?",
+                    "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+
+                    try
+                    {
+                        proveedor.Delete(idProv);
+                        MessageBox.Show("¡Proveedor eliminado exitosamente!", "Éxito",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Refresh();
+                        LimpiarTextProv();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al eliminar proveedor: {ex.Message}",
+                                                                   "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    
+                }
+            }
+        }
+
+        private void dgvProveedores_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvProveedores.Rows[e.RowIndex];
+
+                Proveedor prov = new Proveedor
+                {
+                    Nombre = row.Cells["nombre"]?.Value?.ToString(),
+                    Telefono = row.Cells["telefono"]?.Value?.ToString(),
+                    Direccion = row.Cells["direccion"]?.Value?.ToString()
+                };
+                
+                idProv = Convert.ToInt32(row.Cells["id_proveedor"].Value);
+                txtNombreProv.Text = prov.Nombre;
+                txtTelefonoProv.Text = prov.Telefono;
+                txtDirecciónProv.Text = prov.Direccion;
+
             }
         }
     }

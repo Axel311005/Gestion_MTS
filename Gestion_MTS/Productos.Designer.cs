@@ -686,6 +686,7 @@
             dgvProveedores.RowHeadersWidth = 51;
             dgvProveedores.Size = new Size(1091, 212);
             dgvProveedores.TabIndex = 17;
+            dgvProveedores.CellClick += dgvProveedores_CellClick;
             // 
             // btnDeleteProv
             // 
@@ -699,6 +700,7 @@
             btnDeleteProv.TabIndex = 16;
             btnDeleteProv.Text = "Borrar";
             btnDeleteProv.UseVisualStyleBackColor = false;
+            btnDeleteProv.Click += btnDeleteProv_Click;
             // 
             // btnUpdateProv
             // 
@@ -712,6 +714,7 @@
             btnUpdateProv.TabIndex = 15;
             btnUpdateProv.Text = "Actualizar";
             btnUpdateProv.UseVisualStyleBackColor = false;
+            btnUpdateProv.Click += btnUpdateProv_Click;
             // 
             // btnAddProv
             // 
@@ -725,6 +728,7 @@
             btnAddProv.TabIndex = 14;
             btnAddProv.Text = "Agregar";
             btnAddProv.UseVisualStyleBackColor = false;
+            btnAddProv.Click += btnAddProv_Click;
             // 
             // groupBox2
             // 
