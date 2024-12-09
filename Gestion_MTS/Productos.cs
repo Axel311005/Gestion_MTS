@@ -456,7 +456,7 @@ namespace Gestion_MTS
             }
         }
 
-        //en este en especifico admite el '.' para los decimales y solo numeros o si no los bloquea
+        
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
 
@@ -471,7 +471,6 @@ namespace Gestion_MTS
                 e.Handled = true;
             }
 
-            // aca no permite que tenga mas de dos puntos para un decimal 
             if ((sender as TextBox).Text.Contains("."))
             {
                 string[] parts = (sender as TextBox).Text.Split('.');
@@ -625,7 +624,6 @@ namespace Gestion_MTS
                 e.Handled = true;
             }
 
-            // aca no permite que tenga mas de dos puntos para un decimal 
             if ((sender as TextBox).Text.Contains("."))
             {
                 string[] parts = (sender as TextBox).Text.Split('.');

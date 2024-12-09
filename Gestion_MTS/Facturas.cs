@@ -304,7 +304,6 @@ namespace Gestion_MTS
                 e.Handled = true;
             }
 
-            // aca no permite que tenga mas de dos puntos para un decimal 
             if ((sender as TextBox).Text.Contains("."))
             {
                 string[] parts = (sender as TextBox).Text.Split('.');
@@ -327,7 +326,7 @@ namespace Gestion_MTS
 
             int? idEmpleado = Context.AppContext.GetContext().GetEmployeeId();
 
-            if (idEmpleado == null)
+            if(idEmpleado == null)
             {
                 MessageBox.Show("No se encontro el empleado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -336,9 +335,9 @@ namespace Gestion_MTS
             int idFactura = facturaRepo.AddFactura(
                 new Factura
                 {
-                    IdCliente = Convert.ToInt32(cmbCliente.SelectedValue),
-                    IdEmpleado = idEmpleado.Value,
-                    IdTipoPago = Convert.ToInt32(cmbTipoPago.SelectedValue)
+                     IdCliente = Convert.ToInt32(cmbCliente.SelectedValue),
+                     IdEmpleado = idEmpleado.Value,
+                     IdTipoPago = Convert.ToInt32(cmbTipoPago.SelectedValue)
                 }
             );
 

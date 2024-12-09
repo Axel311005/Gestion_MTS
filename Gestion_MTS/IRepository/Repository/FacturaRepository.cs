@@ -45,7 +45,6 @@ namespace Gestion_MTS.IRepository.Repository
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
-                // Agregar parámetros
                 command.Parameters.AddWithValue("@fecha", (object)factura.Fecha ?? DBNull.Value);
                 command.Parameters.AddWithValue("@id_empleado", factura.IdEmpleado);
                 command.Parameters.AddWithValue("@id_tipo_pago", factura.IdTipoPago);
@@ -195,7 +194,6 @@ namespace Gestion_MTS.IRepository.Repository
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
-                // Agregar parámetros
                 command.Parameters.AddWithValue("@id_factura", factura.IdFactura);
                 command.Parameters.AddWithValue("@numero_factura", (object)factura.NumeroFactura ?? DBNull.Value);
                 command.Parameters.AddWithValue("@fecha", (object)factura.Fecha ?? DBNull.Value);
@@ -225,7 +223,6 @@ namespace Gestion_MTS.IRepository.Repository
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
-                // Agregar parámetros
                 command.Parameters.AddWithValue("@id_factura", idFactura);
 
                 try
@@ -266,7 +263,6 @@ namespace Gestion_MTS.IRepository.Repository
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
-                // Agregar parámetros
                 command.Parameters.AddWithValue("@id_factura", idFactura);
 
                 try
@@ -307,7 +303,6 @@ namespace Gestion_MTS.IRepository.Repository
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
-                // Agregar parámetros
                 command.Parameters.AddWithValue("@id_factura", idFactura);
 
                 try

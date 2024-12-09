@@ -19,7 +19,7 @@ namespace Informes
 
         private void ReporteVentas_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'mTS_TerryDataSet.VentasEmpleado' Puede moverla o quitarla según sea necesario.
+            // TODO: esta línea de código carga datos en la tabla 'mTS_TerryDataSet.VentasEmpleado'.
             this.ventasEmpleadoTableAdapter.Fill(this.mTS_TerryDataSet.VentasEmpleado);
 
             this.reportViewer1.RefreshReport();

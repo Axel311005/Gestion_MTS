@@ -55,7 +55,6 @@ namespace Gestion_MTS.IRepository.Repository
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
-                // Asignación de parámetros
                 command.Parameters.AddWithValue("@id_usuario", id);
 
                 try

@@ -89,21 +89,18 @@ namespace Gestion_MTS
         {
             System.Windows.Forms.TextBox textBox = sender as System.Windows.Forms.TextBox;
 
-            // Verificar que el carácter sea un dígito, un punto, o un carácter de control (como Backspace)
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
                 e.Handled = true;
                 return;
             }
 
-            // Verificar que solo se permita un punto decimal
             if (e.KeyChar == '.' && textBox.Text.Contains("."))
             {
                 e.Handled = true;
                 return;
             }
 
-            // Restringir a dos dígitos después del punto decimal
             if (textBox.Text.Contains("."))
             {
                 string[] parts = textBox.Text.Split('.');

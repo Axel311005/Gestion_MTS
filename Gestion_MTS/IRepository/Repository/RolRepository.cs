@@ -173,7 +173,6 @@ namespace Gestion_MTS.IRepository.Repository
                     {
                         while (reader.Read())
                         {
-                            // Agregar cada valor de la columna 'nombre' a la lista
                             roles.Add(reader["nombre"].ToString());
                         }
                     }

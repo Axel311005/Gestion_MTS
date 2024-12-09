@@ -58,7 +58,6 @@ namespace Gestion_MTS.IRepository.Repository
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
-                // Asignación de parámetros
                 command.Parameters.AddWithValue("@id_empleado", id);
 
                 try
@@ -244,7 +243,7 @@ namespace Gestion_MTS.IRepository.Repository
                 try
                 {
                     connection.Open();
-                    object result = command.ExecuteScalar(); // Obtiene un solo valor (el ID)
+                    object result = command.ExecuteScalar();
 
                     if (result != null && result != DBNull.Value)
                     {
@@ -274,7 +273,7 @@ namespace Gestion_MTS.IRepository.Repository
                 try
                 {
                     connection.Open();
-                    object result = command.ExecuteScalar(); // Obtiene un solo valor (el ID)
+                    object result = command.ExecuteScalar(); 
 
                     if (result != null && result != DBNull.Value)
                     {

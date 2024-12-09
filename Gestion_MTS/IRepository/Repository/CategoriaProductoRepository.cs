@@ -166,14 +166,14 @@ namespace Gestion_MTS.IRepository.Repository
                 {
                     connection.Open();
                     object result = command.ExecuteScalar();
-                    // Si el resultado no es nulo, convierte el valor a int y devuélvelo
+
                     if (result != null && int.TryParse(result.ToString(), out int id))
                     {
                         return id;
                     }
                     else
                     {
-                        return null; // Si no hay resultados, devuelve null
+                        return null; 
                     }
 
 

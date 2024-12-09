@@ -66,16 +66,10 @@ namespace Gestion_MTS
 
         private void btnAddLocalBod_Click(object sender, EventArgs e)
         {
-            //int id_bodegaa = Convert.ToInt32(bod.GetIdBodega(cboBodegas.Text));
             int id_bodega = Convert.ToInt32(bodega.GetIdBodega(cboBodegas.Text));
 
             MessageBox.Show("ID de bodega obtenido: " + id_bodega);
 
-
-
-
-            //bod.AddLocalBodega(txtDescripcionLocalBod.Text, id_bodega);
-            //MessageBox.Show("Localizacion en bodega agregada correctamente");
             try
             {
                 LocalizacionEnBodega localizacion = new LocalizacionEnBodega

@@ -133,7 +133,6 @@ namespace Gestion_MTS.IRepository.Repository
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
-                // Asignación de parámetros
                 command.Parameters.AddWithValue("@fechaInicio", fechaInicio);
                 command.Parameters.AddWithValue("@fechaFin", fechaFin);
                 command.Parameters.AddWithValue("@idSucursal", idSucursal);
@@ -166,7 +165,6 @@ namespace Gestion_MTS.IRepository.Repository
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
-                // Asignación de parámetros
                 command.Parameters.AddWithValue("@fechaInicio", fechaInicio);
                 command.Parameters.AddWithValue("@fechaFin", fechaFin);
            

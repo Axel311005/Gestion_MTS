@@ -34,7 +34,6 @@ namespace Gestion_MTS.ConsultasAdo.Net
                     connection.Open();
                     adapter.Fill(sucursales);
 
-                    // Recorrer cada fila del DataTable y agregar la ubicación a la lista
                     foreach (DataRow row in sucursales.Rows)
                     {
                         listaSucursales.Add(row["ubicacion"].ToString());
@@ -63,7 +62,6 @@ namespace Gestion_MTS.ConsultasAdo.Net
                     connection.Open();
                     adapter.Fill(bodegas);
 
-                    // Recorrer cada fila del DataTable y agregar la ubicación a la lista
                     foreach (DataRow row in bodegas.Rows)
                     {
                         lista.Add(row["nombre"].ToString());
@@ -92,14 +90,14 @@ namespace Gestion_MTS.ConsultasAdo.Net
                 {
                     connection.Open();
                     object result = command.ExecuteScalar();
-                    // Si el resultado no es nulo, convierte el valor a int y devuélvelo
+
                     if (result != null && int.TryParse(result.ToString(), out int idSucursal))
                     {
                         return idSucursal;
                     }
                     else
                     {
-                        return null; // Si no hay resultados, devuelve null
+                        return null; 
                     }
 
 
@@ -130,14 +128,14 @@ namespace Gestion_MTS.ConsultasAdo.Net
                 {
                     connection.Open();
                     object result = command.ExecuteScalar();
-                    // Si el resultado no es nulo, convierte el valor a int y devuélvelo
+
                     if (result != null && int.TryParse(result.ToString(), out int idBodega))
                     {
                         return idBodega;
                     }
                     else
                     {
-                        return null; // Si no hay resultados, devuelve null
+                        return null; 
                     }
 
 
@@ -187,7 +185,6 @@ namespace Gestion_MTS.ConsultasAdo.Net
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
-                // Cambia el nombre del parámetro para evitar posibles conflictos
                 command.Parameters.AddWithValue("@descripcion", descripcion);
                 command.Parameters.AddWithValue("@idBodega", id_bodega);
 

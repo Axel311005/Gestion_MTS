@@ -48,7 +48,6 @@ namespace Gestion_MTS.IRepository.Repository
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
-                // Asignación de parámetros
                 command.Parameters.AddWithValue("@id_tipo_pago", id);
 
                 try
@@ -122,7 +121,6 @@ namespace Gestion_MTS.IRepository.Repository
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
-                // Asignación de parámetros
                 command.Parameters.AddWithValue("@tipo", ado.Tipo);
                 command.Parameters.AddWithValue("@id_tipo_pago", ado.IdTipoPago);
               

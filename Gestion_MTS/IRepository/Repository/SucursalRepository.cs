@@ -135,7 +135,7 @@ namespace Gestion_MTS.IRepository.Repository
                 {
                     connection.Open();
                     object result = command.ExecuteScalar();
-                    // Si el resultado no es nulo, convierte el valor a int y devuélvelo
+
                     if (result != null && int.TryParse(result.ToString(), out int idSucursal))
                     {
                         return idSucursal;
@@ -174,7 +174,6 @@ namespace Gestion_MTS.IRepository.Repository
                     {
                         while (reader.Read())
                         {
-                            // Agregar cada valor de la columna 'ubicacion' a la lista
                             sucursales.Add(reader["ubicacion"].ToString());
                         }
                     }
