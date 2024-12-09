@@ -48,6 +48,7 @@
             lblTitle = new Label();
             panelDesktop = new Panel();
             pictureBox1 = new PictureBox();
+            btnLogOut = new Button();
             panelMenu.SuspendLayout();
             panelLogo.SuspendLayout();
             panelTitleBar.SuspendLayout();
@@ -61,6 +62,7 @@
             // panelMenu
             // 
             panelMenu.BackColor = Color.FromArgb(50, 30, 25);
+            panelMenu.Controls.Add(btnLogOut);
             panelMenu.Controls.Add(btnInfoAdicional);
             panelMenu.Controls.Add(btnUsers);
             panelMenu.Controls.Add(btnServicios);
@@ -73,7 +75,7 @@
             panelMenu.Dock = DockStyle.Left;
             panelMenu.Location = new Point(0, 0);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(219, 788);
+            panelMenu.Size = new Size(219, 847);
             panelMenu.TabIndex = 0;
             // 
             // btnInfoAdicional
@@ -336,7 +338,7 @@
             panelDesktop.Dock = DockStyle.Fill;
             panelDesktop.Location = new Point(219, 80);
             panelDesktop.Name = "panelDesktop";
-            panelDesktop.Size = new Size(1167, 708);
+            panelDesktop.Size = new Size(1167, 767);
             panelDesktop.TabIndex = 2;
             // 
             // pictureBox1
@@ -345,16 +347,35 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1167, 708);
+            pictureBox1.Size = new Size(1167, 767);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
+            // 
+            // btnLogOut
+            // 
+            btnLogOut.BackColor = Color.Transparent;
+            btnLogOut.Dock = DockStyle.Top;
+            btnLogOut.FlatAppearance.BorderSize = 0;
+            btnLogOut.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 89, 0);
+            btnLogOut.FlatStyle = FlatStyle.Flat;
+            btnLogOut.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnLogOut.ForeColor = Color.White;
+            btnLogOut.Image = (Image)resources.GetObject("btnLogOut.Image");
+            btnLogOut.ImageAlign = ContentAlignment.MiddleLeft;
+            btnLogOut.Location = new Point(0, 560);
+            btnLogOut.Name = "btnLogOut";
+            btnLogOut.Size = new Size(219, 60);
+            btnLogOut.TabIndex = 18;
+            btnLogOut.Text = "Cerrar Sesion";
+            btnLogOut.UseVisualStyleBackColor = false;
+            btnLogOut.Click += btnLogOut_Click;
             // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1386, 788);
+            ClientSize = new Size(1386, 847);
             Controls.Add(panelDesktop);
             Controls.Add(panelTitleBar);
             Controls.Add(panelMenu);
@@ -398,5 +419,6 @@
         private Button btnServicios;
         private Button btnUsers;
         private Button btnInfoAdicional;
+        private Button btnLogOut;
     }
 }

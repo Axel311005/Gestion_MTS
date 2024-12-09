@@ -41,8 +41,7 @@ namespace Gestion_MTS
         private void Empleados_Load(object sender, EventArgs e)
         {
             Refresh();
-            cboSucursal.DataSource = sucursal.GetUbicacionSucursal();
-            cboRoles.DataSource = rol.GetRoles();
+            
 
         }
 
@@ -55,6 +54,8 @@ namespace Gestion_MTS
                 dgvEmpleados.DataSource = empleados;
                 var roles = rol.GetAll();
                 dgvRoles.DataSource = roles;
+                cboSucursal.DataSource = sucursal.GetUbicacionSucursal();
+                cboRoles.DataSource = rol.GetRoles();
 
 
             }
@@ -140,10 +141,9 @@ namespace Gestion_MTS
 
             if (e.RowIndex >= 0)
             {
-                // Obtén la fila seleccionada del DataGridView
                 DataGridViewRow row = dgvEmpleados.Rows[e.RowIndex];
 
-                // Mapea los datos manualmente desde las celdas a un objeto VistaEmpleados
+                
                 VistaEmpleados empleados = new VistaEmpleados
                 {
                     Nombre = row.Cells["Nombre"].Value?.ToString(),

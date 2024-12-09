@@ -160,8 +160,6 @@ namespace Gestion_MTS
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            //MessageBox.Show($"{Context.AppContext.GetContext().userId}");
-
             int userRole = AppContext.GetContext().roleId;
 
             if ((UserRoles)userRole != UserRoles.Admin)
@@ -172,6 +170,7 @@ namespace Gestion_MTS
                 btnServicios.Hide();
                 btnSucursales.Hide();
                 btnUsers.Hide();
+                btnInfoAdicional.Hide();
             }
         }
 
@@ -214,6 +213,15 @@ namespace Gestion_MTS
         private void btnInfoAdicional_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Informacion_Adicional(), sender);
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Context.AppContext.LogOut();
+            this.Hide();
+
+            Login loginForm = new Login();
+            loginForm.Show();
         }
     }
 }

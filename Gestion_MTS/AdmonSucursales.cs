@@ -34,13 +34,13 @@ namespace Gestion_MTS
             bodega = new BodegaRepository(connectionString);
             local = new LocalizacionEnBodegaRepository(connectionString);
             sucursal = new SucursalRepository(connectionString);
-            
+
         }
 
         private void btnAddBodega_Click(object sender, EventArgs e)
         {
 
-            
+
             try
             {
                 int id_sucursal = Convert.ToInt32(sucursal.GetIdSucursal(cboSucursales.Text));
@@ -133,7 +133,7 @@ namespace Gestion_MTS
 
         private void btnUpdateBodega_Click(object sender, EventArgs e)
         {
-            if(dgvBodegas.SelectedRows.Count > 0)
+            if (dgvBodegas.SelectedRows.Count > 0)
             {
                 try
                 {
@@ -168,7 +168,7 @@ namespace Gestion_MTS
                         telefono = txtTelSucur.Text
                     };
 
-                    sucursal.Update(update, 0); 
+                    sucursal.Update(update, 0);
                     Refresh();
                     MessageBox.Show("Sucursal actualizada correctamente");
                     txtUbiSucur.Clear();
@@ -194,6 +194,11 @@ namespace Gestion_MTS
                         descripcion = txtDescripcionLocalBod.Text,
                         id_bodega = id_bodega
                     };
+
+                    local.Update(update, 0);
+                    Refresh();
+                    txtDescripcionLocalBod.Clear();
+                    MessageBox.Show("Localizacion actualizada correctamente");
                 }
                 catch (Exception ex)
                 {
@@ -203,26 +208,7 @@ namespace Gestion_MTS
         }
         private void btnDeleteBodega_Click(object sender, EventArgs e)
         {
-            if(dgvBodegas.Rows.Count > 0)
-            {
-                var result = MessageBox.Show($"¿Está seguro de que desea eliminar '{txtNombreBodegas.Text}'?",
-                    "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                if (result == DialogResult.Yes)
-                {
-                    try
-                    {
-                        bodega.Delete(idBod);
-                        Refresh();
-                        txtNombreBodegas.Clear();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Error al eliminar: {ex.Message}",
-                                           "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
+            
         }
 
         private void btnDeleteSucursal_Click(object sender, EventArgs e)
@@ -300,7 +286,7 @@ namespace Gestion_MTS
                     bodega = row.Cells["bodega"]?.Value?.ToString(),
                     sucursal = row.Cells["sucursal"]?.Value?.ToString(),
                 };
-                
+
                 idBod = Convert.ToInt32(row.Cells["id_bodega"].Value);
                 cboSucursales.Text = bodegas.sucursal;
                 txtNombreBodegas.Text = bodegas.bodega;
@@ -309,7 +295,7 @@ namespace Gestion_MTS
 
         private void dgvLocalBodega_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex >= 0)
+            if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvLocalBodega.Rows[e.RowIndex];
 
@@ -381,6 +367,28 @@ namespace Gestion_MTS
             }
         }
 
-       
+        private void btnDeleteBodega_Click_1(object sender, EventArgs e)
+        {
+            if (dgvBodegas.Rows.Count > 0)
+            {
+                var result = MessageBox.Show($"¿Está seguro de que desea eliminar '{txtNombreBodegas.Text}'?",
+                    "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        bodega.Delete(idBod);
+                        Refresh();
+                        txtNombreBodegas.Clear();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al eliminar: {ex.Message}",
+                                           "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
     }
 }

@@ -68,7 +68,7 @@ namespace Gestion_MTS
                 Label nameLabel = new Label
                 {
                     Text = $"{p.nombre}",
-                    Top = 30 * (idx + 1) + 36,
+                    Top = 40 * (idx + 1) + 36,
                     Left = 13,
                     AutoSize = true
                 };
@@ -76,24 +76,24 @@ namespace Gestion_MTS
                 Label priceLabel = new Label
                 {
                     Text = $"{p.precioUnitario}",
-                    Top = 30 * (idx + 1) + 36,
-                    Left = 113,
+                    Top = 40 * (idx + 1) + 36,
+                    Left = 130,
                     AutoSize = true
                 };
 
                 Label quantityLabel = new Label
                 {
                     Text = $"{p.cantidad}",
-                    Top = 30 * (idx + 1) + 36,
-                    Left = 193,
+                    Top = 40 * (idx + 1) + 36,
+                    Left = 223,
                     AutoSize = true
                 };
 
                 Label amountLabel = new Label
                 {
                     Text = $"{p.monto}",
-                    Top = 30 * (idx + 1) + 36,
-                    Left = 293,
+                    Top = 40 * (idx + 1) + 36,
+                    Left = 335,
                     AutoSize = true
                 };
 
@@ -111,7 +111,7 @@ namespace Gestion_MTS
                 Label nameLabel = new Label
                 {
                     Text = $"{s.nombre}",
-                    Top = 30 * (idx + 1) + 36,
+                    Top = 40 * (idx + 1) + 36,
                     Left = 24,
                     AutoSize = true
                 };
@@ -119,8 +119,8 @@ namespace Gestion_MTS
                 Label amountLabel = new Label
                 {
                     Text = $"{s.monto}",
-                    Top = 30 * (idx + 1) + 36,
-                    Left = 195,
+                    Top = 40 * (idx + 1) + 36,
+                    Left = 223,
                     AutoSize = true
                 };
 

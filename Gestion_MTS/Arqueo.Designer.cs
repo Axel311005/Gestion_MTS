@@ -61,11 +61,12 @@ namespace Gestion_MTS
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
+            tabControl1.Dock = DockStyle.Fill;
             tabControl1.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold);
-            tabControl1.Location = new Point(12, 12);
+            tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1033, 588);
+            tabControl1.Size = new Size(1057, 626);
             tabControl1.TabIndex = 9;
             // 
             // tabPage1
@@ -78,7 +79,7 @@ namespace Gestion_MTS
             tabPage1.Location = new Point(4, 25);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1025, 559);
+            tabPage1.Size = new Size(1049, 597);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Gasto";
             tabPage1.UseVisualStyleBackColor = true;
@@ -119,10 +120,10 @@ namespace Gestion_MTS
             dgvGastos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvGastos.Dock = DockStyle.Bottom;
             dgvGastos.GridColor = SystemColors.MenuHighlight;
-            dgvGastos.Location = new Point(3, 369);
+            dgvGastos.Location = new Point(3, 407);
             dgvGastos.Name = "dgvGastos";
             dgvGastos.RowHeadersWidth = 51;
-            dgvGastos.Size = new Size(1019, 187);
+            dgvGastos.Size = new Size(1043, 187);
             dgvGastos.TabIndex = 15;
             dgvGastos.CellClick += dgvGastos_CellClick;
             // 

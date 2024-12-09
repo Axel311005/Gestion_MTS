@@ -342,6 +342,7 @@ namespace Gestion_MTS
                 }
             );
 
+
             if(idFactura == 0)
             {
                 MessageBox.Show("Ocurrio un error al crear la factura", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
