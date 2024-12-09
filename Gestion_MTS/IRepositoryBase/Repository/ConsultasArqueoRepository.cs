@@ -19,7 +19,6 @@ namespace Gestion_MTS.Clases
                 SqlCommand command = new SqlCommand(query, connection);
 
 
-                // Agregar parámetros a la consulta
                 command.Parameters.AddWithValue("@sucursal", sucursal);
                 command.Parameters.AddWithValue("@fecha", fecha);
 
@@ -28,7 +27,6 @@ namespace Gestion_MTS.Clases
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
 
-                    // Leer los resultados
                     while (reader.Read())
                     {
                         Gasto gasto = new Gasto

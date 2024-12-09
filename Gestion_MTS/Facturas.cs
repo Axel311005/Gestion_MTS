@@ -304,7 +304,6 @@ namespace Gestion_MTS
                 e.Handled = true;
             }
 
-            // aca no permite que tenga mas de dos puntos para un decimal 
             if ((sender as TextBox).Text.Contains("."))
             {
                 string[] parts = (sender as TextBox).Text.Split('.');

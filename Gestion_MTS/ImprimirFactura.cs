@@ -162,13 +162,11 @@ namespace Gestion_MTS
             int scaledWidth = (int)(fullBitmap.Width * scale);
             int scaledHeight = (int)(fullBitmap.Height * scale);
 
-            // Draw the bitmap onto the print document
             e.Graphics.DrawImage(fullBitmap, 0, 0, scaledWidth, scaledHeight);
         }
 
         private void CaptureFormBitmap()
         {
-            // Create a bitmap of the form
             fullBitmap = new Bitmap(pnlWrapper.Width, pnlWrapper.Height);
             this.DrawToBitmap(fullBitmap, new Rectangle(0, 0, pnlWrapper.Width, pnlWrapper.Height));
         }

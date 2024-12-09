@@ -26,7 +26,6 @@ namespace Gestion_MTS.IRepository.Repository
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
-                // Agregar parámetros
                 command.Parameters.AddWithValue("@id_producto", detalleProducto.IdProducto);
                 command.Parameters.AddWithValue("@cantidad", detalleProducto.Cantidad);
 
@@ -100,7 +99,6 @@ namespace Gestion_MTS.IRepository.Repository
             {
                 SqlCommand command = new SqlCommand(query, connection);
 
-                // Agregar parámetros
                 command.Parameters.AddWithValue("@id_detalle_producto", detalleProducto.IdDetalleProducto);
                 command.Parameters.AddWithValue("@id_producto", (object)detalleProducto.IdProducto ?? DBNull.Value);
                 command.Parameters.AddWithValue("@cantidad", (object)detalleProducto.Cantidad ?? DBNull.Value);
