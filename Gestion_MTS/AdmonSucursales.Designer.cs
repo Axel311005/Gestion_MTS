@@ -466,7 +466,7 @@
             Controls.Add(tabControl1);
             Margin = new Padding(3, 4, 3, 4);
             Name = "AdmonSucursales";
-            Text = "AdmonSucursales";
+            Text = "Gestión de Sucursales";
             Load += AdmonSucursales_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

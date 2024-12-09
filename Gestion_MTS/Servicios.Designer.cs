@@ -212,7 +212,7 @@
             tabPage2.Location = new Point(4, 25);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1178, 595);
+            tabPage2.Size = new Size(1201, 619);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Categorias  de Servicios";
             // 
@@ -284,10 +284,10 @@
             dgvCategoriaServicios.BackgroundColor = SystemColors.ButtonHighlight;
             dgvCategoriaServicios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCategoriaServicios.Dock = DockStyle.Bottom;
-            dgvCategoriaServicios.Location = new Point(3, 360);
+            dgvCategoriaServicios.Location = new Point(3, 384);
             dgvCategoriaServicios.Name = "dgvCategoriaServicios";
             dgvCategoriaServicios.RowHeadersWidth = 51;
-            dgvCategoriaServicios.Size = new Size(1172, 232);
+            dgvCategoriaServicios.Size = new Size(1195, 232);
             dgvCategoriaServicios.TabIndex = 14;
             dgvCategoriaServicios.CellClick += dgvCategoriaServicios_CellClick;
             // 
@@ -314,7 +314,7 @@
             ClientSize = new Size(1209, 648);
             Controls.Add(tabControl1);
             Name = "Servicios";
-            Text = "Servicios";
+            Text = "Gestión de Servicios";
             Load += Servicios_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
