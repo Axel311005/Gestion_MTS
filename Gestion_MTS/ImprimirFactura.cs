@@ -38,12 +38,21 @@ namespace Gestion_MTS
                 this.Close();
                 return;
             }
+            double subtotal = Convert.ToDouble(facturaRepo.ObtenerTotalFactura(this.IdFactura));
+            double iva = subtotal * 0.15;
+            double total = subtotal + iva;
 
-            lblDate.Text = facturaInfo.fecha.ToString();
+            DateOnly date = DateOnly.FromDateTime(facturaInfo.fecha);
+
+            lblDate.Text = date.ToString();
             lblFacturaNumber.Text = facturaInfo.numeroFactura.ToString();
             lblEmployeeName.Text = facturaInfo.empleado;
             lblPaymentType.Text = facturaInfo.tipoPago;
             lblClientName.Text = facturaInfo.cliente;
+            lblSubtotal.Text = subtotal.ToString();
+            lblIva.Text = iva.ToString();
+            lblTotal.Text = total.ToString();
+
 
             List<FacturaProductInfo> facturaProducts = facturaRepo.GetFacturaProducts(this.IdFactura);
             List<FacturaServicesInfo> facturaServices = facturaRepo.GetFacturaServices(this.IdFactura);
@@ -77,7 +86,7 @@ namespace Gestion_MTS
                 {
                     Text = $"{p.precioUnitario}",
                     Top = 40 * (idx + 1) + 36,
-                    Left = 130,
+                    Left = 198,
                     AutoSize = true
                 };
 
@@ -85,7 +94,7 @@ namespace Gestion_MTS
                 {
                     Text = $"{p.cantidad}",
                     Top = 40 * (idx + 1) + 36,
-                    Left = 223,
+                    Left = 360,
                     AutoSize = true
                 };
 
@@ -93,7 +102,7 @@ namespace Gestion_MTS
                 {
                     Text = $"{p.monto}",
                     Top = 40 * (idx + 1) + 36,
-                    Left = 335,
+                    Left = 518,
                     AutoSize = true
                 };
 
@@ -120,7 +129,7 @@ namespace Gestion_MTS
                 {
                     Text = $"{s.monto}",
                     Top = 40 * (idx + 1) + 36,
-                    Left = 223,
+                    Left = 518,
                     AutoSize = true
                 };
 
@@ -141,12 +150,13 @@ namespace Gestion_MTS
 
                 CaptureFormBitmap();
 
-                if(printDialogFactura.ShowDialog() == DialogResult.OK)
+                if (printDialogFactura.ShowDialog() == DialogResult.OK)
                 {
                     printFactura.Print();
                 }
 
-            } finally
+            }
+            finally
             {
                 btnPrintFactura.Visible = true;
                 pnlWrapper.Size = originalSize;
@@ -169,6 +179,21 @@ namespace Gestion_MTS
         {
             fullBitmap = new Bitmap(pnlWrapper.Width, pnlWrapper.Height);
             this.DrawToBitmap(fullBitmap, new Rectangle(0, 0, pnlWrapper.Width, pnlWrapper.Height));
+        }
+
+        private void pnlWrapper_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

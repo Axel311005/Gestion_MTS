@@ -331,5 +331,26 @@ namespace Gestion_MTS.IRepository.Repository
                 }
             }
         }
+
+        public decimal ObtenerTotalFactura(int idFactura)
+        {
+            decimal totalFactura = 0;
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand("SELECT dbo.calcularTotalFactura(@idFactura)", connection))
+                {
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.AddWithValue("@idFactura", idFactura);
+
+                    var result = command.ExecuteScalar();
+                    totalFactura = result != null && result != DBNull.Value ? Convert.ToDecimal(result) : 0;
+                }
+            }
+
+            return totalFactura;
+        }
     }
 }
